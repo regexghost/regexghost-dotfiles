@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+    "title",
+    "separator",
+    {
+    	"type": "os",
+    	"key": " ",
+    	"keyColor": "yellow",
+    	"format": "{name} {version}"
+    },
+    {
+    	"type": "host",
+    	"key": " ",
+    	"keyColor": "blue",
+    	"format": "{name}"
+    },
+    {
+    	"type": "kernel",
+    	"key": " ",
+    	"keyColor": "red",
+    	"format": "{arch} ({release})"
+    },
+    {
+    	"type": "uptime",
+    	"key": " ",
+    	"keyColor": "green",
+    	"format": "{formatted}"
+    },
+    {
+    	"type": "packages",
+    	"key": " ",
+    	"keyColor": "magenta",
+    	"format": "{all}"
+    },
+    {
+    	"type": "shell",
+    	"key": " ",
+    	"keyColor": "cyan",
+    	"format": "{pretty-name} ({exe})"
+    },
+    {
+    	"type": "display",
+    	"key": " ",
+    	"keyColor": "blue",
+    	"format": "{inch}\" - {width}x{height} @ {refresh-rate}Hz"
+    },
+    {
+    	"type": "wm",
+    	"key": " ",
+    	"keyColor": "red",
+    	"format": "{pretty-name} ({protocol-name})"
+    },
+    {
+    	"type": "terminal",
+    	"key": " ",
+    	"keyColor": "green",
+    	"format": "{pretty-name}"
+    },
+    {
+    	"type": "terminalfont",
+    	"key": " ",
+    	"keyColor": "blue",
+    	"format": "{name} - {size}"
+    },
+    {
+    	"type": "cpu",
+    	"key": " ",
+    	"keyColor": "magenta",
+    	"format": "{name} ({cores-physical}/{cores-logical} @ {freq-base})"
+    },
+    {
+    	"type": "memory",
+    	"key": " ",
+    	"keyColor": "yellow",
+    	"format": "{used} / {total} ({percentage})"
+    },
+    {
+    	"type": "disk",
+    	"key": " ",
+    	"keyColor": "green",
+    	"format": "{mount-from} - {filesystem} - {size-used}/{size-total} ({size-percentage})"
+    },
+    "break",
+    "colors"
+  ]
+}
