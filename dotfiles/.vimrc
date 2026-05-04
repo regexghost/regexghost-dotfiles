@@ -1,0 +1,27 @@
+set number
+set relativenumber
+set spell
+set spelllang=en_gb
+
+nnoremap <C-j> gj
+nnoremap <C-k> gk
+
+set linebreak
+
+" https://stackoverflow.com/questions/4621798/how-do-you-prevent-vim-from-showing-an-at-symbol-when-a-line-doesnt-fit-on
+set display+=lastline
+
+set showbreak=↪\ 
+
+" https://stackoverflow.com/questions/6008921/how-to-change-the-highlight-style-in-vim-spellcheck
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+
+hi SpellBad   cterm=underline
+hi SpellCap   cterm=underline
+hi SpellRare  cterm=underline
+hi SpellLocal cterm=underline
+
+colorscheme dim
