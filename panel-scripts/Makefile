@@ -1,0 +1,10 @@
+PREFIX="${XDG_DATA_HOME}/regexghost/panel/"
+
+normal:
+	mkdir -p ${PREFIX}/panel
+	gcc -o cpu cpu.c
+	gcc -o network_up network.c -D UP_SPEED
+	gcc -o network_down network.c
+	cp sunrise.sh ${PREFIX}/sunrise.sh
+	gcc -o uptime uptime.c
+	mv cpu network_up network_down uptime ${PREFIX}/
