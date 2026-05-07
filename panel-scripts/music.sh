@@ -47,9 +47,13 @@ if ! mocp -i | grep -q "State: STOP"; then
 	exit
 fi
 
-# Ask for playlist
-playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | dmenu -p "Select Playlist:" -l 10)"
-playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
+if [ "$1" = "--choice" ]; then
+	# Ask for playlist
+	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | dmenu -p "Select Playlist:" -l 10)"
+	playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
+else
+	playlist_path="$MUSIC_DIR/CurrentPlaylist"
+fi
 
 # Check for sub playlists
 if find "$playlist_path" -mindepth 1 -type d | grep -q ""; then
