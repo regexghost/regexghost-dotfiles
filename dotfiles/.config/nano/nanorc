@@ -1,0 +1,40 @@
+include "~/.config/nano/markdown.nanorc"
+
+set afterends
+set atblanks
+set autoindent
+
+set historylog
+# set indicator
+set linenumbers
+# set minibar
+set mouse
+set nohelp
+set positionlog
+set quickblank
+set regexp
+set smarthome
+set softwrap
+set speller "aspell -x -c"
+set tabsize 4
+set trimblanks
+
+set titlecolor bold,black,lightwhite
+set numbercolor lightblack
+
+bind ^H chopwordleft main
+bind ^Q exit all
+bind ^W exit all
+bind ^S savefile main
+bind ^F whereis all
+bind ^G findnext all
+bind ^D findprevious all
+bind ^R replace main
+bind ^X cut all
+bind ^C copy main
+bind ^V paste all
+bind ^P location main
+bind ^A mark main
+bind ^J speller main
+bind ^Z undo main
+bind ^Y redo main

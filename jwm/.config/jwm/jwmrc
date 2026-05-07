@@ -68,50 +68,50 @@
         <Font>Sans-12:bold</Font>
         <Width>4</Width>
         <Corner>0</Corner>
-        <Foreground>#FFFFFF</Foreground>
-        <Background>#555555</Background>
+        <Foreground>#FCE8C3</Foreground>
+        <Background>#1C1B19</Background>
         <Opacity>1.0</Opacity>
         <Active>
-            <Foreground>#FFFFFF</Foreground>
-            <Background>#0077CC</Background>
+            <Foreground>#FCE8C3</Foreground>
+            <Background>#519F50</Background>
             <Opacity>1.0</Opacity>
         </Active>
     </WindowStyle>
     <TrayStyle decorations="motif">
         <Font>Sans-12</Font>
-        <Background>#333333</Background>
-        <Foreground>#FFFFFF</Foreground>
+        <Background>#1C1B19</Background>
+        <Foreground>#FCE8C3</Foreground>
         <Opacity>0.75</Opacity>
     </TrayStyle>
-    <TaskListStyle list="all" group="true">
+    <TaskListStyle list="desktop" group="true">
       <Font>Sans-12</Font>
       <Active>
-        <Foreground>#FFFFFF</Foreground>
-        <Background>#555555</Background>
+        <Foreground>#FCE8C3</Foreground>
+        <Background>#519F50</Background>
       </Active>
       <Minimized>
-        <Foreground>#FFFFFF</Foreground>
+        <Foreground>#FCE8C3</Foreground>
         <Background>#111111</Background>
       </Minimized>
-      <Foreground>#FFFFFF</Foreground>
+      <Foreground>#FCE8C3</Foreground>
       <Background>#333333</Background>
     </TaskListStyle>
     <PagerStyle>
-        <Foreground>#555555</Foreground>
+        <Foreground>#1C1B19</Foreground>
         <Background>#333333</Background>
-        <Text>#FFFFFF</Text>
+        <Text>#FCE8C3</Text>
         <Active>
-            <Foreground>#0077CC</Foreground>
+            <Foreground>#2C78BF</Foreground>
             <Background>#004488</Background>
         </Active>
     </PagerStyle>
     <MenuStyle decorations="motif">
         <Font>Sans-12</Font>
-        <Foreground>#FFFFFF</Foreground>
+        <Foreground>#FCE8C3</Foreground>
         <Background>#333333</Background>
         <Active>
-            <Foreground>#FFFFFF</Foreground>
-            <Background>#0077CC</Background>
+            <Foreground>#FCE8C3</Foreground>
+            <Background>#2C78BF</Background>
         </Active>
         <Opacity>0.85</Opacity>
     </MenuStyle>
@@ -161,7 +161,7 @@
     <DoubleClickDelta>2</DoubleClickDelta>
 
     <!-- The focus model (sloppy or click) -->
-    <FocusModel>sloppy</FocusModel>
+    <FocusModel>click</FocusModel>
 
     <!-- The snap mode (none, screen, or border) -->
     <SnapMode distance="10">border</SnapMode>
@@ -201,13 +201,13 @@
     <Key mask="4S" key="period">sendr</Key>
 
     <Key mask="4" key="Left">maxleft</Key>
-    <Key mask="4A" key="Left">maxtopleft</Key>
+    <Key mask="4C" key="Left">maxtopleft</Key>
     <Key mask="4" key="Right">maxright</Key>
-    <Key mask="4A" key="Right">maxbottomright</Key>
+    <Key mask="4C" key="Right">maxbottomright</Key>
     <Key mask="4" key="Up">maxtop</Key>
-    <Key mask="4A" key="Up">maxtopright</Key>
+    <Key mask="4C" key="Up">maxtopright</Key>
     <Key mask="4" key="Down">maxbottom</Key>
-    <Key mask="4A" key="Down">maxbottomleft</Key>
+    <Key mask="4C" key="Down">maxbottomleft</Key>
 
     <Key mask="4" key="apostrophe">maximize</Key>
     <Key mask="4" key="slash">minimize</Key>
