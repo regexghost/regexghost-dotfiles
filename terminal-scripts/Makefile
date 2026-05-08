@@ -11,3 +11,5 @@ normal:
 	cp heic_to_jpg.sh ${BIN}/heictojpg
 	go build -o tablealigner tablealigner.go
 	mv tablealigner ${BIN}/tablealigner
+	go build -o geohash geohash.go
+	mv geohash ${BIN}/geohash

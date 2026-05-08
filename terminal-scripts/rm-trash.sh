@@ -27,12 +27,12 @@ for arg; do
 
 	! [ -e "$filename" ] && echo "File/Directory doesn't exit" && continue
 	if [ -d "$filename" ]; then
-		if [ -z "$(ls -"$filename")" ]; then
+		if [ -z "$(ls -A "$filename")" ]; then
 			read -p "${dialog} ${filename} (empty dir) (y/N) " confirm
 		else
 			read -p "${dialog} ${filename} (non-empty dir) (y/N) " confirm
 		fi
-		[ "$uservar" = "y" ] && "$command" -- "$filename"
+		[ "$confirm" = "y" ] && "$command" -- "$filename"
 		continue
 	fi
 
