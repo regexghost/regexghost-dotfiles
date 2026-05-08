@@ -1,4 +1,4 @@
-PREFIX="${XDG_DATA_HOME}/regexghost/panel/"
+PREFIX=${XDG_DATA_HOME}/regexghost/panel
 
 normal:
 	mkdir -p ${PREFIX}
@@ -8,5 +8,7 @@ normal:
 	cp sunrise.sh ${PREFIX}/sunrise.sh
 	cp metoffice.sh ${PREFIX}/metoffice.sh
 	cp music.sh ${PREFIX}/music.sh
+	cp lemonbar-bar.sh ${PREFIX}/lemonbar-bar.sh
+	cp lemonbar-runner.sh ${PREFIX}/lemonbar-runner.sh
 	gcc -o uptime uptime.c
 	mv cpu network_up network_down uptime ${PREFIX}/
