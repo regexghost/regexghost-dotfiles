@@ -34,3 +34,8 @@ elif [ "$1" = "--down" ]; then
 elif [ "$1" = "--toggle-mute" ]; then
 	toggle_mute
 fi
+
+barpid=$(cat ~/.cache/bar_pid)
+if ! [ $barpid = "" ]; then
+	kill -34 $barpid
+fi

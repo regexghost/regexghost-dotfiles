@@ -28,6 +28,8 @@ if [[ "$1" == "--sunrise" ]]; then
 	astro_twilight=$(echo "$json_tomorrow" | jq -r .results.astronomical_twilight_begin | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	if [[ "$2" == "--conky" ]]; then
 		echo "\${color #$sunriseColour}$astro_twilight - $sunrise \${color}"
+	elif [[ "$2" == "--blank" ]]; then
+		echo "$sunrise"
 	else
 		echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$sunriseColour'> </span> <span foreground='#$sunriseColour'>$astro_twilight - $sunrise </span>"
 	fi
@@ -38,6 +40,8 @@ elif [[ "$1" == "--sunset" ]]; then
 	astro_twilight=$(echo "$json_today" | jq -r .results.astronomical_twilight_end | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	if [[ "$2" == "--conky" ]]; then
 		echo "\${color #$sunsetColour}$sunset - $astro_twilight \${color}"
+	elif [[ "$2" == "--blank" ]]; then
+		echo "$sunset"
 	else
 		echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$sunsetColour'> </span> <span foreground='#$sunsetColour'>$sunset - $astro_twilight </span>"
 	fi
