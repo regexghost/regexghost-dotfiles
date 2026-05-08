@@ -36,14 +36,19 @@ elif [ "$1" = "--get-song" ]; then
 fi
 
 # Start mocp if not running, and set mode to shuffle
-if ! pgrep mocp; then
+if ! pgrep mocp 2> /dev/null > /dev/null; then
 	mocp -S
-	mocp -t shuffle
+	mocp -t shuffle,repeat
 fi
 
 # If mocp is currently playing music, just notify-send the song title
 if ! mocp -i | grep -q "State: STOP"; then
-	notify-send "$(mocp -i | grep "Title: " | sed 's/Title: //g')"
+	mocp_i="$(mocp -i)"
+	song_name="$(echo "$mocp_i" | grep "^Title: " | sed 's/Title: //g')"
+	total="$(echo "$mocp_i" | awk '/^TotalSec/ {print $2}')"
+	current="$(echo "$mocp_i" | awk '/^CurrentSec/ {print $2}')"
+	progress=$(echo "$current/$total*100" | bc -l | cut -d "." -f 1)
+	notify-send -i emblem-music-symbolic "Currently Playing:" "$song_name" -h "int:value:${progress}"
 	exit
 fi
 
