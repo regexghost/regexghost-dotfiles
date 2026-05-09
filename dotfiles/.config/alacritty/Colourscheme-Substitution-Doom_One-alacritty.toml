@@ -1,14 +1,5 @@
-# Dracula
-[colors.bright]
-black = "#7a71aa"
-blue = "#bd93f9"
-cyan = "#8be9fd"
-green = "#50fa7b"
-magenta = "#ff79d2"
-red = "#ff5555"
-white = "#f8f8f2"
-yellow = "#f1fa8c"
-
+#### Start Substitute - Colourscheme
+# Doom One
 [colors.cursor]
 cursor = "CellForeground"
 text = "CellBackground"
@@ -29,20 +20,36 @@ foreground = "#22212d"
 background = "None"
 foreground = "None"
 
-[colors.normal]
-black = "#22212d"
-blue = "#9a7cff"
-cyan = "#38ffea"
-green = "#52ff6d"
-magenta = "#ff76c1"
-red = "#e64747"
-white = "#f8f8f1"
-yellow = "#ffff80"
+# Colors (Gruvbox dark)
 
+# Default colors
 [colors.primary]
-background = "#22212d"
-bright_foreground = "#ffffff"
-foreground = "#f8f8f1"
+# hard contrast background = = '#1d2021'
+background = '#282c34'
+# soft contrast background = = '#32302f'
+foreground = '#bbc2cf'
+
+# Normal colors
+[colors.normal]
+black   = '#1b2229'
+red     = '#ff6c6b'
+green   = '#98be65'
+yellow  = '#ffd700'
+blue    = '#51afef'
+magenta = '#c678dd'
+cyan    = '#46d9ff'
+white   = '#bbc2cf'
+
+# Bright colors
+[colors.bright]
+black   = '#3f444a'
+red     = '#ff6c6b'
+green   = '#98be65'
+yellow  = '#ecbe7b'
+blue    = '#51afef'
+magenta = '#a9a1e1'
+cyan    = '#46d9ff'
+white   = '#bbc2cf'
 
 [colors.search.focused_match]
 background = "#ffb86c"
@@ -62,3 +69,4 @@ text = "CellBackground"
 
 [cursor.style]
 shape = "Beam"
+#### End Substitute

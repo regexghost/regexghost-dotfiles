@@ -1,3 +1,4 @@
+#### Start Substitute - Power_Management
 ## Shutdown with confirmation
 shutdown () {
 	read -p "Shutdown? (y/N) " yesOrNoShutdown
@@ -49,3 +50,4 @@ lock () {
 	read -p "Lock Screen? (y/N) " yesOrNoLock
 	[[ "$yesOrNoLock" == "y" ]] && i3lock -i "$HOME/.config/regexghost/lock_screen_background.png"
 }
+#### End Substitute

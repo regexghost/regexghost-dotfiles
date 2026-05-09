@@ -45,18 +45,19 @@ alias greps='/usr/bin/grep --color=auto' # Case sensitive
 alias grepa='grep -i -I -A 5 -B 5 --color=auto'
 alias diff='diff --color'
 alias hs='history'
-alias n='nnn'
+alias n='nano'
+alias ra='ranger'
 alias py='python3'
 alias nf='fastfetch'
 alias sq='ncdu --color dark' # Not sure why this is "sq" but I'm used to it now
-alias bat='bat --theme=base16'
+alias bat='batcat --theme=base16'
 alias mv='mv -i'
 alias cp='cp -r -i'
 alias cmatrix='cmatrix -u 6' # Cool fake hacker program
 alias duf='duf -hide special'
 alias gtop='sudo intel_gpu_top'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias rm='rm-trash-cli'
+alias rm='rm-trash'
 alias cheat='cheat -c'
 alias zbr='zig build run'
 alias bluey='bluetui'
@@ -87,23 +88,24 @@ alias gitd='git diff'
 alias gitdc='git diff --word-diff-regex=.'
 alias gits='git status'
 alias gpl='git pull'
-alias gp='git push'
 alias gitl='git log --reverse'
 alias giturl='git config --get remote.origin.url'
+alias gp='git push'
 
-
-#### SUBSTITUTE - PACKAGE MANAGER
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rs'
-alias update='sudo pacman -Syu'
-alias search='pacman -Ss'
-alias paclog='cat /var/log/pacman.log | grep'
-
-function pacs() {
-	numberOfPackages="$(pacman -Q | wc -l)"
-	echo "${numberOfPackages} packages installed"
+# Get password and push (GitHub)
+function gpp () {
+	keepassxc-cli show ~/Downloads/passwords.kdbx "GitHub" | grep Notes | cut -d " " -f 2 | xclip -selection clipboard
+	git push -u origin
+	echo " " | xclip -selection clipboard
 }
-#### END SUBSTITUTE
+
+function gpa () {
+	gpp
+	git push -u codeberg
+	git push -u selfhost
+}
+
+#### Start Substitute - Package_Manager
 
 # Other random aliases
 
@@ -127,7 +129,7 @@ alias v='vim'
 function batf () {
 	result=$(fasd -fi $@)
 	[ "$result" == "" ] && return
-	bat --theme=base16 "$result"
+	batcat --theme=base16 "$result"
 }
 
 function lsblk () {
@@ -215,90 +217,15 @@ function t () {
 
 # External program openers
 
-#### SUBSTITUTE - IMAGE VIEWER
-# Open images in gwenview
-# The alias is called "rs" as I originally used Xfce with Ristretto
-rs () {
-	toOpen=$@
-	if [[ "$toOpen" == "" ]]; then
-		gwenview . & disown
-	else
-		gwenview "$@" & disown
-	fi
-}
-#### END SUBSTITUTE
+#### Start Substitute - Image_Viewer
 
-#### SUBSTITUTE - VIDEO PLAYER
-# Open video(s) with mpv
-mp () {
-	/usr/bin/mpv --really-quiet --save-position-on-quit "$@" & disown
-}
-#### END SUBSTITUTE
+#### Start Substitute - Video_Player
 
-#### SUBSTITUTE - PDF VIEWER
-# Open pdf files in Okular
-pdf () {
-	for arg; do
-		okular "$arg" & disown
-	done
-}
-#### END SUBSTITUTE
+#### Start Substitute - PDF_Viewer
 
 # Power Management Functions
 
-#### SUBSTITUTE - POWER MANAGEMENT
-## Shutdown with confirmation
-shutdown () {
-	read -p "Shutdown? (y/N) " yesOrNoShutdown
-	if [[ "$yesOrNoShutdown" == "y" ]]; then
-		tmux send-keys -t buffer_tmux.0 C-s
-		tmux send-keys -t buffer_tmux.0 C-q
-		tmux kill-session -t buffer_tmux
-		qdbus6 org.kde.LogoutPrompt /LogoutPrompt promptShutDown
-	fi
-}
-
-## Reboot with confirmation
-reboot () {
-	read -p "Reboot? (y/N) " yesOrNoReboot
-	if [[ "$yesOrNoReboot" == "y" ]]; then
-		tmux send-keys -t buffer_tmux.0 C-s
-		tmux send-keys -t buffer_tmux.0 C-q
-		tmux kill-session -t buffer_tmux
-		qdbus6 org.kde.LogoutPrompt /LogoutPrompt promptReboot
-	fi
-}
-
-## Hibernate to disk with confirmation
-hibernate () {
-	read -p "Hibernate? (y/N) " yesOrNoHibernate
-	[[ "$yesOrNoHibernate" == "y" ]] && qdbus6 org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Hibernate
-}
-
-## Hybrid-Sleep with confirmation, i.e. sleep to RAM and disk in case battery dies
-hybrid-sleep () {
-	read -p "Hybrid-Sleep? (y/N) " yesOrNoHybridSleep
-	[[ "$yesOrNoHybridSleep" == "y" ]] && systemctl hybrid-sleep
-}
-
-## Sleep with confirmation (i.e. RAM only)
-qsleep () {
-	read -p "Sleep? (y/N) " yesOrNoQSleep
-	[[ "$yesOrNoQSleep" == "y" ]] && qdbus6 org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend
-}
-
-## Log Out with confirmation
-log-out () {
-	read -p "Log Out? (y/N) " yesOrNoLogOut
-	[[ "$yesOrNoLogOut" == "y" ]] && qdbus6 org.kde.LogoutPrompt /LogoutPrompt org.kde.LogoutPrompt.promptLogout
-}
-
-## Lock screen with confirmation
-lock () {
-	read -p "Lock Screen? (y/N) " yesOrNoLock
-	[[ "$yesOrNoLock" == "y" ]] && qdbus6 org.kde.screensaver /ScreenSaver Lock
-}
-#### END SUBSTITUTE
+#### Start Substitute - Power_Management
 
 # yt-dlp helper function
 do_yt-dlp () {

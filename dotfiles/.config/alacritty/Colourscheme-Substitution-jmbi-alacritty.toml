@@ -1,3 +1,4 @@
+#### Start Substitute - Colourscheme
 # jmbi
 [colors.cursor]
 cursor = "CellForeground"
@@ -68,3 +69,4 @@ text = "CellBackground"
 
 [cursor.style]
 shape = "Beam"
+#### End Subtitute
