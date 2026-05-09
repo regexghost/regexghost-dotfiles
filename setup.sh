@@ -10,7 +10,7 @@ if [ "$1" = "save" ]; then
 		basename=$(basename "$filepath")
 		repo_dirname=$(dirname "$repo_path")
 		mkdir -p "$repo_dirname"
-		if grep -q "START SUBSTITUTE" "$real_path"; then
+		if grep -q "Start Substitute" "$real_path"; then
 			sub save "$basename" "$repo_dirname" "$real_path" "$repo_path"
 		else
 			cp "$real_path" "$repo_path"
@@ -26,7 +26,7 @@ elif [ "$1" = "make" ]; then
 		real_dirname=$(dirname "$real_path")
 		repo_dirname=$(dirname "$repo_path")
 		mkdir -p "$real_dirname"
-		if grep -q "START SUBSTITUTE" "$repo_path"; then
+		if grep -q "Start Substitute" "$repo_path"; then
 			sub make "$basename" "$repo_dirname" "$repo_path" "$real_path"
 		else
 			echo cp "$real_path" "$repo_path"

@@ -1,9 +1,9 @@
 {
-    "autoclose": false,
     "aspell.check": "off",
-    "hlsearch": true,
+    "autoclose": false,
     "colorscheme": "retro",
     "ftoptions": false,
+    "hlsearch": true,
     "savecursor": true,
     "softwrap": true
 }

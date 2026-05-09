@@ -5,9 +5,9 @@
 #include <unistd.h>
 #include <linux/limits.h>
 
-#define BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script_data/directory_bookmarks.txt"
-#define FILE_BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script_data/file_bookmarks.txt"
-#define RANGER_BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script_data/ranger_directory_bookmarks.conf"
+#define BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script-data/directory_bookmarks.txt"
+#define FILE_BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script-data/file_bookmarks.txt"
+#define RANGER_BOOKMARK_FILE_LOCATION "/.local/share/regexghost/script-data/ranger_directory_bookmarks.conf"
 
 // This script is based on apparix: https://github.com/micans/apparix
 
