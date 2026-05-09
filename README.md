@@ -13,6 +13,6 @@ More information about specific WM/DE setups can be found below, both the dotfil
 
 ## Window Managers/Desktop Environments
 
+* [JWM (Raspberry Pi)] - [Website](https://www.regexghost.com/linux/jwm)
 * [i3](i3/README.md) - [Website](https://www.regexghost.com/linux/i3)
-* [Awesome WM](awesome/README.md) - [Website](https://www.regexghost.com/linux/raspberry-pi-3)
 * [KDE](kde/README.md) - [Website](https://www.regexghost.com/linux/kde)

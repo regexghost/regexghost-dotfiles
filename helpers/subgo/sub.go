@@ -70,7 +70,7 @@ func extractZoneName(line string) string {
 }
 
 func extractZoneAndSubName(filename string) (string, string) {
-	r, _ := regexp.Compile(".*Substitution-([^-]*)-([^-]*)")
+	r, _ := regexp.Compile("([^-]*)-Substitution-([^-]*)")
 	x := r.FindStringSubmatch(filename)
 	return x[1], x[2]
 }

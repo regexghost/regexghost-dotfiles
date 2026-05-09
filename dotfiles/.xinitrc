@@ -8,5 +8,7 @@ xset r rate 250 40
 xset s off
 xset dpms 0 0 0
 
+(sleep 10 && ~/.local/share/regexghost/panel/lemonbar-runner.sh) & disown
+
 # Window manger
-exec jwm
+exec jwm 2> ~/.cache/xsession-errors
