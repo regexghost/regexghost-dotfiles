@@ -2,59 +2,65 @@
 
 echo "$$" > ~/.cache/bar_pid
 
+. "$XDG_CONFIG_HOME/regexghost/current-theme.sh"
+
 COLOUR_RESET="%{F-}"
-sunset_colour="%{F#EF2F27}"
-sunrise_colour="%{F#FBB829}"
-network_down_colour="%{F#E02C6D}"
-cpu_colour="%{F#2C78BF}"
-cpu_temp_colour="%{F#EF2F27}"
-memory_colour="%{F#FBB829}"
-uptime_colour="%{F#519F50}"
-muted_colour="%{F#EF2F27}"
-volume_colour="%{F#519F50}"
+sunset_colour="%{F#${RED}}"
+sunrise_colour="%{F#${YELLOW}}"
+network_down_colour="%{F#${MAGENTA}}"
+cpu_colour="%{F#${BLUE}}"
+cpu_temp_colour="%{F#${RED}}"
+memory_colour="%{F#${YELLOW}}"
+uptime_colour="%{F#${GREEN}}"
+muted_colour="%{F#${RED}}"
+volume_colour="%{F#${GREEN}}"
 
 update_time () {
 	current_time="$(date +"%b, %a %d - %H:%M")"
 }
 
 update_cpu () {
-	cpu="$(~/.local/share/regexghost/panel/cpu)%"
+	cpu="${cpu_colour} $(~/.local/share/regexghost/panel/cpu)%${COLOUR_RESET}"
 }
 
 update_network_down () {
-	network_down=$(~/.local/share/regexghost/panel/network_down)
+	network_down="${network_down_colour} "$(~/.local/share/regexghost/panel/network_down)"${COLOUR_RESET}"
 }
 
 update_vol () {
 	if [ $(cat ~/.cache/muted) = "yes" ]; then
-		vol="${muted_colour} : Muted${COLOUR_RESET}"
+		vol="${muted_colour} Muted${COLOUR_RESET}"
 	else
-		vol="${volume_colour} : $(cat ~/.cache/volume)%%${COLOUR_RESET}"
+		vol="${volume_colour} $(cat ~/.cache/volume)%%${COLOUR_RESET}"
 	fi
 }
 
 update_mem () {
-	memory=$(free -m | awk '/Mem:/ {print $3}')MiB
+	memory="${memory_colour} "$(free -m | awk '/Mem:/ {print $3}')MiB"${COLOUR_RESET}"
 }
 
 update_cpu_temp () {
-	cpu_temp=$(vcgencmd measure_temp | cut -d "=" -f 2)
+	cpu_temp="${cpu_temp_colour} "$(vcgencmd measure_temp | cut -d "=" -f 2)"${COLOUR_RESET}"
 }
 
 update_uptime () {
-	uptime=$(~/.local/share/regexghost/panel/uptime)
+	uptime="${uptime_colour} "$(~/.local/share/regexghost/panel/uptime)"${COLOUR_RESET}"
 }
 
 update_sunrise () {
-	sunrise=$(~/.local/share/regexghost/panel/sunrise.sh --sunrise --blank)
+	sunrise="${sunrise_colour} "$(~/.local/share/regexghost/panel/sunrise.sh --sunrise --blank)"${COLOUR_RESET}"
 }
 
 update_sunset () {
-	sunset=$(~/.local/share/regexghost/panel/sunrise.sh --sunset --blank)
+	sunset="${sunset_colour} "$(~/.local/share/regexghost/panel/sunrise.sh --sunset --blank)"${COLOUR_RESET}"
 }
 
 update_weather () {
-	weather="$(~/.local/share/regexghost/panel/metoffice.sh --lemonbar)"
+	weather_days="$(~/.local/share/regexghost/panel/metoffice.sh)"
+	weather_today="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '1q;d')")"
+	weather_tomorrow="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '2q;d')")"
+	weather_2_days="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '3q;d')")"
+	weather="0 ${weather_today} 1 ${weather_tomorrow} 2 ${weather_2_days}"
 }
 
 # 
@@ -79,7 +85,7 @@ update_weather () {
 # 
 
 display () {
-	echo "%{r} ${sunset_colour}: ${sunset}${COLOUR_RESET} | ${sunrise_colour} : ${sunrise}${COLOUR_RESET} | ${weather} | ${vol} | ${network_down_colour} ${network_down}${COLOUR_RESET} | ${cpu_colour} : ${cpu}${COLOUR_RESET} | ${uptime_colour} : ${uptime}${COLOUR_RESET} | ${cpu_temp_colour}: ${cpu_temp}${COLOUR_RESET} | ${memory_colour} : ${memory}${COLOUR_RESET} | ${current_time}  "
+	echo "%{r} ${sunset} | ${sunrise} | ${weather} | ${vol} | ${network_down} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time}  "
 }
 
 update_vol

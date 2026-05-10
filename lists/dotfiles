@@ -25,3 +25,4 @@
 ~/.bashrc
 ~/.xinitrc
 ~/.vimrc
+~/.config/dunst/dunstrc

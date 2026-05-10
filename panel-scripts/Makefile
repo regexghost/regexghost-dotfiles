@@ -7,6 +7,7 @@ normal:
 	gcc -o network_down network.c
 	cp sunrise.sh ${PREFIX}/sunrise.sh
 	cp metoffice.sh ${PREFIX}/metoffice.sh
+	cp weather-formatter.sh ${PREFIX}/weather-formatter.sh
 	cp music.sh ${PREFIX}/music.sh
 	cp lemonbar-bar.sh ${PREFIX}/lemonbar-bar.sh
 	cp lemonbar-runner.sh ${PREFIX}/lemonbar-runner.sh

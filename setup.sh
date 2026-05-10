@@ -1,11 +1,11 @@
 #!/bin/sh
 
-file="$2"
+file="lists/$2"
 
 exec 3<&0
 if [ "$1" = "save" ]; then
 	while read -r filepath; do
-		repo_path=$(echo "$filepath" | sed "s|~|dotfiles|g")
+		repo_path=$(echo "$filepath" | sed "s|~|$2|g")
 		real_path=$(echo "$filepath" | sed "s|~|$HOME|g")
 		basename=$(basename "$filepath")
 		repo_dirname=$(dirname "$repo_path")
@@ -20,7 +20,7 @@ if [ "$1" = "save" ]; then
 	done < $file
 elif [ "$1" = "make" ]; then
 	while read -r filepath; do
-		repo_path=$(echo "$filepath" | sed "s|~|dotfiles|g")
+		repo_path=$(echo "$filepath" | sed "s|~|$2|g")
 		real_path=$(echo "$filepath" | sed "s|~|$HOME|g")
 		basename=$(basename "$filepath")
 		real_dirname=$(dirname "$real_path")
