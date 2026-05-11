@@ -182,7 +182,7 @@
     <Key mask="4" key="c">exec:st -t qalc -e qalc</Key>
     <Key mask="4" key="e">exec:st -t ranger -e ranger</Key>
     <Key mask="4S" key="e">exec:xfiles</Key>
-    <Key mask="4" key="q">exec:~/.local/share/regexghostw/</Key>
+    <Key mask="4" key="q">exec:~/.local/share/regexghost/wm-scripts/bookmarks.sh</Key>
 
     <!-- Mouse bindings -->
     <!-- <Mouse context="root" button="4">ldesktop</Mouse> -->

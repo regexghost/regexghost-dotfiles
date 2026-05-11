@@ -2,6 +2,7 @@
 
 # Music playing script
 
+DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 MUSIC_DIR="$HOME/Music"
 FAVOURITES_DIR="$MUSIC_DIR/Favourites"
 
@@ -54,7 +55,7 @@ fi
 
 if [ "$1" = "--choice" ]; then
 	# Ask for playlist
-	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | dmenu -p "Select Playlist:" -l 10)"
+	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
 else
 	playlist_path="$MUSIC_DIR/CurrentPlaylist"
@@ -62,7 +63,7 @@ fi
 
 # Check for sub playlists
 if find "$playlist_path" -mindepth 1 -type d | grep -q ""; then
-	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All Songs\n"$0}' | dmenu -p "Select Playlist:" -l 10)"
+	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All Songs\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	# If all songs, don't change playlist path
 	if ! [ "$playlist" = "All Songs" ]; then
 		playlist_path="$playlist_path/$(echo "$playlist" | sed 's/ //g')"
