@@ -9,6 +9,7 @@ normal:
 	mv directory_bookmarks ${BIN}/directory_bookmarks
 	cp github_latest_release.sh ${BIN}/github_latest_release
 	cp heic_to_jpg.sh ${BIN}/heictojpg
+	cp backup.sh ${BIN}/backup
 	cp qmount.sh ${BIN}/qmount
 	go build -o tablealigner tablealigner.go
 	mv tablealigner ${BIN}/tablealigner
