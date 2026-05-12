@@ -15,3 +15,4 @@ normal:
 	mv tablealigner ${BIN}/tablealigner
 	go build -o geohash geohash.go
 	mv geohash ${BIN}/geohash
+	cd soundboard/; go1.26.2 build -o soundboard soundboard.go; mv soundboard ${BIN}/soundboard; cd ..
