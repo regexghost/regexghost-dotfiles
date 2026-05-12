@@ -1,0 +1,23 @@
+#### Start Substitute - Colourscheme
+[global]
+frame_color = "#YELLOW"
+separator_color= frame
+font = "Fira Code 10"
+enable_recursive_icon_lookup = true
+
+[urgency_low]
+background = "#BACKGROUND_BLACK"
+foreground = "#FOREGROUND_WHITE"
+highlight = "#CYAN"
+
+[urgency_normal]
+background = "#BACKGROUND_BLACK"
+foreground = "#FOREGROUND_WHITE"
+highlight = "#CYAN"
+
+[urgency_critical]
+background = "#BACKGROUND_BLACK"
+foreground = "#FOREGROUND_WHITE"
+frame_color = "#RED"
+highlight = "#CYAN"
+#### End Substitute

@@ -1,0 +1,58 @@
+	<!-- Start Substitute - Colourscheme -->
+    <WindowStyle decorations="motif">
+        <Font>FONT_FAMILY:bold</Font>
+        <Width>4</Width>
+        <Corner>0</Corner>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Background>#BACKGROUND_BLACK</Background>
+        <Opacity>1.0</Opacity>
+        <Active>
+            <Foreground>#FOREGROUND_WHITE</Foreground>
+            <Background>#GREEN</Background>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle decorations="motif">
+        <Font>FONT_FAMILY-11</Font>
+        <Background>#BACKGROUND_BLACK</Background>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Opacity>0.75</Opacity>
+    </TrayStyle>
+    <TaskListStyle list="desktop" group="false">
+      <Font>FONT_FAMILY-11</Font>
+      <Active>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Background>#GREEN</Background>
+      </Active>
+      <Minimized>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Background>#BACKGROUND_BLACK</Background>
+      </Minimized>
+      <Foreground>#FOREGROUND_WHITE</Foreground>
+      <Background>#BACKGROUND_BLACK</Background>
+    </TaskListStyle>
+    <PagerStyle>
+        <Foreground>#BACKGROUND_BLACK</Foreground>
+        <Background>#BACKGROUND_BLACK</Background>
+        <Text>#FCE8C3</Text>
+        <Active>
+            <Foreground>#BRIGHT_BLUE</Foreground>
+            <Background>#BLUE</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle decorations="motif">
+        <Font>FONT_FAMILY-11</Font>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Background>#BACKGROUND_BLACK</Background>
+        <Active>
+            <Foreground>#FOREGROUND_WHITE</Foreground>
+            <Background>#BLUE</Background>
+        </Active>
+        <Opacity>0.85</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Font>FONT_FAMILY-11</Font>
+        <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Background>#BACKGROUND_BLACK</Background>
+    </PopupStyle>
+    <!-- End Substitute -->

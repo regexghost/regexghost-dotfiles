@@ -1,0 +1,92 @@
+body {
+	color: #FOREGROUND_WHITE;
+	background-color: #BACKGROUND_BLACK;
+	width: 800px;
+	margin: 0 auto;
+}
+
+a {
+	color: #CYAN;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+}
+
+h1 {
+	color: #RED;
+}
+
+h2 {
+	color: #ORANGE;
+}
+
+h3 {
+	color: #YELLOW;
+}
+
+h4 {
+	color: #GREEN;
+}
+
+h5 {
+	color: #CYAN;
+}
+
+h6 {
+	color: #MAGENTA;
+}
+
+b {
+	color: #MAGENTA;
+}
+
+i {
+	color: #GREEN;
+}
+
+code {
+	color: #CYAN;
+	font-family: monospace;
+}
+
+ul ::marker {
+	color: #YELLOW;
+}
+
+div.root-link {
+	text-align: center;
+	font-size: 30;
+	margin: 0 0 10 0
+}
+
+div.header  {
+	margin: 10 0 60 0;
+	font-size: 20;
+}
+
+div.header-left {
+	text-align: left;
+	float: left;
+	padding: 6 0 0 0;
+}
+
+div.header a {
+	font-weight: bold;
+	color: #WHITE;
+	text-decoration: none;
+}
+
+div.header-right a {
+	margin-left: 8px;
+}
+
+div.header-left a {
+	color: #CYAN;
+	margin-left: 6px;
+}
+
+div.header-right {
+	text-align: right;
+	float: right;
+}
