@@ -5,4 +5,5 @@ normal:
 	cp altgrtosuper.sh ${PREFIX}/altgrtosuper.sh
 	cp volume.sh ${PREFIX}/volume.sh
 	cp dmenu-runner.sh ${PREFIX}/dmenu-runner.sh
+	cp dmenu-programs.sh ${PREFIX}/dmenu-programs.sh
 	cp bookmarks.sh ${PREFIX}/bookmarks.sh

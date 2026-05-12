@@ -22,8 +22,8 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 #export _JAVA_OPTIONS=-"Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 
 export EDITOR="nano"
-export VISUAL="vim"
+export VISUAL="nano"
 #export PAGER="bat --wrap auto"
 export BROWSER="netsurf-gtk"
-export PATH=$PATH:~/.local/bin:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin
+export PATH=$PATH:~/.local/bin:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
 export TERMINAL="kitty"

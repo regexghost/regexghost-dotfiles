@@ -350,6 +350,7 @@ alias psg='ps -aux | grep'
 source "$HOME/.local/share/regexghost/terminal/autocompletion.bash"
 source "$HOME/.local/share/regexghost/terminal/ls_aliases.bash"
 [ -f ~/Programs/localStuff/aliases.sh ] && source ~/Programs/localStuff/aliases.sh
+[ -f ~/.profile ] && source ~/.profile
 
 # Set variables
 
