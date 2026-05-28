@@ -66,6 +66,11 @@ alias rss='newsraft'
 alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 
+# Not POSIX compliant
+function grepc () {
+	grep -oP ".{0,100}${1}.{0,100}"
+}
+
 function nnn () {
 	export NNN_FIFO=/tmp/nnn.fifo
 	export NNN_PLUG=v:preview-tui

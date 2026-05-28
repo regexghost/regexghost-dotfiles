@@ -20,6 +20,9 @@ setxkbmap -option caps:escape
 # Compositor
 (sleep 6 && xcompmgr -n) & disown
 
+# Ctrl+Alt+Arrows to Home, End, PageUp and PageDown
+xkbcomp -I$XDG_CONFIG_HOME/xkb $XDG_CONFIG_HOME/xkb/keymap/mykbd $DISPLAY
+
 # Window manger
 exec jwm 2> ~/.cache/xsession-errors
 # exec awesome 2> ~/.cache/xsession-errors
