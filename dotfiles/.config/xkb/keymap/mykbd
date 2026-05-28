@@ -1,0 +1,8 @@
+# https://unix.stackexchange.com/questions/65434/map-superleftright-to-home-end/65923
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+	xkb_types     { include "complete+mytypes(ctrl_alt_level2)"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { include "pc+gb+inet(evdev)+mysymbols(ctrl_alt_arrows_mapping)"	};
+	xkb_geometry  { include "pc(pc105)"	};
+};
