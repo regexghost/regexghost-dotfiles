@@ -8,6 +8,8 @@ if echo "$1" | grep -q "youtube"; then
 elif echo "$1" | grep -q "redd.it"; then
 	filename="$(echo "$1" | sed 's/.*\///g')"
 	wget -P /tmp "$1"
-	feh "/tmp/${filename}"
+	$IMAGE_VIEWER "/tmp/${filename}"
 	rm -rf "/tmp/${filename}"
+elif echo "$1" | grep -q "reddit.com/gallery"; then
+	~/.config/newsraft/reddit-gallery.sh "$1"
 fi
