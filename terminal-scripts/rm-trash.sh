@@ -7,7 +7,7 @@ dialog="rm: Trash"
 
 if [ "$1" = "-p" ]; then
 	shift
-	command="/usr/bin/rm"
+	command="/usr/bin/rm -rf"
 	dialog="rm: Delete (Permanently)"
 else
 	if ! which trash-put > /dev/null; then
@@ -32,10 +32,10 @@ for arg; do
 		else
 			read -p "${dialog} ${filename} (non-empty dir) (y/N) " confirm
 		fi
-		[ "$confirm" = "y" ] && "$command" -- "$filename"
+		[ "$confirm" = "y" ] && $command -- "$filename"
 		continue
 	fi
 
 	read -p "${dialog} ${filename} (y/N) " confirm
-	[ "$confirm" = "y" ] && "$command" -- "$filename"
+	[ "$confirm" = "y" ] && $command -- "$filename"
 done

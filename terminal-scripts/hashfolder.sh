@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Script to get sha256/sha512 hashes of all files in a directory 
+# Script to get sha256/sha512 hashes of all files in a directory
 
 if [[ "$1" == "" ]]; then
 	echo "Usage: ./hashfolder.sh [-l] folder"
@@ -10,6 +10,7 @@ fi
 
 hash_command="sha256sum"
 input_folder="$1"
+
 if [[ "$1" == "-h" ]]; then
 	echo "Usage: hashfolder [-l] folder/ (-l for sha512 instead of sha256)"
 elif [[ "$1" == "-l" ]]; then

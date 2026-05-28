@@ -87,7 +87,8 @@ func drawSoundboard(s tcell.Screen) {
 }
 
 func playSound(path string) {
-	cmd := exec.Command("mpv", "--no-config", "--no-resume-playback", "--force-window=no", homeDir + "/" + SOUND_LOC + "/" + path)
+//	cmd := exec.Command("mpv", "--no-config", "--no-resume-playback", "--force-window=no", homeDir + "/" + SOUND_LOC + "/" + path)
+	cmd := exec.Command("aplay", homeDir + "/" + SOUND_LOC + "/" + path)
 	cmds = append(cmds, cmd)
 	cmd.Start()
 }

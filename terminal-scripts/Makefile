@@ -19,5 +19,6 @@ normal:
 	cd soundboard/; go1.26.2 build -o soundboard soundboard.go; mv soundboard ${BIN}/soundboard; cd ..
 	cp tag-song.sh ${BIN}/tag-song
 	cp download-vids.sh ${BIN}/download-vids
+	cp am-extract.sh ${BIN}/am-extract
 	cp yt-data.sh ${BIN}/yt-data
 	cp tag-music.py ${TERMINAL}/tag-music.py
