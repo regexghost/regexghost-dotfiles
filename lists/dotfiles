@@ -31,3 +31,6 @@
 ~/.config/newsraft/extract-thumbnail.sh
 ~/.config/newsraft/rssify.sh
 ~/.config/newsraft/show-image.sh
+~/.config/xkb/types/mytypes
+~/.config/xkb/keymap/mykbd
+~/.config/xkb/symbols/mysymbols
