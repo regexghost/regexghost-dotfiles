@@ -1,0 +1,3 @@
+bind g exec-silent '~/.config/newsraft/show-image.sh "%l"'
+bind f exec-silent '~/.config/newsraft/queue-vid.sh "%l"'
+bind t exec 'w3m "%l"' 

@@ -23,7 +23,7 @@ fi
 
 if [[ "$1" == "--sunrise" ]]; then
 	#json_tomorrow=$(curl -s "https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=tomorrow&time_format=24")
-	json_tomorrow=$(curl -s "https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=tomorrow&formatted=0")
+	json_tomorrow=$(curl --connect-timeout 5 -s "https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=tomorrow&formatted=0")
 	sunrise=$(echo "$json_tomorrow" | jq -r .results.sunrise | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	astro_twilight=$(echo "$json_tomorrow" | jq -r .results.astronomical_twilight_begin | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	if [[ "$2" == "--conky" ]]; then
@@ -35,7 +35,7 @@ if [[ "$1" == "--sunrise" ]]; then
 	fi
 elif [[ "$1" == "--sunset" ]]; then
 	#json_today=$(curl -s "https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&time_format=24")
-	json_today=$(curl -s "https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today&formatted=0")
+	json_today=$(curl --connect-timeout 5 -s "https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today&formatted=0")
 	sunset=$(echo "$json_today" | jq -r .results.sunset | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	astro_twilight=$(echo "$json_today" | jq -r .results.astronomical_twilight_end | sed 's/.*T//g' | sed 's/:[0-9]*+.*//g')
 	if [[ "$2" == "--conky" ]]; then

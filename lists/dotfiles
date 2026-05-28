@@ -26,3 +26,8 @@
 ~/.xinitrc
 ~/.vimrc
 ~/.config/dunst/dunstrc
+~/.config/newsraft/config
+~/.config/newsraft/queue-vid.sh
+~/.config/newsraft/extract-thumbnail.sh
+~/.config/newsraft/rssify.sh
+~/.config/newsraft/show-image.sh

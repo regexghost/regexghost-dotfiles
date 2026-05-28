@@ -13,7 +13,7 @@ today_string="$(date "+%Y-%m-%d")"
 tomorrow_string="$(date -d tomorrow "+%Y-%m-%d")"
 second_day_string="$(date -d "+2 days" "+%Y-%m-%d")"
 
-curl -s -L "https://weather.metoffice.gov.uk/forecast/$geohash" > "/tmp/panel_i3_data/metoffice.html"
+curl --connect-timeout 5 -s -L "https://weather.metoffice.gov.uk/forecast/$geohash" > "/tmp/panel_i3_data/metoffice.html"
 icon_name_today=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$today_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
 icon_name_tomorrow=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$tomorrow_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
 icon_name_second_day=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$second_day_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')

@@ -66,6 +66,13 @@ alias rss='newsraft'
 alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 
+function nnn () {
+	export NNN_FIFO=/tmp/nnn.fifo
+	export NNN_PLUG=v:preview-tui
+	tmux new-session -d -s mys "nnn -P v"
+	tmux attach
+}
+
 # Aliases to Specific Commands
 
 alias x='chmod +x'
@@ -88,7 +95,7 @@ alias gitd='git diff'
 alias gitdc='git diff --word-diff-regex=.'
 alias gits='git status'
 alias gpl='git pull'
-alias gitl='git log --reverse'
+alias gitl='git log'
 alias giturl='git config --get remote.origin.url'
 alias gp='git push'
 
@@ -102,7 +109,7 @@ function gpp () {
 function gpa () {
 	gpp
 	git push -u codeberg
-	git push -u selfhost
+	git push -u mine
 }
 
 #### Start Substitute - Package_Manager
@@ -258,7 +265,7 @@ do_yt-dlp () {
 				shift
 				;;
 			--music)
-				output_format_args=(-o "%(title)s - %(channel)s - %(album)s.%(ext)s")
+				output_format_args=(-o "%(title)s -- %(channel)s -- %(album)s.%(ext)s")
 				format_args=(-f 140)
 				shift
 				;;
