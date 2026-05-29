@@ -77,7 +77,7 @@
     },
     {
     	"type": "disk",
-    	"key": " ",
+    	"key": " ",
     	"keyColor": "green",
     	"format": "{mount-from} - {filesystem} - {size-used}/{size-total} ({size-percentage})"
     },
