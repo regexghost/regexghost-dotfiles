@@ -30,6 +30,6 @@ sed 's/<span[^>]*>[^<]*<\/span>//g' |\
 sed 's/<a[^>]*>/ /g' | \
 sed 's/<\/a>//g' |\
 sed 's/<p class="[^"]*">/PPSTART/g; s/<\/p>/PPEND/g; s/PPEND/\n/g; s/PPSTART/\n/g' |\
-xmlstarlet unesc | grep -v "$picture_desc" >> "$OUTPUT_FILE"
+xmlstarlet unesc | grep -v "$picture_desc" | fold -s >> "$OUTPUT_FILE"
 
 ${PAGER:-less} "$OUTPUT_FILE"

@@ -28,6 +28,8 @@ for link in $links; do
 done
 wait
 
+cd "$OUTPUT_FOLDER"; rename 's/[?].*//g' *
+
 notify-send "Displaying"
 notify-send "$IMAGE_VIEWER"
-$IMAGE_VIEWER "$OUTPUT_FOLDER"/*
+${IMAGE_VIEWER:-feh} "$OUTPUT_FOLDER"/*

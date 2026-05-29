@@ -6,19 +6,27 @@ DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 MUSIC_DIR="$HOME/Music"
 FAVOURITES_DIR="$MUSIC_DIR/Favourites"
 
+ping_panel () {
+	kill -35 "$(cat ~/.cache/bar_pid)"
+}
+
 # Technically these first 4 are unnecessary, could just bind directly to the command
 # but I like it all being in one file
 if [ "$1" = "--toggle-pause" ]; then
 	mocp --toggle-pause
+	ping_panel
 	exit
 elif [ "$1" = "--quit" ]; then
 	mocp --stop
+	ping_panel
 	exit
 elif [ "$1" = "--next" ]; then
 	mocp --next
+	ping_panel
 	exit
 elif [ "$1" = "--previous" ]; then
 	mocp --previous
+	ping_panel
 	exit
 elif [ "$1" = "--favourite" ]; then
 	song="$(mocp -i | grep "File:" | sed 's/File: //g')"
@@ -56,6 +64,7 @@ fi
 if [ "$1" = "--choice" ]; then
 	# Ask for playlist
 	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | "${DMENU_SCRIPT}" "Select Playlist:")"
+	[ "$?" != "0" ] && exit
 	playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
 else
 	playlist_path="$MUSIC_DIR/CurrentPlaylist"
@@ -64,6 +73,7 @@ fi
 # Check for sub playlists
 if find "$playlist_path" -mindepth 1 -type d | grep -q ""; then
 	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All Songs\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
+	[ "$?" != "0" ] && exit
 	# If all songs, don't change playlist path
 	if ! [ "$playlist" = "All Songs" ]; then
 		playlist_path="$playlist_path/$(echo "$playlist" | sed 's/ //g')"
@@ -73,3 +83,4 @@ fi
 mocp --clear
 mocp --append "$playlist_path"
 mocp --play
+ping_panel

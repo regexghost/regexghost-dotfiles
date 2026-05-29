@@ -2,3 +2,4 @@ bind g exec-quiet '~/.config/newsraft/show-image.sh "%l"'
 bind f exec-quiet '~/.config/newsraft/queue-vid.sh "%l"'
 bind t exec '~/.config/newsraft/article.sh "%l"'
 global-section-hide true 
+item-limit 20

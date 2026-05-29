@@ -14,6 +14,8 @@ memory_colour="%{F#${YELLOW}}"
 uptime_colour="%{F#${GREEN}}"
 muted_colour="%{F#${RED}}"
 volume_colour="%{F#${GREEN}}"
+music_stopped_colour="%{F#${YELLOW}}"
+music_playing_colour="%{F#${GREEN}}"
 
 update_time () {
 	current_time="$(date +"%b, %a %d - %H:%M")"
@@ -60,7 +62,16 @@ update_weather () {
 	weather_today="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '1q;d')")"
 	weather_tomorrow="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '2q;d')")"
 	weather_2_days="$(~/.local/share/regexghost/panel/weather-formatter.sh --lemonbar "$(echo "$weather_days" | sed '3q;d')")"
-	weather="0 ${weather_today} 1 ${weather_tomorrow} 2 ${weather_2_days}"
+	weather="0${weather_today} 1${weather_tomorrow} 2${weather_2_days}"
+}
+
+update_music () {
+	song="$(mocp -i | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 18)"
+	if [ "$song" = "" ]; then
+		music="${music_stopped_colour} N/A${COLOUR_RESET}"
+	else
+		music="${music_playing_colour} ${song}..${COLOUR_RESET}"
+	fi
 }
 
 # 
@@ -83,9 +94,12 @@ update_weather () {
 # 
 # 
 # 
+# 
+# 
+# 
 
 display () {
-	echo "%{r} ${sunset} | ${sunrise} | ${weather} | ${vol} | ${network_down} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time}  "
+	echo "%{r} ${music} | ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
 }
 
 update_vol
@@ -93,10 +107,12 @@ update_time
 update_sunrise
 update_sunset
 update_weather
+update_music
 
 i=1
 
 trap "update_vol;display" "RTMIN"
+trap "update_music;display" "RTMIN+1"
 
 while true; do
 	sleep 2 & wait && {
@@ -107,6 +123,7 @@ while true; do
 		update_cpu_temp
 		update_vol
 		[ $((i%3)) -eq 0 ] && update_time
+		[ $((i%3)) -eq 0 ] && update_music
 		[ $((i % 180)) -eq 0 ] && update_sunset
 		[ $((i % 300)) -eq 0 ] && update_sunrise
 		[ $((i % 360)) -eq 0 ] && update_weather
