@@ -8,6 +8,7 @@ targetDir="${LOC}/toDownload"
 quality_options_videos="bestvideo[height<=480][vcodec=vp9]+bestaudio[acodec=opus]/bestvideo[height<=480]+bestaudio"
 quality_options_shorts="bestvideo[width<=480][vcodec=vp9]+bestaudio[acodec=opus]/bestvideo[width<=480]+bestaudio"
 filename_options="%(channel)s - %(title)s.%(ext)s"
+sub_options="--embed-subs --all-subs"
 
 if [ "$1" = "s" ]; then
 	targetDir="${targetDir}/Shorts"
@@ -37,9 +38,9 @@ done
 while read -r path; do
 	id="$(basename "$path" | sed 's/.txt//g')"
 	if echo "$path" | grep -q Shorts; then
-		yt-dlp -o "$filename_options" -f "$quality_options_shorts" -P "$LOC/Shorts" -- "$id"
+		yt-dlp $sub_options -o "$filename_options" -f "$quality_options_shorts" -P "$LOC/Shorts" -- "$id"
 	else
-		yt-dlp -o "$filename_options" -f "$quality_options_videos" -P "$LOC/Videos" -- "$id"
+		yt-dlp $sub_options -o "$filename_options" -f "$quality_options_videos" -P "$LOC/Videos" -- "$id"
 	fi
 	if [ "$?" = "0" ]; then
 		mv "$path" "$targetDir/done"
