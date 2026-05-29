@@ -11,7 +11,9 @@ loadColours () {
 	template="$1"
 	output="$2"
 	sed "s|BACKGROUND_BLACK|$BACKGROUND_BLACK|g" "$template" |\
+	sed "s|BACKGROUND_GREY|$BACKGROUND_GREY|g" |\
 	sed "s|FOREGROUND_WHITE|$FOREGROUND_WHITE|g" |\
+	sed "s|COMMENT|$COMMENT|g" |\
 	sed "s|BRIGHT_WHITE|$BRIGHT_WHITE|g" |\
 	sed "s|BRIGHT_CYAN|$BRIGHT_CYAN|g" |\
 	sed "s|BRIGHT_MAGENTA|$BRIGHT_MAGENTA|g" |\

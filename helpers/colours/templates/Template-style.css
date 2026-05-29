@@ -1,40 +1,46 @@
 body {
+ 	background-color: #BACKGROUND_BLACK;
 	color: #FOREGROUND_WHITE;
-	background-color: #BACKGROUND_BLACK;
-	width: 800px;
-	margin: 0 auto;
+	max-width: 1000px;
+	margin: auto;
 }
+
 
 a {
 	color: #CYAN;
 }
 
+div.sidebar a {
+	font-size: 25px;
+	text-decoration: none;
+}	
+
 h1, h2, h3, h4, h5, h6 {
-	text-align: center;
 }
 
-h1 {
+h1, h1 a {
+	margin: 0px;
 	color: #RED;
 }
 
-h2 {
-	color: #ORANGE;
-}
-
-h3 {
+h2, h2 a {
 	color: #YELLOW;
 }
 
-h4 {
+h3, h3 a {
 	color: #GREEN;
 }
 
-h5 {
+h4, h4 a {
 	color: #CYAN;
 }
 
-h6 {
+h5, h5 a {
 	color: #MAGENTA;
+}
+
+h6, h6 a {
+	color: #BLUE;
 }
 
 b {
@@ -54,39 +60,94 @@ ul ::marker {
 	color: #YELLOW;
 }
 
-div.root-link {
-	text-align: center;
-	font-size: 30;
-	margin: 0 0 10 0
+div.main-area {
+	display: table;
+	overflow: hidden;
+	width: 100%;
+}
+
+div.sidebar {
+	width: 100px;
+	display: table-cell;
+	float: left;
+	margin: 12px 12px 12px 12px;
+	padding: 8px 8px 10px 18px;
+	background-color: #BACKGROUND_GREY;
+	border-style: outset;
+	border-width: 5px;
+	border-top-color: #COMMENT;
+	border-left-color: #COMMENT;
+	border-right-color: #COMMENT;
+	border-bottom-color: #COMMENT;
+}
+
+div.content {
+	display: block;
+	margin: 12px 12px 12px 12px;
+	padding: 14px 8px 12px 20px;
+	background-color: #BACKGROUND_GREY;
+	overflow: hidden;
+	border-style: outset;
+	border-width: 5px;
+	border-top-color: #COMMENT;
+	border-left-color: #COMMENT;
+	border-right-color: #COMMENT;
+	border-bottom-color: #COMMENT;
+
 }
 
 div.header  {
-	margin: 10 0 60 0;
-	font-size: 20;
+	height: 40px;
+	font-size: 30px;
 }
 
 div.header-left {
 	text-align: left;
 	float: left;
-	padding: 6 0 0 0;
+	margin: 12px 0px 0px 12px;
+	padding: 8px 10px 6px 6px;
+	background-color: #BACKGROUND_GREY;
+	height: 42px;
+	border-style: outset;
+	border-width: 5px;
+	border-top-color: #COMMENT;
+	border-left-color: #COMMENT;
+	border-right-color: #COMMENT;
+	border-bottom-color: #COMMENT;
 }
 
 div.header a {
 	font-weight: bold;
-	color: #WHITE;
+	color: #FOREGROUND_WHITE;
 	text-decoration: none;
 }
 
 div.header-right a {
-	margin-left: 8px;
+/*	margin-left: 8px;*/
 }
 
 div.header-left a {
-	color: #CYAN;
-	margin-left: 6px;
+	color: #FOREGROUND_WHITE;
+/*	margin-left: 6px;*/
 }
 
 div.header-right {
 	text-align: right;
 	float: right;
+	margin: 12px 12px 0px 0px;
+	padding: 6px 10px 6px 6px;
+	background-color: #BACKGROUND_GREY;
+	height: 42px;
+	border-style: outset;
+	border-width: 5px;
+	border-top-color: #COMMENT;
+	border-left-color: #COMMENT;
+	border-right-color: #COMMENT;
+	border-bottom-color: #COMMENT;
+}
+
+div.header img {
+	position: relative;
+	top: 4px;
+	margin: 0px 6px 0px 6px;
 }

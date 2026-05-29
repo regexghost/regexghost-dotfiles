@@ -49,7 +49,7 @@ alias n='nano'
 alias ra='ranger'
 alias py='python3'
 alias nf='fastfetch'
-alias sq='ncdu --color dark' # Not sure why this is "sq" but I'm used to it now
+alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
 alias bat='batcat --theme=base16'
 alias mv='mv -i'
 alias cp='cp -r -i'
@@ -62,7 +62,6 @@ alias cheat='cheat -c'
 alias zbr='zig build run'
 alias bluey='bluetui'
 alias fontsreload='sudo fc-cache -fv'
-alias rss='newsraft'
 alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 
@@ -76,6 +75,12 @@ function nnn () {
 	export NNN_PLUG=v:preview-tui
 	tmux new-session -d -s mys "nnn -P v"
 	tmux attach
+}
+
+function rss () {
+	command cp "$XDG_DATA_HOME/newsraft/newsraft.sqlite3" "/tmp/newsraft.sqlite3"
+	newsraft -d "/tmp/newsraft.sqlite3"
+	command mv  "/tmp/newsraft.sqlite3" "$XDG_DATA_HOME/newsraft/newsraft.sqlite3"
 }
 
 # Aliases to Specific Commands
@@ -96,13 +101,15 @@ alias reload='. ~/.bashrc'
 
 # Git Aliases
 
-alias gitd='git diff'
-alias gitdc='git diff --word-diff-regex=.'
+alias gd='git diff'
+alias gdc='git diff --word-diff-regex=.'
 alias gits='git status'
+alias gs='git status .'
 alias gpl='git pull'
-alias gitl='git log'
+alias gl='git log'
 alias giturl='git config --get remote.origin.url'
 alias gp='git push'
+alias ga='git add'
 
 # Get password and push (GitHub)
 function gpp () {
