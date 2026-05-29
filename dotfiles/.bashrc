@@ -368,6 +368,8 @@ alias findh='find ~ -iname'
 alias fig='find . | sort | grep'
 alias psg='ps -aux | grep'
 
+alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-data/bookmarks.txt'
+
 # Load my other aliases and functions
 
 source "$HOME/.local/share/regexghost/terminal/autocompletion.bash"
