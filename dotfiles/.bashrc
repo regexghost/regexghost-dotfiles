@@ -103,18 +103,21 @@ alias reload='. ~/.bashrc'
 
 alias gd='git diff'
 alias gdc='git diff --word-diff-regex=.'
-alias gits='git status'
 alias gs='git status .'
+alias gsa='git status'
 alias gpl='git pull'
 alias gl='git log'
 alias glc='echo $(git rev-list --count HEAD) commits'
 alias giturl='git config --get remote.origin.url'
 alias gp='git push'
 alias ga='git add'
+alias gc='git commit'
+
+alias gitpass='keepassxc-cli show ~/Downloads/passwords.kdbx "GitHub" | grep Notes | cut -d " " -f 2 | xclip -selection clipboard'
 
 # Get password and push (GitHub)
 function gpp () {
-	keepassxc-cli show ~/Downloads/passwords.kdbx "GitHub" | grep Notes | cut -d " " -f 2 | xclip -selection clipboard
+	gitpass
 	git push -u origin
 	echo " " | xclip -selection clipboard
 }
@@ -403,6 +406,10 @@ alias bml='directory_bookmarks list'
 alias bmc='directory_bookmarks current'
 
 alias cdp='cd - > /dev/null'
+
+alias cdr='cd ..'
+alias cdrr='cd ../..'
+alias cdrrr='cd ../../..'
 
 export _FASD_NOCASE=1
 eval "$(fasd --init auto)"
