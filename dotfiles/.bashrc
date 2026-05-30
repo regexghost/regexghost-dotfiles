@@ -98,6 +98,7 @@ alias vol='pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -d "/" -f 2 | 
 alias clearlogs='sudo journalctl --vacuum-time=2d'
 alias q='trim_history && exit'
 alias reload='. ~/.bashrc'
+alias pong='ping -c 2 -W 2'
 
 # Git Aliases
 
@@ -136,6 +137,7 @@ alias as='echo "Use \as to run as command, disabled as too easy to type accident
 alias todo='$VISUAL ~/Documents/todo.md'
 alias durationr='media-file-duration . -r'
 alias durationi='media-file-duration . -i'
+alias kb='~/.local/share/regexghost/wm-scripts/keyboard-settings.sh'
 
 ## Functions to basic programs
 

@@ -7,3 +7,5 @@ normal:
 	cp dmenu-runner.sh ${PREFIX}/dmenu-runner.sh
 	cp dmenu-programs.sh ${PREFIX}/dmenu-programs.sh
 	cp bookmarks.sh ${PREFIX}/bookmarks.sh
+	cp keyboard-settings.sh ${PREFIX}/keyboard-settings.sh
+	cp jwm-xinit.sh ${PREFIX}/jwm-xinit.sh
