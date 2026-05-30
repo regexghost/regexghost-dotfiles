@@ -50,7 +50,7 @@
     </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="664">
+    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="614">
 
         <TrayButton label="JWM">root:1</TrayButton>
         <Spacer width="2"/>

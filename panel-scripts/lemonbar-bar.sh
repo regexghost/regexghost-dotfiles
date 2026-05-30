@@ -16,6 +16,8 @@ muted_colour="%{F#${RED}}"
 volume_colour="%{F#${GREEN}}"
 music_stopped_colour="%{F#${YELLOW}}"
 music_playing_colour="%{F#${GREEN}}"
+wifi_up_colour="%{F#${GREEN}}"
+wifi_down_colour="%{F#${RED}}"
 
 update_time () {
 	current_time="$(date +"%b, %a %d - %H:%M")"
@@ -34,6 +36,16 @@ update_vol () {
 		vol="${muted_colour} Muted${COLOUR_RESET}"
 	else
 		vol="${volume_colour} $(cat ~/.cache/volume)%%${COLOUR_RESET}"
+	fi
+}
+
+update_wifi () {
+	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | head -c 6)"
+	if [ "$con" = "" ]; then
+		wifi="${wifi_down_colour} N/A${COLOUR_RESET}"
+
+	else
+		wifi="${wifi_up_colour} ${con}${COLOUR_RESET}"
 	fi
 }
 
@@ -66,11 +78,11 @@ update_weather () {
 }
 
 update_music () {
-	song="$(mocp -i | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 18)"
+	song="$(mocp -i | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 16)"
 	if [ "$song" = "" ]; then
 		music="${music_stopped_colour} N/A${COLOUR_RESET}"
 	else
-		music="${music_playing_colour} ${song}..${COLOUR_RESET}"
+		music="${music_playing_colour} ${song}${COLOUR_RESET}"
 	fi
 }
 
@@ -85,7 +97,6 @@ update_music () {
 # 
 # 
 # 
-# 
 # 
 # 
 # 
@@ -97,12 +108,16 @@ update_music () {
 # 
 # 
 # 
+# 
+# 
+# 
 
 display () {
-	echo "%{r} ${music} | ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
+	echo "%{r} ${music} | ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${wifi} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
 }
 
 update_vol
+update_wifi
 update_time
 update_sunrise
 update_sunset
@@ -123,6 +138,7 @@ while true; do
 		update_cpu_temp
 		update_vol
 		[ $((i%3)) -eq 0 ] && update_time
+		[ $((i%3)) -eq 0 ] && update_wifi
 		[ $((i%3)) -eq 0 ] && update_music
 		[ $((i % 180)) -eq 0 ] && update_sunset
 		[ $((i % 300)) -eq 0 ] && update_sunrise

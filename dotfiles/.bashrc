@@ -415,8 +415,17 @@ alias cdr='cd ..'
 alias cdrr='cd ../..'
 alias cdrrr='cd ../../..'
 
+export _FASD_DATA="$XDG_CACHE_HOME/fasd"
 export _FASD_NOCASE=1
-eval "$(fasd --init auto)"
+fasd_cache="$XDG_CACHE_HOME/fasd-init-bash"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+	echo here
+	fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
+#eval "$(fasd --init auto)"
 
 function do_z () {
 	command="fasd_cd -d"
