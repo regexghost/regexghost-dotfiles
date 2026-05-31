@@ -1,9 +1,0 @@
-partial
-xkb_types "ctrl_alt_level2" {
-	type "CTRL_ALT_LEVEL2" {
-		modifiers= Control+Mod1;
-		map[Control+Mod1]= Level2;
-		level_name[Level1]= "Base";
-		level_name[Level2]= "Ctrl+Alt";
-	};
-};

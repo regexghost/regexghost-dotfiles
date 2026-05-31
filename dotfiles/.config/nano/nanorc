@@ -42,4 +42,4 @@ bind ^J speller main
 bind ^Z undo main
 bind ^Y redo main
 bind ^/ comment main
-
+bind ^A home main

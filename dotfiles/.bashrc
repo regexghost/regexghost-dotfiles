@@ -356,6 +356,8 @@ function archiveplaylist() {
 	fi
 }
 
+alias queue-vid='~/.config/newsraft/queue-vid.sh'
+
 # Search commands
 
 alias hs='history'
