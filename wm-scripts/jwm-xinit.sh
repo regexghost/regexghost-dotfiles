@@ -4,7 +4,7 @@
 (sleep 10 && ~/.local/share/regexghost/panel/lemonbar-runner.sh) &
 
 # Wallpaper
-(sleep 8 && feh --bg-fill --no-fehbg ~/.config/regexghost/background.jpg) &
+(sleep 8 && feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg) &
 
 # Compositor
 (sleep 6 && xcompmgr -n) &

@@ -41,7 +41,7 @@ update_vol () {
 }
 
 update_wifi () {
-	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | head -c 6)"
+	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | head -c 6 | sed 's/ $//g')"
 	if [ "$con" = "" ]; then
 		wifi="${wifi_down_colour} N/A${COLOUR_RESET}"
 
@@ -80,7 +80,7 @@ update_weather () {
 
 update_music () {
 	state="$(mocp -i)"
-	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 16)"
+	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | head -c 16 | sed 's/ $//g')"
 	pause="$(echo "$state" | grep -e "State" | cut -d " " -f 2)"
 	if [ "$song" = "" ]; then
 		music="${music_stopped_colour} N/A${COLOUR_RESET}"

@@ -99,6 +99,7 @@ alias clearlogs='sudo journalctl --vacuum-time=2d'
 alias q='trim_history && exit'
 alias reload='. ~/.bashrc'
 alias pong='ping -c 2 -W 2'
+alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 
 # Git Aliases
 
