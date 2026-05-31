@@ -14,8 +14,9 @@ memory_colour="%{F#${YELLOW}}"
 uptime_colour="%{F#${GREEN}}"
 muted_colour="%{F#${RED}}"
 volume_colour="%{F#${GREEN}}"
-music_stopped_colour="%{F#${YELLOW}}"
+music_stopped_colour="%{F#${RED}}"
 music_playing_colour="%{F#${GREEN}}"
+music_paused_colour="%{F#${YELLOW}}"
 wifi_up_colour="%{F#${GREEN}}"
 wifi_down_colour="%{F#${RED}}"
 
@@ -78,11 +79,15 @@ update_weather () {
 }
 
 update_music () {
-	song="$(mocp -i | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 16)"
+	state="$(mocp -i)"
+	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g' | head -c 16)"
+	pause="$(echo "$state" | grep -e "State" | cut -d " " -f 2)"
 	if [ "$song" = "" ]; then
 		music="${music_stopped_colour} N/A${COLOUR_RESET}"
-	else
+	elif [ "$pause" = "PLAY" ]; then
 		music="${music_playing_colour} ${song}${COLOUR_RESET}"
+	else
+		music="${music_paused_colour} ${song}${COLOUR_RESET}"
 	fi
 }
 
@@ -108,6 +113,7 @@ update_music () {
 # 
 # 
 # 
+# 
 # 
 # 
 # 
