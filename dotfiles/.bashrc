@@ -101,6 +101,15 @@ alias reload='. ~/.bashrc'
 alias pong='ping -c 2 -W 2'
 alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 
+# Bug todo
+
+alias bgl='bug ls'
+alias bglc='bug ls | wc -l'
+alias bgr='bug rm'
+alias bgv='bug view'
+alias bge='bug edit'
+alias bga='bug add'
+
 # Git Aliases
 
 alias gd='git diff'
@@ -318,6 +327,10 @@ do_yt-dlp () {
 				;;
 			--360p)
 				format_args=("-f" "bestvideo[height<=360][protocol=https][vcodec*=avc]+bestaudio[ext=m4a]")
+				shift
+				;;
+			--pi-qual)
+				format_args=("-f" "bestvideo[height<=480][vcodec*=vp9]+bestaudio[acodec*=opus]/bestvideo[height<=480]+bestaudio[ext=m4a]")
 				shift
 				;;
 			*)

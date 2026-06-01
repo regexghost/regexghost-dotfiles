@@ -3,6 +3,7 @@
 shutdown () {
 	read -p "Shutdown? (y/N) " yesOrNoShutdown
 	if [[ "$yesOrNoShutdown" == "y" ]]; then
+		mocp --stop
 		tmux send-keys -t buffer_tmux.0 C-s
 		tmux send-keys -t buffer_tmux.0 C-q
 		tmux kill-session -t buffer_tmux

@@ -19,14 +19,13 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk2rc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 
+# Other variables
 export BUG_PROJECT="$XDG_DATA_HOME/regexghost/todo-bug"
 
-#export _JAVA_OPTIONS=-"Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
-
-export EDITOR="nano"
+export EDITOR="vi"
 export VISUAL="nano"
 export PAGER="batcat --wrap auto --theme=base16 --paging always"
 export BROWSER="netsurf-gtk"
 export PATH=~/.local/bin:$PATH:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
-export TERMINAL="kitty"
+export TERMINAL="st"
 export IMAGE_VIEWER="sxiv"

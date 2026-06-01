@@ -1,5 +1,5 @@
 # Notifications
-dunst & disown
+dunst &
 
 # No screen timeout/auto sleep
 xset s off
