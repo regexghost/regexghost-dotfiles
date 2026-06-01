@@ -11,6 +11,8 @@ This repo is a work in progress, as well as standard dotfiles updates I also pla
 
 More information about specific WM/DE setups can be found below, both the dotfiles themselves and relevant articles on my website
 
+![JWM Pi 3B+ setup screenshot](screenshots/fastfetch.png)
+
 ## Window Managers/Desktop Environments
 
 * [JWM (Raspberry Pi)] - [Website](https://www.regexghost.com/linux/jwm)

@@ -21,7 +21,7 @@ wifi_up_colour="%{F#${GREEN}}"
 wifi_down_colour="%{F#${RED}}"
 
 update_time () {
-	current_time="$(date +"%b, %a %d - %H:%M")"
+	current_time="$(date +"%a %d %b - %H:%M")"
 }
 
 update_cpu () {
@@ -55,7 +55,7 @@ update_mem () {
 }
 
 update_cpu_temp () {
-	cpu_temp="${cpu_temp_colour} "$(vcgencmd measure_temp | cut -d "=" -f 2)"${COLOUR_RESET}"
+	cpu_temp="${cpu_temp_colour} "$(vcgencmd measure_temp | cut -d "=" -f 2 | cut -d "." -f 1)°C"${COLOUR_RESET}"
 }
 
 update_uptime () {

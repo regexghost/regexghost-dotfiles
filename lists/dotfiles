@@ -24,7 +24,7 @@
 ~/.profile
 ~/.bashrc
 ~/.xinitrc
-~/.vimrc
+~/.config/vim/vimrc
 ~/.config/dunst/dunstrc
 ~/.config/newsraft/config
 ~/.config/newsraft/queue-vid.sh
