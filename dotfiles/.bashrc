@@ -17,28 +17,6 @@ fi
 # Add my directory_bookmarks program to the prompt when relevant
 PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory_bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
-## Function to remove things which aren't useful from bash history
-trim_history () {
-	sed -i -r '/^(history|hs|qalc|vis|cava|nethogs|btop|htop|gitl|gitd|gits|x|rm|cd|c|exit|lsa|ls|l|q)$/d' ~/.bash_history
-	# Remove any usage of fasd z autojump command
-	sed -i '/^z .*/d' ~/.bash_history
-	sed -i '/^zz .*/d' ~/.bash_history
-	# Remove any usage of rm command
-	sed -i '/^rm .*/d' ~/.bash_history
-	sed -i '/^youtube .*/d' ~/.bash_history
-	sed -i '/^to .*/d' ~/.bash_history
-	
-	# Remove any usage of cd, ls and mpv when only going one folder deeper in file structure
-	sed -i -r '/^(cd|ls|mpv|mpv) [^\/\>\<|:&]*\/? ?$/d' ~/.bash_history
-	# Remove any usage of m, rs and pdf when not going into a different folder
-	sed -i -r '/^(m|rs|pdf) [^\/\>\<|:&]* ?$/d' ~/.bash_history
-	# Remove anything in all caps, as it will basically always be a mistype
-	sed -i '/^[A-Z0-9 ]*$/d' ~/.bash_history
-	# Remove all duplicates, keeping most recent
-	tac ~/.bash_history | awk '!x[$0]++' | tac > ~/.bash_history_no_dupes && command mv ~/.bash_history_no_dupes ~/.bash_history
-	#sed --in-place 's/[[:space:]]\+$//' .bash_history && awk -i inplace '!seen[$0]++' .bash_history
-}
-
 # Basic Aliases
 alias grep='grep -i --color=auto'
 alias greps='/usr/bin/grep --color=auto' # Case sensitive
@@ -96,7 +74,7 @@ alias rmedir='find . -type d -empty -delete'
 alias balance='aacgain -r -m 1 *.m4a'
 alias vol='pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -d "/" -f 2 | sed "s/ //g"'
 alias clearlogs='sudo journalctl --vacuum-time=2d'
-alias q='trim_history && exit'
+alias q='exit'
 alias reload='. ~/.bashrc'
 alias pong='ping -c 2 -W 2'
 alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
