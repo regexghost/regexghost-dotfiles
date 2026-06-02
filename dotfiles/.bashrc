@@ -50,13 +50,13 @@ alias ra='ranger'
 alias py='python3'
 alias nf='fastfetch'
 alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
-alias bat='batcat --theme=base16'
+alias bat='bat --theme=base16'
 alias mv='mv -i'
 alias cp='cp -r -i'
 alias cmatrix='cmatrix -u 6' # Cool fake hacker program
 alias duf='duf -hide special'
 alias gtop='sudo intel_gpu_top'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias rm='rm-trash'
 alias cheat='cheat -c'
 alias zbr='zig build run'
@@ -159,12 +159,12 @@ function qfi () {
 }
 
 alias m='micro -clipboard terminal'
-alias v='vim'
+alias v='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
 
 function batf () {
 	result=$(fasd -fi $@)
 	[ "$result" == "" ] && return
-	batcat --theme=base16 "$result"
+	bat --theme=base16 "$result"
 }
 
 function lsblk () {

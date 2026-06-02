@@ -18,13 +18,15 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk2rc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+export W3M_DIR="$XDG_STATE_HOME/w3m"
+export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_DATA_HOME/aspell/en.pws; repl $XDG_DATA_HOME/aspell/en.prepl"
 
 # Other variables
 export BUG_PROJECT="$XDG_DATA_HOME/regexghost/todo-bug"
 
 export EDITOR="vi"
 export VISUAL="nano"
-export PAGER="batcat --wrap auto --theme=base16 --paging always"
+export PAGER="bat --wrap word --theme=base16 --paging always"
 export BROWSER="netsurf-gtk"
 export PATH=~/.local/bin:$PATH:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
 export TERMINAL="st"

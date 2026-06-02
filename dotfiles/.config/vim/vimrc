@@ -24,4 +24,4 @@ hi SpellCap   cterm=underline
 hi SpellRare  cterm=underline
 hi SpellLocal cterm=underline
 
-colorscheme dim
+"colorscheme dim

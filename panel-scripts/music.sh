@@ -6,6 +6,8 @@ DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 MUSIC_DIR="$HOME/Music"
 FAVOURITES_DIR="$MUSIC_DIR/Favourites"
 
+mocp_command="mocp -M $XDG_CONFIG_HOME/moc"
+
 ping_panel () {
 	kill -35 "$(cat ~/.cache/bar_pid)"
 }
@@ -13,23 +15,23 @@ ping_panel () {
 # Technically these first 4 are unnecessary, could just bind directly to the command
 # but I like it all being in one file
 if [ "$1" = "--toggle-pause" ]; then
-	mocp --toggle-pause
+	$mocp_command --toggle-pause
 	ping_panel
 	exit
 elif [ "$1" = "--quit" ]; then
-	mocp --stop
+	$mocp_command --stop
 	ping_panel
 	exit
 elif [ "$1" = "--next" ]; then
-	mocp --next
+	$mocp_command --next
 	ping_panel
 	exit
 elif [ "$1" = "--previous" ]; then
-	mocp --previous
+	$mocp_command --previous
 	ping_panel
 	exit
 elif [ "$1" = "--favourite" ]; then
-	song="$(mocp -i | grep "File:" | sed 's/File: //g')"
+	song="$($mocp_command -i | grep "File:" | sed 's/File: //g')"
 	echo "$song" | grep -q "CurrentPlaylist/" && exit
 	favourite_path="$(echo "$song" | sed "s|$MUSIC_DIR/||g")"
 	favourite_dir="$(dirname "$favourite_path")"
@@ -38,7 +40,7 @@ elif [ "$1" = "--favourite" ]; then
 	notify-send "Added to favourites"
 	exit
 elif [ "$1" = "--get-song" ]; then
-	song="$(mocp -i 2> /dev/null | awk '/^Title:/ {S1 = ""; printf $0}')"
+	song="$($mocp_command -i 2> /dev/null | awk '/^Title:/ {S1 = ""; printf $0}')"
 	[ "$song" = "" ] && echo "None" && exit
 	echo "$song"
 	exit
@@ -46,13 +48,13 @@ fi
 
 # Start mocp if not running, and set mode to shuffle
 if ! pgrep mocp 2> /dev/null > /dev/null; then
-	mocp -S
-	mocp -t shuffle,repeat
+	$mocp_command -S -M "$XDG_CONFIG_HOME/moc"
+	$mocp_command -t shuffle,repeat
 fi
 
 # If mocp is currently playing music, just notify-send the song title
-if ! mocp -i | grep -q "State: STOP"; then
-	mocp_i="$(mocp -i)"
+if ! $mocp_command -i | grep -q "State: STOP"; then
+	mocp_i="$($mocp_command -i)"
 	song_name="$(echo "$mocp_i" | grep "^Title: " | sed 's/Title: //g')"
 	total="$(echo "$mocp_i" | awk '/^TotalSec/ {print $2}')"
 	current="$(echo "$mocp_i" | awk '/^CurrentSec/ {print $2}')"
@@ -80,7 +82,7 @@ if find "$playlist_path" -mindepth 1 -type d | grep -q ""; then
 	fi
 fi
 
-mocp --clear
-mocp --append "$playlist_path"
-mocp --play
+$mocp_command --clear
+$mocp_command --append "$playlist_path"
+$mocp_command --play
 ping_panel
