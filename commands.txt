@@ -1,0 +1,14 @@
+== Useful Commands/Coding Stuff ==
+
+= golang compile single core
+-gcflags="all=-c=1"
+
+= ueberzug command
+{"action": "add", "x":10, "y":20,"path":"/home/ghost/Pictures/example.png","identifier":"test"}
+
+= fio drive testing
+fio --name=usbseq --filename=test.test --size=1G --rw=readwrite --bs=1M --direct=1 --numjobs=1 --iodepth=16 --group_reporting --time_based --runtime=3600
+
+= disable ~/.sudo_as_admin_successful
+sudo visudo
+`Defaults !admin_flag`

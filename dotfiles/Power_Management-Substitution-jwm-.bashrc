@@ -3,10 +3,7 @@
 shutdown () {
 	read -p "Shutdown? (y/N) " yesOrNoShutdown
 	if [[ "$yesOrNoShutdown" == "y" ]]; then
-		mocp --stop
-		tmux send-keys -t buffer_tmux.0 C-s
-		tmux send-keys -t buffer_tmux.0 C-q
-		tmux kill-session -t buffer_tmux
+		mocp -M "$XDG_CONFIG_HOME/moc" --stop
 		/usr/sbin/shutdown -h 0
 	fi
 }
@@ -15,9 +12,7 @@ shutdown () {
 reboot () {
 	read -p "Reboot? (y/N) " yesOrNoReboot
 	if [[ "$yesOrNoReboot" == "y" ]]; then
-		tmux send-keys -t buffer_tmux.0 C-s
-		tmux send-keys -t buffer_tmux.0 C-q
-		tmux kill-session -t buffer_tmux
+		mocp -M "$XDG_CONFIG_HOME/moc" --stop
 		/usr/sbin/reboot
 	fi
 }

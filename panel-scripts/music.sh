@@ -9,7 +9,10 @@ FAVOURITES_DIR="$MUSIC_DIR/Favourites"
 mocp_command="mocp -M $XDG_CONFIG_HOME/moc"
 
 ping_panel () {
-	kill -35 "$(cat ~/.cache/bar_pid)"
+	barpid="$(cat ~/.cache/bar_pid)"
+	if ! [ "$barpid" == "" ]; then
+		kill -35 "$barpid"
+	fi
 }
 
 # Technically these first 4 are unnecessary, could just bind directly to the command

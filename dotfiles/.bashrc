@@ -6,13 +6,15 @@ PROMPT_COMMAND=
 [[ $- != *i* ]] && return
 
 # Load bash completion
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-  fi
-fi
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#	. /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#	. /etc/bash_completion
+#  fi
+#fi
+
+source /usr/share/bash-completion/completions/git
 
 # Add my directory_bookmarks program to the prompt when relevant
 PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory_bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
@@ -42,6 +44,7 @@ alias bluey='bluetui'
 alias fontsreload='sudo fc-cache -fv'
 alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
+alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-passfile'
 
 # Not POSIX compliant
 function grepc () {

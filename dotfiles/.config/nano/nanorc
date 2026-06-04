@@ -25,7 +25,8 @@ set numbercolor lightblack
 
 bind ^H chopwordleft main
 bind ^Q exit all
-bind ^I suspend main
+bind ^W exit all
+bind ^L suspend main
 bind ^S savefile main
 bind ^F whereis all
 bind ^G findnext all
