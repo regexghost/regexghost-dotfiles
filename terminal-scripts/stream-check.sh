@@ -23,7 +23,7 @@ if ! [ "$youtube_at" = "NONE" ]; then
 	fi
 fi
 if ! [ "$kick_at" = "NONE" ]; then
-	curl -s --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" > /tmp/live_kick.html 
+	wget -q --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" -O /tmp/live_kick.html 
 	if grep -q "is_live\":true" /tmp/live_kick.html; then
 		echo "${name} is live on Kick: https://www.kick.com/${kick_at}"
 	fi
