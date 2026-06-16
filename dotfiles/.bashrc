@@ -107,15 +107,8 @@ alias gc='git commit'
 
 alias gitpass='keepassxc-cli show ~/Downloads/passwords.kdbx "GitHub" | grep Notes | cut -d " " -f 2 | xclip -selection clipboard'
 
-# Get password and push (GitHub)
-function gpp () {
-	gitpass
-	git push -u origin
-	echo " " | xclip -selection clipboard
-}
-
 function gpa () {
-	gpp
+	git push -u origin
 	git push -u codeberg
 	git push -u mine
 }

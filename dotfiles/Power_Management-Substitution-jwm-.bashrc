@@ -4,6 +4,8 @@ shutdown () {
 	read -p "Shutdown? (y/N) " yesOrNoShutdown
 	if [[ "$yesOrNoShutdown" == "y" ]]; then
 		mocp -M "$XDG_CONFIG_HOME/moc" --stop
+		rm -rf "$XDG_CACHE_HOME/reddit-rss"
+		cp /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
 		/usr/sbin/shutdown -h 0
 	fi
 }
