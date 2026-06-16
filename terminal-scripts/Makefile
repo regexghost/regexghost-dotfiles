@@ -22,3 +22,4 @@ normal:
 	cp am-extract.sh ${BIN}/am-extract
 	cp yt-data.sh ${BIN}/yt-data
 	cp tag-music.py ${TERMINAL}/tag-music.py
+	cp stream-check.sh ${BIN}/stream-check
