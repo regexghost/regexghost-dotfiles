@@ -45,6 +45,7 @@ alias fontsreload='sudo fc-cache -fv'
 alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-passfile'
+alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 
 # Not POSIX compliant
 function grepc () {
