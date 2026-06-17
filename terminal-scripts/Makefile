@@ -23,3 +23,5 @@ normal:
 	cp yt-data.sh ${BIN}/yt-data
 	cp tag-music.py ${TERMINAL}/tag-music.py
 	cp stream-check.sh ${BIN}/stream-check
+	cp opus-soundtrack.sh ${BIN}/opus-soundtrack
+	cp opus-single.sh ${BIN}/opus-single

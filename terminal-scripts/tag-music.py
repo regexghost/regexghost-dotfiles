@@ -30,9 +30,10 @@ file["artist"] = artist
 file["album"] = album
 file["genre"] = genre
 
-r = requests.get(albumArt)
-with open(art_file, "wb")as out:
-	out.write(r.content)
+if not albumArt == "file.jpg":
+	r = requests.get(albumArt)
+	with open(art_file, "wb")as out:
+		out.write(r.content)
 
 with open(art_file, "rb") as img:
 	file["artwork"] = img.read()
