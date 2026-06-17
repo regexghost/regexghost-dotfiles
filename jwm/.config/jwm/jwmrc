@@ -48,6 +48,10 @@
     	<Option>nopager</Option>
     	<Option>nolist</Option>
     </Group>
+    <Group>
+    	<Class>scratchpad</Class>
+    	<Option>nolist</Option>
+    </Group>
 
     <!-- Tray at the bottom. -->
     <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="550">
