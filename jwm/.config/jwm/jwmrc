@@ -50,7 +50,7 @@
     </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="614">
+    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="550">
 
         <TrayButton label="JWM">root:1</TrayButton>
         <Spacer width="2"/>
@@ -177,6 +177,7 @@
     <Key mask="4" key="q">exec:~/.local/share/regexghost/wm-scripts/bookmarks.sh</Key>
     <Key mask="4" key="f">exec:~/.local/share/regexghost/wm-scripts/dmenu-programs.sh</Key>
     <Key mask="4" key="s">exec:st -t Soundboard -e soundboard</Key>
+    <Key mask="4S" key="c">exec:dunstctl close-all</Key>
 
     <!-- Mouse bindings -->
     <!-- <Mouse context="root" button="4">ldesktop</Mouse> -->

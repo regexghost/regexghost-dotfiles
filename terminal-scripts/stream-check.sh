@@ -2,6 +2,9 @@
 
 CONFIG_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
 
+format="pretty"
+[ "$1" = "-yn" ] && format="yn" && shift
+
 line="$(grep "^${1}," "$CONFIG_FILE")"
 [ "$line" = "" ] && exit
 
@@ -11,20 +14,40 @@ youtube_at="$(echo "$line" | cut -d "," -f 3)"
 kick_at="$(echo "$line" | cut -d "," -f 4)"
 
 if ! [ "$twitch_at" = "NONE" ]; then
-	curl -s "https://www.twitch.tv/${twitch_at}" > /tmp/live_twitch.html
+	curl --connect-timeout 5 -s "https://www.twitch.tv/${twitch_at}" > /tmp/live_twitch.html
 	if grep -q "live_user" /tmp/live_twitch.html; then
-		echo "${name} is live on Twitch: https://www.twitch.tv/${twitch_at}"
+		if [ "$format" = "pretty" ]; then
+			echo "${name} is live on Twitch: https://www.twitch.tv/${twitch_at}"
+		elif [ "$format" = "yn" ]; then
+			echo "y"
+			exit
+		fi
 	fi
 fi
 if ! [ "$youtube_at" = "NONE" ]; then
-	curl -s "https://www.youtube.com/${youtube_at}/live" > /tmp/live_youtube.html 
+	curl --connect-timeout 5 -s "https://www.youtube.com/${youtube_at}/live" > /tmp/live_youtube.html 
 	if grep -q "isLive\":true" /tmp/live_youtube.html; then
-		echo "${name} is live on YouTube: https://www.youtube.com/${youtube_at}/live"
+		if [ "$format" = "pretty" ]; then
+			echo "${name} is live on YouTube: https://www.youtube.com/${youtube_at}/live"
+		elif [ "$format" = "yn" ]; then
+			echo "y"
+			exit
+		fi
 	fi
 fi
 if ! [ "$kick_at" = "NONE" ]; then
-	wget -q --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" -O /tmp/live_kick.html 
+	wget --timeout=5 -q --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" -O /tmp/live_kick.html 
 	if grep -q "is_live\":true" /tmp/live_kick.html; then
-		echo "${name} is live on Kick: https://www.kick.com/${kick_at}"
+		if [ "$format" = "pretty" ]; then
+			echo "${name} is live on Kick: https://www.kick.com/${kick_at}"
+		elif [ "$format" = "yn" ]; then
+			echo "y"
+			exit
+		fi
 	fi
+fi
+
+if [ "$format" = "yn" ]; then
+	echo "n"
+	exit
 fi

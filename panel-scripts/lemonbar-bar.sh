@@ -19,6 +19,9 @@ music_playing_colour="%{F#${GREEN}}"
 music_paused_colour="%{F#${YELLOW}}"
 wifi_up_colour="%{F#${GREEN}}"
 wifi_down_colour="%{F#${RED}}"
+stream_live_colour="%{F#${GREEN}}"
+stream_not_live_colour="%{F#${YELLOW}}"
+stream_error_colour="%{F#${RED}}"
 
 update_time () {
 	current_time="$(date +"%a %d %b - %H:%M")"
@@ -78,6 +81,24 @@ update_weather () {
 	weather="0${weather_today} 1${weather_tomorrow} 2${weather_2_days}"
 }
 
+# This is done by index so I can change the streams checked by just altering the order in the config file
+stream_live () {
+	streamer_name="$(sed -n "${1}p" "$XDG_CONFIG_HOME/regexghost/streams.csv" | cut -d "," -f 1)"
+	first_char="$(echo "$streamer_name" | head -c 1)"
+	live="$(stream-check -yn "$streamer_name")"
+	if [ "$live" = "y" ]; then
+		echo "${first_char} ${stream_live_colour} ${COLOUR_RESET}"
+	elif [ "$live" = "n" ]; then
+		echo "${first_char} ${stream_not_live_colour} ${COLOUR_RESET}"
+	else
+		echo "${first_char} ${stream_error_colour} ${COLOUR_RESET}"
+	fi
+}
+
+update_streams () {
+	stream="$(stream_live 1) $(stream_live 2)"
+}
+
 update_music () {
 	state="$(mocp -M "$XDG_CONFIG_HOME/moc" -i)"
 	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | head -c 16 | sed 's/ $//g')"
@@ -117,9 +138,9 @@ update_music () {
 # 
 # 
 # 
-
+# 
 display () {
-	echo "%{r} ${music} | ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${wifi} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
+	echo "%{r} ${music} | ${stream}| ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${wifi} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
 }
 
 update_vol
@@ -128,6 +149,7 @@ update_time
 update_sunrise
 update_sunset
 update_weather
+update_streams
 update_music
 
 i=1
@@ -148,6 +170,7 @@ while true; do
 		[ $((i%3)) -eq 0 ] && update_music
 		[ $((i % 180)) -eq 0 ] && update_sunset
 		[ $((i % 300)) -eq 0 ] && update_sunrise
+		[ $((i % 600)) -eq 0 ] && update_streams
 		[ $((i % 360)) -eq 0 ] && update_weather
 		i=$((i+1))
 		[ $i -gt 900 ] && i=0
