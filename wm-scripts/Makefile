@@ -9,3 +9,4 @@ normal:
 	cp bookmarks.sh ${PREFIX}/bookmarks.sh
 	cp keyboard-settings.sh ${PREFIX}/keyboard-settings.sh
 	cp jwm-xinit.sh ${PREFIX}/jwm-xinit.sh
+	cp jwm-scratchpad.sh ${PREFIX}/jwm-scratchpad.sh
