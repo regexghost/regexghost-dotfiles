@@ -27,3 +27,5 @@ normal:
 	cp opus-soundtrack.sh ${BIN}/opus-soundtrack
 	cp opus-single.sh ${BIN}/opus-single
 	cp webm_to_m4a.sh ${BIN}/webm_to_m4a
+	gcc string-trunc.c -o string-trunc
+	mv string-trunc ${BIN}/string-trunc

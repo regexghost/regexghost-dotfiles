@@ -101,7 +101,7 @@ update_streams () {
 
 update_music () {
 	state="$(mocp -M "$XDG_CONFIG_HOME/moc" -i)"
-	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | head -c 16 | sed 's/ $//g')"
+	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | string-trunc 16 ".." | sed 's/ $//g')"
 	pause="$(echo "$state" | grep -e "State" | cut -d " " -f 2)"
 	if [ "$song" = "" ]; then
 		music="${music_stopped_colour} N/A${COLOUR_RESET}"

@@ -1,4 +1,4 @@
-# regexghost's .bashrc file
+# regexghost's .kshrc file
 # Hopefully in a coherent order
 
 PROMPT_COMMAND=
@@ -79,7 +79,7 @@ alias balance='aacgain -r -m 1 *.m4a'
 alias vol='pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -d "/" -f 2 | sed "s/ //g"'
 alias clearlogs='sudo journalctl --vacuum-time=2d'
 alias q='exit'
-alias reload='. ~/.bashrc'
+alias reload='. ~/.kshrc'
 alias pong='ping -c 2 -W 2'
 alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 
@@ -171,10 +171,10 @@ trash-empty() {
 }
 
 # Only use this if the history in the current terminal is suddenly way shorter than it should be
-restorebashhistory () {
+restorehistory () {
 	history | sed 's/^[ ]*[0-9]*[ ]*//g' > /tmp/new_history
-	cat "$HOME/Downloads/.bash_history_backup" /tmp/new_history > /tmp/all_history
-	mv /tmp/all_history "$HOME/.bash_history"
+	cat "$HOME/Downloads/.history_backup" /tmp/new_history > /tmp/all_history
+	mv /tmp/all_history "$HOME/.history"
 }
 
 cal () {
@@ -292,7 +292,7 @@ alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-d
 
 export HISTSIZE=80000
 export HISTFILESIZE=80000
-export HISTFILE="$HOME/.bash_history"
+export HISTFILE="$HOME/.history"
 
 export HISTCONTROL=ignoreboth:erasedups
 export MICRO_TRUECOLOR=1

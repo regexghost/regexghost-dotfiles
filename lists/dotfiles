@@ -20,9 +20,7 @@
 ~/.config/boomer/config
 ~/.config/alacritty/alacritty.toml
 ~/.inputrc
-~/.bash_profile
 ~/.profile
-~/.bashrc
 ~/.kshrc
 ~/.xinitrc
 ~/.config/vim/vimrc
