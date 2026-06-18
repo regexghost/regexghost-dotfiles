@@ -13,8 +13,8 @@ while read -r podcast_file; do
 		echo "Error"
 		exit
 	fi
-	
-	filename="$(mediainfo /tmp/out.mp3  | grep -e "Track name" -e "Album" | sed 's/Track name/Trackname/g' | tr -s " " | cut -d " " -f 3- | tr  "\n" "+" | sed 's/[+]/ - /g' | sed 's/ - //g').mp3"
+
+	filename="$(mediainfo /tmp/out.mp3  | grep -e "Track name" -e "Album" | sed 's/Track name/Trackname/g' | tr -s " " | cut -d " " -f 3- | tr  "\n" "+" | sed 's/[+]/ - /g' | sed 's/ - $//g').mp3"
 	mv /tmp/out.mp3 "${LOC}/${filename}"
 	grep -v "$podcast_file" /tmp/toDownload.txt > /tmp/toDownload.txt.tmp
 	mv /tmp/toDownload.txt.tmp /tmp/toDownload.txt

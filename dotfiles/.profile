@@ -31,3 +31,4 @@ export BROWSER="netsurf-gtk"
 export PATH=~/.local/bin:$PATH:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
 export TERMINAL="st"
 export IMAGE_VIEWER="sxiv"
+export ENV="$HOME/.kshrc"

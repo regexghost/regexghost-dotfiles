@@ -23,6 +23,7 @@
 ~/.bash_profile
 ~/.profile
 ~/.bashrc
+~/.kshrc
 ~/.xinitrc
 ~/.config/vim/vimrc
 ~/.config/dunst/dunstrc
