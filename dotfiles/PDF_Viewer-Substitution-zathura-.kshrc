@@ -2,7 +2,7 @@
 # Open pdf files in Zathura
 pdf () {
 	for arg; do
-		zathura "$arg" & disown
+		setsid zathura "$arg" &
 	done
 }
 #### End Substitute

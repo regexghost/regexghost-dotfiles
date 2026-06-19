@@ -1,12 +1,12 @@
 #### Start Substitute - Image_Viewer
-# Open images in gwenview
+# Open images in sxiv
 # The alias is called "rs" as I originally used Xfce with Ristretto
 rs () {
 	toOpen=$@
 	if [[ "$toOpen" == "" ]]; then
-		gwenview . & disown
+		setsid sxiv . &
 	else
-		gwenview "$@" & disown
+		setsid sxiv "$@" &
 	fi
 }
 #### End Substitute
