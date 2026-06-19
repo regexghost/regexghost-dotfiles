@@ -1,7 +1,7 @@
 #### Start Substitute - Power_Management
 ## Shutdown with confirmation
 shutdown () {
-	read -p "Shutdown? (y/N) " yesOrNoShutdown
+	read yesOrNoShutdown"?Shutdown? (y/N) "
 	if [[ "$yesOrNoShutdown" == "y" ]]; then
 		mocp -M "$XDG_CONFIG_HOME/moc" --stop
 		rm -rf "$XDG_CACHE_HOME/reddit-rss"
@@ -12,7 +12,7 @@ shutdown () {
 
 ## Reboot with confirmation
 reboot () {
-	read -p "Reboot? (y/N) " yesOrNoReboot
+	read yesOrNoReboot"?Reboot? (y/N) "
 	if [[ "$yesOrNoReboot" == "y" ]]; then
 		mocp -M "$XDG_CONFIG_HOME/moc" --stop
 		/usr/sbin/reboot
@@ -21,31 +21,31 @@ reboot () {
 
 ## Hibernate to disk with confirmation
 hibernate () {
-	read -p "Hibernate? (y/N) " yesOrNoHibernate
-	[[ "$yesOrNoHibernate" == "y" ]] && qdbus6 org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Hibernate
+	read yesOrNoHibernate"?Hibernate? (y/N) "
+	[[ "$yesOrNoHibernate" == "y" ]] && systemctl hibernate
 }
 
 ## Hybrid-Sleep with confirmation, i.e. sleep to RAM and disk in case battery dies
 hybrid-sleep () {
-	read -p "Hybrid-Sleep? (y/N) " yesOrNoHybridSleep
+	read yesOrNoHybridSleep"?Hybrid-Sleep? (y/N) "
 	[[ "$yesOrNoHybridSleep" == "y" ]] && systemctl hybrid-sleep
 }
 
 ## Sleep with confirmation (i.e. RAM only)
 qsleep () {
-	read -p "Sleep? (y/N) " yesOrNoQSleep
-	[[ "$yesOrNoQSleep" == "y" ]] && qdbus6 org.kde.Solid.PowerManagement /org/freedesktop/PowerManagement Suspend
+	read yesOrNoQSleep"?Sleep? (y/N) "
+	[[ "$yesOrNoQSleep" == "y" ]] && systemctl suspend
 }
 
 ## Log Out with confirmation
 log-out () {
-	read -p "Log Out? (y/N) " yesOrNoLogOut
-	[[ "$yesOrNoLogOut" == "y" ]] && qdbus6 org.kde.LogoutPrompt /LogoutPrompt org.kde.LogoutPrompt.promptLogout
+	read yesOrNoLogOut"?Log Out? (y/N) "
+	[[ "$yesOrNoLogOut" == "y" ]] && jwm -exit
 }
 
 ## Lock screen with confirmation
 lock () {
-	read -p "Lock Screen? (y/N) " yesOrNoLock
-	[[ "$yesOrNoLock" == "y" ]] && qdbus6 org.kde.screensaver /ScreenSaver Lock
+	read yesOrNoLock"?Lock Screen? (y/N) "
+	[[ "$yesOrNoLock" == "y" ]] && slock
 }
 #### End Substitute

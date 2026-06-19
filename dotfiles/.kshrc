@@ -95,7 +95,8 @@ alias bga='bug add'
 # Git Aliases
 
 alias gd='git diff'
-alias gdc='git diff --word-diff-regex=.'
+alias gdc='git diff --cached'
+alias gdw='git diff --word-diff-regex=.'
 alias gs='git status .'
 alias gsa='git status'
 alias gpl='git pull'
@@ -294,9 +295,11 @@ export HISTSIZE=80000
 export HISTFILESIZE=80000
 export HISTFILE="$HOME/.history"
 
-export HISTCONTROL=ignoreboth:erasedups
+export HISTCONTROL=ignoredups:erasedups
 export MICRO_TRUECOLOR=1
 export PASSWORD_STORE_CLIP_TIME=120
+
+#set +o emacs
 
 # Quick file/directory access
 

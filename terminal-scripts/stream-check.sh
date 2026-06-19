@@ -36,7 +36,7 @@ if ! [ "$youtube_at" = "NONE" ]; then
 	fi
 fi
 if ! [ "$kick_at" = "NONE" ]; then
-	wget --timeout=5 -q --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" -O /tmp/live_kick.html 
+	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" --timeout=5 -q --user-agent "NetSurf" "https://kick.com/api/v1/channels/${kick_at}" -O /tmp/live_kick.html
 	if grep -q "is_live\":true" /tmp/live_kick.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is live on Kick: https://www.kick.com/${kick_at}"
