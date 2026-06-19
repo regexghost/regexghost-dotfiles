@@ -1,11 +1,18 @@
 #### Start Substitute - Power_Management
 ## Shutdown with confirmation
+shutdown_commands () {
+	mocp -M "$XDG_CONFIG_HOME/moc" --stop
+	rm -rf "$XDG_CACHE_HOME/reddit-rss"
+	cp /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
+	tmux send-keys -t buffer_tmux.o C-s
+	tmux send-keys -t buffer_tmux.o C-q
+	tmux kill-session -t buffer_tmux
+}
+
 shutdown () {
 	read yesOrNoShutdown"?Shutdown? (y/N) "
 	if [[ "$yesOrNoShutdown" == "y" ]]; then
-		mocp -M "$XDG_CONFIG_HOME/moc" --stop
-		rm -rf "$XDG_CACHE_HOME/reddit-rss"
-		cp /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
+		shutdown_commands
 		/usr/sbin/shutdown -h 0
 	fi
 }
@@ -14,7 +21,7 @@ shutdown () {
 reboot () {
 	read yesOrNoReboot"?Reboot? (y/N) "
 	if [[ "$yesOrNoReboot" == "y" ]]; then
-		mocp -M "$XDG_CONFIG_HOME/moc" --stop
+		shutdown_commands
 		/usr/sbin/reboot
 	fi
 }

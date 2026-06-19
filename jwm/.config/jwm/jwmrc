@@ -2,7 +2,7 @@
 <JWM>
 
     <!-- The root menu. -->
-    <RootMenu onroot="12">
+    <RootMenu onroot="3">
         <Program icon="utilities-terminal" label="Terminal">st</Program>
         <Menu icon="folder" label="Applications">
             <Program icon="sound" label="Audacious">audacious</Program>
