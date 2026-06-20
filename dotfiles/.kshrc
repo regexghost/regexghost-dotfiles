@@ -240,8 +240,8 @@ t () {
 
 #### Start Substitute - Power_Management
 
-## Alias to allow escaping with backslash
-alias yt-dlp='do_yt-dlp'
+## Wrapper script
+alias yt-dlp='ytdl-wrapper'
 
 yt-playlist () {
 	quality_option="--720p"
@@ -249,7 +249,7 @@ yt-playlist () {
 		quality_option="--1080p"
 		shift
 	fi
-	do_yt-dlp --playlist-order --all-metadata --firefox-cookies --aria --archive "$quality_option" "$@"
+	ytdl-wrapper --playlist-order --all-metadata --firefox-cookies --aria --archive "$quality_option" "$@"
 }
 
 archivevideo() {
