@@ -5,6 +5,8 @@ queueFile="${LOC}/toDownload.txt"
 
 cp "$queueFile" /tmp/toDownload.txt
 
+[ $(cat "$queueFile" | wc -l) = "0" ] && echo "No podcasts queued" && exit
+
 while read -r podcast_file; do
 	echo "$podcast_file"
 	curl -L "$podcast_file" > /tmp/out.mp3
