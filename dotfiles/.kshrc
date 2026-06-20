@@ -268,8 +268,8 @@ alias queue-vid='~/.config/newsraft/queue-vid.sh'
 
 # Search commands
 
-alias hs='history'
-alias his='history | grep'
+alias hs='nl ~/.history'
+alias his='nl ~/.history | grep'
 
 ## Search root directory
 findr () {

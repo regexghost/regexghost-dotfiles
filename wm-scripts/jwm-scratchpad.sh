@@ -1,6 +1,7 @@
 #!/bin/sh
 
 scratchpad="$(xdotool search --class "scratchpad")"
+old_focus="$(cat ~/.cache/old_window)"
 
 launch_window () {
 	tmux new-session -d -s "buffer_tmux" 'nano ~/Downloads/buffer.md; bash'
@@ -13,10 +14,12 @@ launch_window () {
 hide_window () {
 	xdotool windowmove "$scratchpad" -1000 -1000
 #	xdotool set_desktop_for_window "$scratchpad" 5
-	xdotool windowminimize "$scratchpad"
+	xdotool windowactivate "$old_focus"
+#	xdotool windowminimize "$scratchpad"
 }
 
 show_window () {
+	xdotool getactivewindow > ~/.cache/old_window
 	desktop="$(xdotool get_desktop)"
 	xdotool set_desktop_for_window "$scratchpad" "$desktop"
 	xdotool windowmove "$scratchpad" 610 300
