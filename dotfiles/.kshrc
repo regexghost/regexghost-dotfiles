@@ -20,9 +20,9 @@ PROMPT_COMMAND=
 PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory_bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
 # Basic Aliases
-alias grep='grep -i --color=auto'
-alias greps='/usr/bin/grep --color=auto' # Case sensitive
-alias grepa='grep -i -I -A 5 -B 5 --color=auto'
+alias grep='grep -i'
+alias greps='/usr/bin/grep' # Case sensitive
+alias grepa='grep -i -I -A 5 -B 5'
 alias diff='diff --color'
 alias hs='history'
 alias n='nano'
