@@ -10,14 +10,17 @@ lat=$(cat "$curLocationFile" | cut -d "|" -f 1)
 lon=$(cat "$curLocationFile" | cut -d "|" -f 2)
 geohash=$(geohash $lat $lon 9)
 today_string="$(date "+%Y-%m-%d")"
-tomorrow_string="$(date -d tomorrow "+%Y-%m-%d")"
-second_day_string="$(date -d "+2 days" "+%Y-%m-%d")"
+tomorrow_string="$(date -d $(($(date +%s)+86400)) "+%Y-%m-%d")"
+second_day_string="$(date -d $(($(date +%s)+86400+86400)) "+%Y-%m-%d")"
 
 curl --connect-timeout 5 -s -L "https://weather.metoffice.gov.uk/forecast/$geohash" > "/tmp/panel_i3_data/metoffice.html"
-icon_name_today=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$today_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
-icon_name_tomorrow=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$tomorrow_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
-icon_name_second_day=$(cat "/tmp/panel_i3_data/metoffice.html" | grep -A 5 -B 5 -i "datetime=\"$second_day_string\"" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
+# awk instead of grep -A/-B - https://superuser.com/questions/298123/how-to-grep-and-print-the-next-n-lines-after-the-hit/298127#298127
+icon_name_today=$(awk -v var="$today_string" '$0 ~ "datetime=\"" var "\"" {p = 5} p > 0 {print $0; p--}' "/tmp/panel_i3_data/metoffice.html" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
+icon_name_tomorrow=$(awk -v var="$today_string" '$0 ~ "datetime=\"" var "\"" {p = 5} p > 0 {print $0; p--}' "/tmp/panel_i3_data/metoffice.html" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
+icon_name_second_day=$(awk -v var="$today_string" '$0 ~ "datetime=\"" var "\"" {p = 5} p > 0 {print $0; p--}' "/tmp/panel_i3_data/metoffice.html" | grep "class=\"tab-icon\"" | sed 's/;" class.*//g' | sed 's/.*alt="//g')
 
 echo "$icon_name_today"
 echo "$icon_name_tomorrow"
 echo "$icon_name_second_day"
+
+

@@ -44,7 +44,7 @@ update_vol () {
 }
 
 update_wifi () {
-	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | head -c 6 | sed 's/ $//g')"
+	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | string-trunc 6 ".." | sed 's/ $//g')"
 	if [ "$con" = "" ]; then
 		wifi="${wifi_down_colour} N/A${COLOUR_RESET}"
 
@@ -84,7 +84,7 @@ update_weather () {
 # This is done by index so I can change the streams checked by just altering the order in the config file
 stream_live () {
 	streamer_name="$(sed -n "${1}p" "$XDG_CONFIG_HOME/regexghost/streams.csv" | cut -d "," -f 1)"
-	first_char="$(echo "$streamer_name" | head -c 1)"
+	first_char="$(echo "$streamer_name" | cut -c 1-1)"
 	live="$(stream-check -yn "$streamer_name")"
 	if [ "$live" = "y" ]; then
 		echo "${first_char} ${stream_live_colour} ${COLOUR_RESET}"
@@ -101,7 +101,7 @@ update_streams () {
 
 update_music () {
 	state="$(mocp -M "$XDG_CONFIG_HOME/moc" -i)"
-	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac  | paste -sd "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | string-trunc 16 ".." | sed 's/ $//g')"
+	song="$(echo "$state" | grep -e "SongTitle" -e "Artist" | tac | tr "\n" "-" | sed 's/-Artist: / - /g' | sed 's/^SongTitle: //g; s/"//g' | string-trunc 16 ".." | sed 's/ $//g')"
 	pause="$(echo "$state" | grep -e "State" | cut -d " " -f 2)"
 	if [ "$song" = "" ]; then
 		music="${music_stopped_colour} N/A${COLOUR_RESET}"
