@@ -2,7 +2,7 @@
 ## Shutdown with confirmation
 shutdown_commands () {
 	mocp -M "$XDG_CONFIG_HOME/moc" --stop
-	rm -rf "$XDG_CACHE_HOME/reddit-rss"
+	/usr/bin/rm -rf "$XDG_CACHE_HOME/reddit-rss"
 	cp -r /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
 	tmux send-keys -t buffer_tmux.o C-s
 	tmux send-keys -t buffer_tmux.o C-q

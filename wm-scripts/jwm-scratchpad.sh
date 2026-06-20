@@ -13,8 +13,8 @@ launch_window () {
 
 hide_window () {
 	xdotool windowmove "$scratchpad" -1000 -1000
-#	xdotool set_desktop_for_window "$scratchpad" 5
 	xdotool windowactivate "$old_focus"
+#	xdotool set_desktop_for_window "$scratchpad" 5
 #	xdotool windowminimize "$scratchpad"
 }
 
@@ -22,8 +22,8 @@ show_window () {
 	xdotool getactivewindow > ~/.cache/old_window
 	desktop="$(xdotool get_desktop)"
 	xdotool set_desktop_for_window "$scratchpad" "$desktop"
-	xdotool windowmove "$scratchpad" 610 300
 	xdotool windowactivate "$scratchpad"
+	xdotool windowmove "$scratchpad" 610 300
 }
 
 if [ "$scratchpad" = "" ]; then

@@ -68,7 +68,7 @@ rss () {
 # Aliases to Specific Commands
 
 alias x='chmod +x'
-alias copy='xclip -selection c'
+alias copy='tr -d "\n" | xclip -selection c'
 alias batl='find . -maxdepth 1 | sort | tail -n 1 | xargs bat --theme=base16'
 alias watchlc="watch 'ls | wc -l'"
 alias watchdu="watch 'du -s -h *'"
@@ -82,6 +82,7 @@ alias q='exit'
 alias reload='. ~/.kshrc'
 alias pong='ping -c 2 -W 2'
 alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
+alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 
 # Bug todo
 
