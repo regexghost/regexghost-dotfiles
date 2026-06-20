@@ -54,14 +54,14 @@
     </Group>
 
     <!-- Tray at the bottom. -->
-    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="550">
+    <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="494">
 
         <TrayButton label="JWM">root:1</TrayButton>
         <Spacer width="2"/>
 
         <Pager labeled="true"/>
 
-        <TaskList maxwidth="80"/>
+        <TaskList maxwidth="60"/>
     </Tray>
 
     <!-- Visual Styles -->

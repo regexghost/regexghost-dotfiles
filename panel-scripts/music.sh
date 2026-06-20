@@ -10,7 +10,7 @@ mocp_command="mocp -M $XDG_CONFIG_HOME/moc"
 
 ping_panel () {
 	barpid="$(cat ~/.cache/bar_pid)"
-	if ! [ "$barpid" == "" ]; then
+	if ! [ "$barpid" = "" ]; then
 		kill -35 "$barpid"
 	fi
 }
@@ -76,7 +76,7 @@ else
 fi
 
 # Check for sub playlists
-if find "$playlist_path" -mindepth 1 -type d | grep -q ""; then
+if [ $(find "$playlist_path" -type d | wc -l) -ne 1 ]; then
 	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All Songs\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
 	# If all songs, don't change playlist path

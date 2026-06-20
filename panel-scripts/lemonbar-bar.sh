@@ -96,7 +96,7 @@ stream_live () {
 }
 
 update_streams () {
-	stream="$(stream_live 1) $(stream_live 2)"
+	stream="$(stream_live 1) $(stream_live 2) $(stream_live 3)"
 }
 
 update_music () {

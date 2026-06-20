@@ -3,7 +3,7 @@
 oldIFS="$IFS"
 IFS=$'\n'
 
-files=( $(find . -maxdepth 1 -type f | grep -i heic) )
+files=( $(find . -type f | grep -i heic) )
 
 for file in "${files[@]}"; do
 	echo "Converting ${file} to jpg"

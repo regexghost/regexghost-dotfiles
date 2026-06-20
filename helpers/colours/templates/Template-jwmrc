@@ -12,10 +12,11 @@
             <Opacity>1.0</Opacity>
         </Active>
     </WindowStyle>
-    <TrayStyle decorations="motif">
+    <TrayStyle decorations="flat">
         <Font>FONT_FAMILY-11</Font>
         <Background>#BACKGROUND_BLACK</Background>
         <Foreground>#FOREGROUND_WHITE</Foreground>
+        <Outline>#BACKGROUND_BLACK</Outline>
         <Opacity>0.75</Opacity>
     </TrayStyle>
     <TaskListStyle list="desktop" group="false">

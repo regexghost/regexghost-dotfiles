@@ -30,3 +30,4 @@ normal:
 	gcc string-trunc.c -o string-trunc
 	mv string-trunc ${BIN}/string-trunc
 	cp ytdl-wrapper.sh ${BIN}/ytdl-wrapper
+	cp mymv.sh ${BIN}/mymv

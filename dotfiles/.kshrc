@@ -31,7 +31,7 @@ alias py='python3'
 alias nf='fastfetch'
 alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
 alias bat='bat --theme=base16'
-alias mv='mv -i'
+alias mv='mymv'
 alias cp='cp -r -i'
 alias cmatrix='cmatrix -u 6' # Cool fake hacker program
 alias duf='duf -hide special'
@@ -69,7 +69,7 @@ rss () {
 
 alias x='chmod +x'
 alias copy='tr -d "\n" | xclip -selection c'
-alias batl='find . -maxdepth 1 | sort | tail -n 1 | xargs bat --theme=base16'
+alias batl='ls | sort | tail -n 1 | xargs bat --theme=base16'
 alias watchlc="watch 'ls | wc -l'"
 alias watchdu="watch 'du -s -h *'"
 alias lastyear='log -d $(date -d "-1 year" +"%y%m%d")' # Interacts with my log program
