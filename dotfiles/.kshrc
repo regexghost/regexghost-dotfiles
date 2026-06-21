@@ -30,7 +30,7 @@ alias ra='ranger'
 alias py='python3'
 alias nf='fastfetch'
 alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
-alias bat='bat --theme=base16'
+alias bat='bat --wrap word --theme=base16'
 alias mv='mymv'
 alias cp='cp -r -i'
 alias cmatrix='cmatrix -u 6' # Cool fake hacker program
@@ -168,7 +168,7 @@ storage () {
 	echo "Free: ${free}"
 }
 
-trash-empty() {
+trash-empty () {
 	echo "Trash is $(trash-size)"
 	/usr/bin/trash-empty
 }
@@ -185,7 +185,7 @@ cal () {
 	RED_COLOUR='\033[0;34m\033[1m'
 	BLUE_COLOUR='\033[0;36m\033[1m'
 	RESET_COLOUR='\033[0m'
-	
+
 	suffix () {
 		if [[ "$1" == "1" ]] || [[ "$1" == "21" ]] || [[ "$1" == "31" ]]; then
 			echo "st"
@@ -199,11 +199,11 @@ cal () {
 	}
 
 	unbuffer cal -w -n 3 "$@" | sed '/^ *$/d'
-	
+
 	day="$(date +'%A')"
 	date="$(date +'%d')"
 	week="$(date +'%W')"
-	
+
 	echo -e "${RED_COLOUR}Day:${RESET_COLOUR}  ${day}"
 	echo -e "${BLUE_COLOUR}Date:${RESET_COLOUR} ${date}$(suffix $date)"
 	echo -e "${MAGENTA_COLOUR}Week:${RESET_COLOUR} ${week}"
@@ -252,13 +252,13 @@ yt-playlist () {
 	ytdl-wrapper --playlist-order --all-metadata --firefox-cookies --aria --archive "$quality_option" "$@"
 }
 
-archivevideo() {
+archivevideo () {
 	for url in "$@"; do
 		yt-dlp --cookies-from-browser firefox -o "%(title)s.%(ext)s" --embed-chapters --embed-thumbnail --embed-metadata -f "bestvideo[protocol=https][vcodec*=avc]+bestaudio[ext=m4a]" "$url"
 	done
 }
 
-archiveplaylist() {
+archiveplaylist () {
 	if [[ "$1" == "-t" ]]; then
 		yt-dlp --cookies-from-browser firefox --flat-playlist --skip-download -J "$2" | jq '{title, videos: [.entries[] | {title, channel, id}]}' | yq -t
 	else
@@ -316,9 +316,15 @@ alias loc='cd ~/.local/share/'
 alias bin='cd ~/.local/bin/'
 alias con='cd ~/.config/'
 
+blog () {
+	dir="$HOME/Programs/websites/personal-website/blog/$(date +%Y/%B | awk '{print tolower($0)}')"
+	[ -d "$dir" ] && cd "$dir" || mkdir -p "$dir" && cd "$dir"
+}
+
 to () {
 	cd "$(directory_bookmarks get "$1")"
 }
+
 alias bm='directory_bookmarks add'
 alias bmr='directory_bookmarks remove'
 alias bml='directory_bookmarks list'
