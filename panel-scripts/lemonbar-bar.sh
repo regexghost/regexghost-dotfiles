@@ -88,6 +88,8 @@ stream_live () {
 	live="$(stream-check -yn "$streamer_name")"
 	if [ "$live" = "y" ]; then
 		echo "${first_char} ${stream_live_colour} ${COLOUR_RESET}"
+	elif [ "$live" = "w" ]; then
+		echo "${first_char} ${stream_not_live_colour} ${COLOUR_RESET}"
 	elif [ "$live" = "n" ]; then
 		echo "${first_char} ${stream_not_live_colour} ${COLOUR_RESET}"
 	else
@@ -134,6 +136,7 @@ update_music () {
 # 
 # 
 # 
+# 
 # 
 # 
 # 

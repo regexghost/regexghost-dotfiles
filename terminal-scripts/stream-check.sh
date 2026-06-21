@@ -25,8 +25,15 @@ if ! [ "$twitch_at" = "NONE" ]; then
 	fi
 fi
 if ! [ "$youtube_at" = "NONE" ]; then
-	curl --connect-timeout 5 -s "https://www.youtube.com/${youtube_at}/live" > /tmp/live_youtube.html 
-	if grep -q "isLive\":true" /tmp/live_youtube.html; then
+	curl --connect-timeout 5 -s "https://www.youtube.com/${youtube_at}/live" > /tmp/live_youtube.html
+	if grep -q "isUpcoming\":true" /tmp/live_youtube.html; then
+		if [ "$format" = "pretty" ]; then
+			echo "${name} is about to go live on YouTube: https://www.youtube.com/${youtube_at}/live"
+		elif [ "$format" = "yn" ]; then
+			echo "w"
+			exit
+		fi
+	elif grep -q "isLive\":true" /tmp/live_youtube.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is live on YouTube: https://www.youtube.com/${youtube_at}/live"
 		elif [ "$format" = "yn" ]; then
