@@ -91,6 +91,7 @@ alias da='download-vids && download-pods'
 alias bgl='bug ls'
 alias bglt='bug ls | grep -v "Anytime"' # bug ls but only timed/important things
 alias bglc='bug ls | wc -l'
+alias bgltc='bug ls | grep -v "Anytime" | wc -l'
 alias bgr='bug rm'
 alias bgv='bug view'
 alias bge='bug edit'
