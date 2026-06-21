@@ -60,6 +60,7 @@ nnn () {
 }
 
 rss () {
+	pgrep newsraft > /dev/null && echo "Newsraft already open" && return
 	command cp "$XDG_DATA_HOME/newsraft/newsraft.sqlite3" "/tmp/newsraft.sqlite3"
 	newsraft -d "/tmp/newsraft.sqlite3"
 	command mv  "/tmp/newsraft.sqlite3" "$XDG_DATA_HOME/newsraft/newsraft.sqlite3"
