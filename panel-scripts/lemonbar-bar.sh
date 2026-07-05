@@ -58,7 +58,8 @@ update_mem () {
 }
 
 update_cpu_temp () {
-	cpu_temp="${cpu_temp_colour} "$(vcgencmd measure_temp | cut -d "=" -f 2 | cut -d "." -f 1)°C"${COLOUR_RESET}"
+	temp=$(($(cat /sys/class/thermal/thermal_zone2/temp)/1000))
+	cpu_temp="${cpu_temp_colour} "{temp}°C"${COLOUR_RESET}"
 }
 
 update_uptime () {

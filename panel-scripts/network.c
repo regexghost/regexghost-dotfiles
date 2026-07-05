@@ -2,10 +2,10 @@
 
 #ifdef UP_SPEED
 #define PREV_FILE_LOC "/tmp/network_up_previous"
-#define BYTES_FILE_LOC "/sys/class/net/wlan0/statistics/tx_bytes"
+#define BYTES_FILE_LOC "/sys/class/net/wlx3460f9198188/statistics/tx_bytes"
 #else
 #define PREV_FILE_LOC "/tmp/network_down_previous"
-#define BYTES_FILE_LOC "/sys/class/net/wlan0/statistics/rx_bytes"
+#define BYTES_FILE_LOC "/sys/class/net/wlx3460f9198188/statistics/rx_bytes"
 #endif
 
 int get_previous_value() {
