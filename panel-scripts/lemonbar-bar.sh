@@ -59,7 +59,7 @@ update_mem () {
 
 update_cpu_temp () {
 	temp=$(($(cat /sys/class/thermal/thermal_zone2/temp)/1000))
-	cpu_temp="${cpu_temp_colour} "{temp}°C"${COLOUR_RESET}"
+	cpu_temp="${cpu_temp_colour} ""${temp}°C""${COLOUR_RESET}"
 }
 
 update_uptime () {

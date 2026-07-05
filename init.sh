@@ -3,7 +3,7 @@
 set -e
 
 # Install programs
-sudo apt install xorg xinit x11-xserver-utils bluetooth unzip git firefox mpv vlc tar moc fasd fonts-roboto fonts-firacode figlet jq xcompmgr picom trash-cli
+sudo apt install curl wget golang xorg xinit x11-xserver-utils bluetooth unzip git firefox mpv vlc tar moc fasd fonts-roboto fonts-firacode figlet jq xcompmgr picom trash-cli ncdu pulsemixer
 
 # Install dotfile scripts
 cd panel-scripts; make; cd ..
@@ -23,3 +23,7 @@ touch ~/.config/wgetrc
 cp /etc/shells ~/Downloads/shells_backup
 echo "/usr/local/bin/oksh" | sudo tee -a /etc/shells
 chsh
+
+# Random setup
+echo "50" > ~/.cache/volume
+echo "no" > ~/.cache/muted
