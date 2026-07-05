@@ -31,3 +31,5 @@ normal:
 	mv string-trunc ${BIN}/string-trunc
 	cp ytdl-wrapper.sh ${BIN}/ytdl-wrapper
 	cp mymv.sh ${BIN}/mymv
+	cp login-bsky.sh ${BIN}/login-bsky
+	cp favs-backup.sh ${BIN}/favs-backup
