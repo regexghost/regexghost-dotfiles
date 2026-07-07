@@ -5,7 +5,6 @@ body {
 	margin: auto;
 }
 
-
 a {
 	color: #CYAN;
 }
@@ -150,4 +149,28 @@ div.header img {
 	position: relative;
 	top: 4px;
 	margin: 0px 6px 0px 6px;
+}
+
+span.text-red {
+	color: #RED;
+}
+
+span.text-green {
+	color: #GREEN;
+}
+
+span.text-yellow {
+	color: #YELLOW;
+}
+
+span.text-blue {
+	color: #BLUE;
+}
+
+span.text-magenta {
+	color: #MAGENTA;
+}
+
+span.text-cyan {
+	color: #CYAN;
 }

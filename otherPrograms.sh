@@ -252,7 +252,7 @@ lemonbar () {
 }
 
 pipeviewer () {
-	sudo apt install libmodule-build-perl libwww-curl-perl libjson-perl libterm-readline-gnu-perl libdata-dump-perl liblwp-protocol-https-perl libunicode-linebread-perl
+	sudo apt install libmodule-build-perl libwww-curl-perl libjson-perl libterm-readline-gnu-perl libdata-dump-perl liblwp-protocol-https-perl libunicode-linebreak-perl
 	mkdir pipeviewer
 	cd pipeviewer
 	url="$(github_latest_release "github" "trizen" "pipe-viewer")"
@@ -271,6 +271,7 @@ pipeviewer () {
 }
 
 sbase () {
+	sudo apt install yacc
 	git clone https://git.suckless.org/sbase
 	cd sbase
 	make
@@ -300,75 +301,39 @@ alpine () {
 	cd ..
 }
 
+build () {
+	read -p "q to quit, s to skip (next: $1)" qToQuit
+	[ "$qToQuit" = "q" ] && exit
+	[ "$qToQuit" = "s" ] || "$1"
+}
+
 if [ "$1" = "mine" ]; then
-	bug
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	st
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	dmenu
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	slock
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	jwm
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	gozer
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
+	build bug
+	build st
+	build dmenu
+	build slock
+	build jwm
+	build gozer
+	echo "done"
 elif [ "$1" = "notmine" ]; then
-	bsky
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	forgejo-cli
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	bat
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	less
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	nano
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	oksh
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	opustags
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	rsgain
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	newsraft
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	aacgain
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	bluetui
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	lemonbar
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	pipeviewer
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	#sbase
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	sxiv
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	#alpine
-	read -p "q to quit " qToQuit
-	[ "$qToQuit" = "q" ] && exit
-	retroarch
+	build bsky
+	build forgejo
+	build bat
+	build less
+	build nano
+	build oksh
+	build opustags
+	build rsgain
+	build newsraft
+	build aacgain
+	build bluetui
+	build lemonbar
+	build pipeviewer
+	build sbase
+	build sxiv
+	build alpine
+	build retroarch
+	echo "done"
 elif [ "$1" = "jwm" ]; then
 	jwm
 elif [ "$1" = "bsky" ]; then
@@ -410,13 +375,11 @@ elif [ "$1" = "lemonbar" ]; then
 elif [ "$1" = "pipe-viewer" ]; then
 	pipeviewer
 elif [ "$1" = "sbase" ]; then
-	echo sbase
-	#sbase
+	sbase
 elif [ "$1" = "sxiv" ]; then
 	sxiv
 elif [ "$1" = "alpine" ]; then
-	echo alpine
-	#alpine
+	alpine
 else
 	echo "Not found"
 	echo "\"mine\" to install my programs/forks"
@@ -424,6 +387,7 @@ else
 	exit
 fi
 
+cd ..
 read -p "Delete temp folder (y/N)? " yesOrNo
 if [ "$yesOrNo" = "y" ] || [ "$yesOrNo" = "Y" ]; then
 	trash-put temp_programs/
