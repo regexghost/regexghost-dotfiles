@@ -7,3 +7,4 @@ normal:
 	sudo cp 50-inateck-touchpad.conf /etc/X11/xorg.conf.d/50-inateck-touchpad.conf
 	mkdir -p ~/.config/keepassxc
 	cp keepassxc.ini ~/.config/keepassxc/keepassxc.ini
+	cp Xmodmap "${PREFIX}/wm-scripts/Xmodmap"

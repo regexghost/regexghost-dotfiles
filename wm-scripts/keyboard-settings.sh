@@ -5,3 +5,6 @@ xset r rate 200 40
 
 # Caps lock -> Escape
 setxkbmap -option caps:escape
+
+# Remap some keys (currently swapping ¬ and \, ! and |)
+xmodmap "$XDG_DATA_HOME/wm-scripts/Xmodmap"
