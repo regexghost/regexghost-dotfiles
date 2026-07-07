@@ -5,8 +5,8 @@ targetDir="${LOC}/toDownload"
 
 [ -d "$targetDir/done" ] || mkdir "$targetDir/done"
 
-quality_options_videos="bestvideo[height<=480][vcodec*=avc]+bestaudio[ext=m4a]"
-quality_options_shorts="bestvideo[width<=480][vcodec*=avc]+bestaudio[ext=m4a]"
+quality_options_videos="bestvideo[height<=720][vcodec*=avc]+bestaudio[ext=m4a]"
+quality_options_shorts="bestvideo[width<=720][vcodec*=avc]+bestaudio[ext=m4a]"
 filename_options="%(channel)s - %(title)s.%(ext)s"
 sub_options="--embed-subs --all-subs"
 
