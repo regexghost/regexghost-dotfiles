@@ -27,3 +27,5 @@ chsh
 # Random setup
 echo "50" > ~/.cache/volume
 echo "no" > ~/.cache/muted
+mkdir ~/.config/aspell
+mkdir ~/.local/share/aspell

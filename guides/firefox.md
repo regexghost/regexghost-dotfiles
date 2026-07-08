@@ -8,6 +8,7 @@ https://getindie.wiki/
 https://addons.mozilla.org/en-GB/firefox/addon/videospeed/
 https://addons.mozilla.org/en-GB/firefox/addon/ublacklist/
 https://addons.mozilla.org/en-GB/firefox/addon/imgur-unblock-via-imgup-uk/
+https://addons.mozilla.org/en-GB/firefox/addon/old-reddit-redirect/
 
 ## Login
 

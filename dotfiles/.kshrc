@@ -174,6 +174,14 @@ trash-empty () {
 	/usr/bin/trash-empty
 }
 
+backuphistory () {
+	wc -l ~/.history
+	read yesOrNoBackup"?Backup? (y/N) "
+	if [ "$yesOrNoBackup" = "y" ] || [ "$yesOrNoBackup" = "Y" ]; then
+		cp ~/.history ~/Downloads/.history_backup
+	fi
+}
+
 # Only use this if the history in the current terminal is suddenly way shorter than it should be
 restorehistory () {
 	history | sed 's/^[ ]*[0-9]*[ ]*//g' > /tmp/new_history
