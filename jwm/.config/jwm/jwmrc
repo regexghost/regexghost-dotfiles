@@ -173,6 +173,7 @@
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t btop -e btop</Key>
     <Key mask="4" key="w">exec:netsurf-gtk</Key>
+    <Key mask="4S" key="w">exec:firefox</Key>
     <Key mask="4" key="n">exec:st -t nethogs -e nethogs</Key>
     <Key mask="4" key="u">exec:st -t cava -e cava</Key>
     <Key mask="4" key="c">exec:st -t qalc -e qalc</Key>

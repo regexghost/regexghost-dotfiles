@@ -85,6 +85,7 @@ alias pong='ping -c 2 -W 2'
 alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
+alias wb='~/Programs/websites/personal-website/scripts/build.sh'
 
 # Bug todo
 
