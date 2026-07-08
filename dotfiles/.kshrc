@@ -332,6 +332,25 @@ blog () {
 	[ -d "$dir" ] && cd "$dir" || mkdir -p "$dir" && cd "$dir"
 }
 
+devlog () {
+	month_num="$(date "+%m")"
+	month_name="$(date "+%B")"
+	year="$(date "+%Y")"
+	date="$(date "+%d")"
+	filename="$HOME/Programs/websites/personal-website/devlog/${year}-${month_num}-${month_name}.md"
+
+	if [ -f "$filename" ]; then
+		"${VISUAL:-${EDITOR:-vi}}" "$filename"
+	else
+		echo "+++" >> "$filename"
+		echo "title = \"${month_name} ${year} Devlog\"" >> "$filename"
+		echo "datePublished = ${year}-${month_num}-${date}" >> "$filename"
+		echo "template = \"blog-page.html\"" >> "$filename"
+		echo "+++" >> "$filename"
+		"${VISUAL:-${EDITOR:-vi}}" "$filename"
+	fi
+}
+
 to () {
 	cd "$(directory_bookmarks get "$1")"
 }
