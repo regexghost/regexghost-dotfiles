@@ -33,3 +33,4 @@ normal:
 	cp mymv.sh ${BIN}/mymv
 	cp login-bsky.sh ${BIN}/login-bsky
 	cp favs-backup.sh ${BIN}/favs-backup
+	cp balance-folders.sh ${BIN}/balance-folders
