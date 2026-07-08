@@ -301,6 +301,14 @@ alpine () {
 	cd ..
 }
 
+dotacat () {
+	git clone https://gitlab.scd31.com/sophie/dotacat.git
+	cd dotacat
+	cargo build --release
+	cp target/release/dotacat ~/.local/bin/dotacat
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -332,6 +340,7 @@ elif [ "$1" = "notmine" ]; then
 	build sbase
 	build sxiv
 	build alpine
+	build dotacat
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -378,6 +387,8 @@ elif [ "$1" = "sbase" ]; then
 	sbase
 elif [ "$1" = "sxiv" ]; then
 	sxiv
+elif [ "$1" = "dotacat" ]; then
+	dotacat
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

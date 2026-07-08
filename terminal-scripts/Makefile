@@ -34,3 +34,6 @@ normal:
 	cp login-bsky.sh ${BIN}/login-bsky
 	cp favs-backup.sh ${BIN}/favs-backup
 	cp balance-folders.sh ${BIN}/balance-folders
+	cp iphone-mount.sh ${BIN}/iphone-mount
+	cp iphone-music-sync.sh ${BIN}/iphone-music-sync
+	cp media-cut.sh ${BIN}/media-cut
