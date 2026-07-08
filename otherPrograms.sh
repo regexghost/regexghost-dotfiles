@@ -309,6 +309,73 @@ dotacat () {
 	cd ..
 }
 
+mepo () {
+	sudo apt install libsdl2-gfx-1.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev
+
+	mkdir mepo
+	cd mepo
+	url="$(github_latest_release "sourcehut" '~mil' "mepo")"
+	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	unzip *.zip
+	cd */
+
+	trim () {
+		sed -ne '/---/,$ p' | sed 's/\r//g'
+	}
+
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-1-lauren@selfisekai.rocks%3E/raw" | trim > 15-part1.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250910145816.10962-1-lauren@selfisekai.rocks%3E/raw" | trim > 15-part2.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-3-lauren@selfisekai.rocks%3E/raw" | trim > 15-part3.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-4-lauren@selfisekai.rocks%3E/raw" | trim > 15-part4.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-5-lauren@selfisekai.rocks%3E/raw" | trim > 15-part5.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-6-lauren@selfisekai.rocks%3E/raw" | trim > 15-part6.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-7-lauren@selfisekai.rocks%3E/raw" | trim > 15-part7.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-8-lauren@selfisekai.rocks%3E/raw" | trim > 15-part8.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-9-lauren@selfisekai.rocks%3E/raw" | trim > 15-part9.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-10-lauren@selfisekai.rocks%3E/raw" | trim > 15-part10.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20250821020031.28035-11-lauren@selfisekai.rocks%3E/raw" | trim > 15-part11.diff
+
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-1-lauren@selfisekai.rocks%3E/raw" | trim > 16-part1.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-2-lauren@selfisekai.rocks%3E/raw" | trim | sed 's/15/14/g' > 16-part2.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-3-lauren@selfisekai.rocks%3E/raw" | trim > 16-part3.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-4-lauren@selfisekai.rocks%3E/raw" | trim > 16-part4.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-5-lauren@selfisekai.rocks%3E/raw" | trim > 16-part5.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-6-lauren@selfisekai.rocks%3E/raw" | trim > 16-part6.diff
+	curl "https://lists.sr.ht/~mil/mepo-devel/%3C20260421135005.20761-7-lauren@selfisekai.rocks%3E/raw" | trim > 16-part7.diff
+
+	patch -p 1 < 15-part1.diff
+	patch -p 1 < 15-part2.diff
+#	patch -p 1 < 15-part3.diff
+	patch -p 1 < 15-part4.diff
+	patch -p 1 < 15-part5.diff
+	patch -p 1 < 15-part6.diff
+	patch -p 1 < 15-part7.diff
+	patch -p 1 < 15-part8.diff
+	patch -p 1 < 15-part9.diff
+	patch -p 1 < 15-part10.diff
+	patch -p 1 < 15-part11.diff
+	patch -p 1 < 16-part1.diff
+	patch -p 1 < 16-part2.diff
+	patch -p 1 < 16-part3.diff
+	patch -p 1 < 16-part4.diff
+	patch -p 1 < 16-part5.diff
+	patch -p 1 < 16-part6.diff
+	patch -p 1 < 16-part7.diff
+
+	zig build
+
+	cp zig-out/bin/* ~/.local/bin/
+	[ -d ~/.local/share/applications ] || mkdir ~/.local/share/applications
+	cp zig-out/share/applications/mepo.desktop ~/.local/share/applications/mepo.desktop
+	[ -d ~/.local/share/icons ] || mkdir ~/.local/share/icons
+	cp -r zig-out/share/icons/* ~/.local/share/icons
+	[ -d ~/.local/share/pixmaps ] || mkdir ~/.local/share/pixmaps
+	cp zig-out/share/pixmaps/mepo.png ~/.local/share/pixmaps/mepo.png
+
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -341,6 +408,7 @@ elif [ "$1" = "notmine" ]; then
 	build sxiv
 	build alpine
 	build dotacat
+	build mepo
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -389,6 +457,8 @@ elif [ "$1" = "sxiv" ]; then
 	sxiv
 elif [ "$1" = "dotacat" ]; then
 	dotacat
+elif [ "$1" = "mepo" ]; then
+	mepo
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

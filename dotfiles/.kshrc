@@ -47,6 +47,7 @@ alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-passfile'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias cl='ln -si'
+alias b='bat'
 
 # Not POSIX compliant
 grepc () {
@@ -88,6 +89,8 @@ alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool
 alias da='download-vids && download-pods'
 alias wb='~/Programs/websites/personal-website/scripts/build.sh'
 alias sshr='ssh racknerd'
+alias qv='queue-vid'
+alias dns='dig A +short'
 
 # Bug todo
 
