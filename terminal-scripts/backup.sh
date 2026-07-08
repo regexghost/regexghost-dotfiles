@@ -16,6 +16,6 @@ elif [ "$1" = "remove" ] || [ "$1" = "rm" ]; then
 elif [ "$1" = "ls" ]; then
 	cat "$BACKUP_FILE" | sed 's/^/~/g'
 elif [ "$1" = "make" ]; then
-	rsync -ar --delete --info=progress2 "${BACKUP_LOCATION}/latest/" "${BACKUP_LOCATION}/previous/"
-	rsync -ar --delete --info=progress2 --files-from="${BACKUP_FILE}" "$HOME" "${BACKUP_LOCATION}/latest/"
+	rsync -ar --links --delete --info=progress2 "${BACKUP_LOCATION}/latest/" "${BACKUP_LOCATION}/previous/"
+	rsync -ar --links --delete --info=progress2 --files-from="${BACKUP_FILE}" "$HOME" "${BACKUP_LOCATION}/latest/"
 fi

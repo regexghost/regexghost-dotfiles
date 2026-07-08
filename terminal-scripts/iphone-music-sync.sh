@@ -30,7 +30,7 @@ while read -r line; do
 	phone="$(echo "$line" | cut -d "," -f 2)"
 	echo "${local} -> ${phone}"
 	[ -d "${MOUNT_LOCATION}/${phone}" ] || mkdir "${MOUNT_LOCATION}/${phone}"
-	rsync -vr --update --delete --modify-window=1 --info=progress2 "${HOME}/Music/${local}/" "${MOUNT_LOCATION}/${phone}/"
+	rsync -vr --copy-links --update --delete --modify-window=1 --info=progress2 "${HOME}/Music/${local}/" "${MOUNT_LOCATION}/${phone}/"
 	find ~/Music/"${local}/" -type f | sort | sed "s|.*${local}/|../${phone}/|g" > "/tmp/${phone}.m3u8"
 	cp "/tmp/${phone}.m3u8" "${MOUNT_LOCATION}/Playlists/"
 done < "$XDG_CONFIG_HOME/regexghost/playlists-phone-sync.csv"

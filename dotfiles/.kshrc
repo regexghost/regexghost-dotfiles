@@ -46,6 +46,7 @@ alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-passfile'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
+alias cl='ln -si'
 
 # Not POSIX compliant
 grepc () {
@@ -86,6 +87,7 @@ alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
 alias wb='~/Programs/websites/personal-website/scripts/build.sh'
+alias sshr='ssh racknerd'
 
 # Bug todo
 
