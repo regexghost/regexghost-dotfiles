@@ -239,7 +239,6 @@ retroarch () {
 	cd ..
 }
 
-
 lemonbar () {
 	sudo apt install libxcb-randr0-dev libx11-xcb-dev libxcb-xinerama0-dev
 	git clone https://github.com/silentz/lemonbar-xft
@@ -376,6 +375,24 @@ mepo () {
 	cd ..
 }
 
+fastfetch () {
+	mkdir fastfetch
+	cd fastfetch
+	url="$(github_latest_release "github" "fastfetch-cli" "fastfetch")"
+	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	unzip *.zip
+	cd */
+	mkdir build
+	cd build
+	cmake -DCMAKE_INSTALL_PREFIX="$HOME/.local" ..
+	make
+	make install
+
+	cd ..
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -409,6 +426,7 @@ elif [ "$1" = "notmine" ]; then
 	build alpine
 	build dotacat
 	build mepo
+	build fastfetch
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -459,6 +477,8 @@ elif [ "$1" = "dotacat" ]; then
 	dotacat
 elif [ "$1" = "mepo" ]; then
 	mepo
+elif [ "$1" = "fastfetch" ]; then
+	fastfetch
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

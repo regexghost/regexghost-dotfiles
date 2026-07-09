@@ -75,4 +75,4 @@ while [[ $# -gt 0 ]]; do
 done
 
 all_args=("${output_format_args[@]}" "${aria_args[@]}" "${metadata_args[@]}" "${cookies_args[@]}" "${format_args[@]}" "${archive_args[@]}" "${other_args[@]}" "$@")
-/usr/bin/yt-dlp "${all_args[@]}"
+~/.local/bin/yt-dlp "${all_args[@]}"
