@@ -6,11 +6,11 @@ set -e
 ./apt-install.sh
 
 # Install dotfile scripts
-cd panel-scripts; make; cd ..
-cd terminal-scripts; make; cd ..
-cd other; make; cd ..
-cd wm-scripts; make; cd ..
-cd helpers/subgo; make full; cd ../..
+cd panel-scripts/; make; cd ../
+cd terminal-scripts/; make; cd ../
+cd other/; make; cd ../
+cd wm-scripts/; make; cd ../
+cd helpers/subgo/; make full; cd ../../
 
 # Compile programs
 ./otherPrograms.sh mine
@@ -27,5 +27,7 @@ chsh
 # Random setup
 echo "50" > ~/.cache/volume
 echo "no" > ~/.cache/muted
-mkdir ~/.config/aspell
-mkdir ~/.local/share/aspell
+mkdir ~/.config/aspell/
+mkdir ~/.local/share/aspell/
+sudo systemctl enable --now bluetooth
+systemctl --user restart pulseaudio
