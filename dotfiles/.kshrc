@@ -90,7 +90,7 @@ alias da='download-vids && download-pods'
 alias wb='~/Programs/websites/personal-website/scripts/build.sh'
 alias wp='push-website /tmp/mainwebsite/build/'
 alias sshr='ssh racknerd'
-alias qv='queue-vid'
+alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
@@ -282,8 +282,6 @@ archiveplaylist () {
 		yt-dlp --cookies-from-browser firefox -J --flat-playlist "$1" | jq '.entries[] | [.title,.channel,.url]| @csv'
 	fi
 }
-
-alias queue-vid='~/.config/newsraft/queue-vid.sh'
 
 # Search commands
 

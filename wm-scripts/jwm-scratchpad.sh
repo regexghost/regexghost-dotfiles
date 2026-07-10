@@ -4,7 +4,7 @@ scratchpad="$(xdotool search --class "scratchpad")"
 old_focus="$(cat ~/.cache/old_window)"
 
 launch_window () {
-	tmux new-session -d -s "buffer_tmux" 'nano ~/Downloads/buffer.md; bash'
+	tmux new-session -d -s "buffer_tmux" 'nano ~/Downloads/buffer.md; oksh'
 	setsid /usr/local/bin/st -c "scratchpad" -t "buffer" -e tmux attach -t "buffer_tmux" &
 	sleep 0.5
 	scratchpad="$(xdotool search --class "scratchpad")"
