@@ -31,3 +31,10 @@ mkdir ~/.config/aspell/
 mkdir ~/.local/share/aspell/
 sudo systemctl enable --now bluetooth
 systemctl --user restart pulseaudio
+mkdir ~/Videos
+mkdir ~/Videos/Podcasts
+mkdir ~/Videos/YouTube
+mkdir ~/Videos/YouTube/Videos
+mkdir ~/Videos/YouTube/Shorts
+mkdir ~/Videos/YouTube/toDownload
+touch ~/Videos/Podcasts/toDownload.txt

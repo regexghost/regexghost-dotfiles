@@ -38,3 +38,4 @@ normal:
 	cp iphone-music-sync.sh ${BIN}/iphone-music-sync
 	cp media-cut.sh ${BIN}/media-cut
 	cp os-transfer-backup.sh ${BIN}/os-transfer-backup
+	cp vid-play.sh ${BIN}/vid-play

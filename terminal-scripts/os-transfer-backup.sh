@@ -32,6 +32,9 @@ cp -r "$HOME/Videos" "${BACKUP_LOCATION}/Videos"
 echo "Copying ~/Downloads"
 cp -r "$HOME/Downloads" "${BACKUP_LOCATION}/Downloads"
 
+echo "Copying ~/.local/bin"
+cp -r "$HOME/.local/bin" "${BACKUP_LOCATION}/local-bin"
+
 echo "Copying Firefox data"
 cd "$HOME"
 tar czf firefox-backup.tar.gz .mozilla

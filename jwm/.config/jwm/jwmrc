@@ -7,7 +7,7 @@
         <Menu icon="folder" label="Applications">
             <Program icon="sound" label="Audacious">audacious</Program>
             <Program icon="calc" label="Calculator">xcalc</Program>
-            <Program icon="web-browser" label="Firefox">netsurf-gtk</Program>
+            <Program icon="web-browser" label="Firefox">firefox</Program>
             <Program icon="image" label="Gimp">sxiv</Program>
             <Program icon="email" label="Mail">claws-mail</Program>
             <Program icon="system-file-manager" label="ROX">rox ~</Program>
@@ -172,8 +172,8 @@
     <Key mask="4" key="Return">exec:st</Key>
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t btop -e btop</Key>
-    <Key mask="4" key="w">exec:netsurf-gtk</Key>
-    <Key mask="4S" key="w">exec:firefox</Key>
+    <Key mask="4" key="w">exec:firefox</Key>
+    <Key mask="4S" key="w">exec:chromium</Key>
     <Key mask="4" key="n">exec:st -t nethogs -e nethogs</Key>
     <Key mask="4" key="u">exec:st -t cava -e cava</Key>
     <Key mask="4" key="c">exec:st -t qalc -e qalc</Key>
