@@ -6,7 +6,7 @@ BACKUP_FILE="$XDG_CONFIG_HOME/regexghost/backup.txt"
 BACKUP_LOCATION="$HOME/Downloads/BackupMount/MainBackup"
 
 if [ "$1" = "add" ]; then
-	[ -e "$2" ] && echo "$(pwd)${2}" | sed "s|$HOME||g" >> "$BACKUP_FILE"
+	[ -e "$2" ] && echo "$(readlink -f "$2")" | sed "s|$HOME||g" >> "$BACKUP_FILE"
 elif [ "$1" = "remove" ] || [ "$1" = "rm" ]; then
 	file="$(echo "$2" | sed "s|$HOME||g")"
 	if grep -q "^${file}\$" "$BACKUP_FILE"; then

@@ -1,5 +1,15 @@
 #!/bin/sh
 
+cleanup () {
+	cd ..
+	read -p "Delete temp folder (y/N)? " yesOrNo
+	if [ "$yesOrNo" = "y" ] || [ "$yesOrNo" = "Y" ]; then
+		trash-put temp_programs/
+	fi
+}
+
+trap 'cleanup' EXIT
+
 set -e
 
 mkdir -p temp_programs
@@ -402,6 +412,21 @@ dragon () {
 	cd ..
 }
 
+cal () {
+	mkdir util-linux
+	cd util-linux
+	ver="$(curl "https://www.kernel.org/pub/linux/utils/util-linux/" | grep "v2." | tail -n 1 | cut -d "\"" -f 2 | tr -d "/" | tr -d "v")"
+	wget "https://www.kernel.org/pub/linux/utils/util-linux/v${ver}/util-linux-${ver}.tar.xz"
+	tar -xf *.xz
+	cd */
+	./configure --disable-all-programs --enable-cal
+	make
+	cp cal ~/.local/bin/cal
+
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -437,6 +462,7 @@ elif [ "$1" = "notmine" ]; then
 	build mepo
 	build fastfetch
 	build dragon
+	build cal
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -491,6 +517,8 @@ elif [ "$1" = "fastfetch" ]; then
 	fastfetch
 elif [ "$1" = "dragon" ]; then
 	dragon
+elif [ "$1" = "cal" ]; then
+	cal
 elif [ "$1" = "alpine" ]; then
 	alpine
 else
@@ -498,10 +526,4 @@ else
 	echo "\"mine\" to install my programs/forks"
 	echo "\"notmine\" to install other programs"
 	exit
-fi
-
-cd ..
-read -p "Delete temp folder (y/N)? " yesOrNo
-if [ "$yesOrNo" = "y" ] || [ "$yesOrNo" = "Y" ]; then
-	trash-put temp_programs/
 fi
