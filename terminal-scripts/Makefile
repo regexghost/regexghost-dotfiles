@@ -37,3 +37,4 @@ normal:
 	cp iphone-mount.sh ${BIN}/iphone-mount
 	cp iphone-music-sync.sh ${BIN}/iphone-music-sync
 	cp media-cut.sh ${BIN}/media-cut
+	cp os-transfer-backup.sh ${BIN}/os-transfer-backup
