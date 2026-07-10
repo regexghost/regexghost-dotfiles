@@ -393,6 +393,15 @@ fastfetch () {
 	cd ..
 }
 
+dragon () {
+	sudo apt install libgtk-3-dev
+	git clone https://github.com/mwh/dragon
+	cd dragon
+	make
+	cp dragon ~/.local/bin/dragon
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -427,6 +436,7 @@ elif [ "$1" = "notmine" ]; then
 	build dotacat
 	build mepo
 	build fastfetch
+	build dragon
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -479,6 +489,8 @@ elif [ "$1" = "mepo" ]; then
 	mepo
 elif [ "$1" = "fastfetch" ]; then
 	fastfetch
+elif [ "$1" = "dragon" ]; then
+	dragon
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

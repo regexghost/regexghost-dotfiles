@@ -39,3 +39,4 @@ normal:
 	cp media-cut.sh ${BIN}/media-cut
 	cp os-transfer-backup.sh ${BIN}/os-transfer-backup
 	cp vid-play.sh ${BIN}/vid-play
+	cp blog.sh ${BIN}/blog

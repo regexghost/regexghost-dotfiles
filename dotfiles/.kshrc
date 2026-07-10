@@ -84,13 +84,16 @@ alias clearlogs='sudo journalctl --vacuum-time=2d'
 alias q='exit'
 alias reload='. ~/.kshrc'
 alias pong='ping -c 2 -W 2'
-alias wp='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
+alias wl='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
 alias wb='~/Programs/websites/personal-website/scripts/build.sh'
+alias wp='push-website /tmp/mainwebsite/build/'
 alias sshr='ssh racknerd'
 alias qv='queue-vid'
 alias dns='dig A +short'
+alias vp='vid-play'
+alias vps='vid-play -s'
 
 # Bug todo
 
@@ -329,30 +332,6 @@ alias wor='cd ~/Work/'
 alias loc='cd ~/.local/share/'
 alias bin='cd ~/.local/bin/'
 alias con='cd ~/.config/'
-
-blog () {
-	dir="$HOME/Programs/websites/personal-website/blog/$(date +%Y/%B | awk '{print tolower($0)}')"
-	[ -d "$dir" ] && cd "$dir" || mkdir -p "$dir" && cd "$dir"
-}
-
-devlog () {
-	month_num="$(date "+%m")"
-	month_name="$(date "+%B")"
-	year="$(date "+%Y")"
-	date="$(date "+%d")"
-	filename="$HOME/Programs/websites/personal-website/devlog/${year}-${month_num}-${month_name}.md"
-
-	if [ -f "$filename" ]; then
-		"${VISUAL:-${EDITOR:-vi}}" "$filename"
-	else
-		echo "+++" >> "$filename"
-		echo "title = \"${month_name} ${year} Devlog\"" >> "$filename"
-		echo "datePublished = ${year}-${month_num}-${date}" >> "$filename"
-		echo "template = \"blog-page.html\"" >> "$filename"
-		echo "+++" >> "$filename"
-		"${VISUAL:-${EDITOR:-vi}}" "$filename"
-	fi
-}
 
 to () {
 	cd "$(directory_bookmarks get "$1")"
