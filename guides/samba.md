@@ -1,8 +1,8 @@
 # Samba Setup
 
-`sudo apt install samba samba-common-bin`
-`sudo nano /etc/samba/smb.conf`
-`sudo smbpasswd -a <username>`
+`sudo apt install samba samba-common-bin`  
+`sudo nano /etc/samba/smb.conf`  
+`sudo smbpasswd -a <username>`  
 `sudo systemctl restart smbd`
 
 ## Config File
