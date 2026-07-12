@@ -36,7 +36,6 @@ alias cp='cp -r -i'
 alias cmatrix='cmatrix -u 6' # Cool fake hacker program
 alias duf='duf -hide special'
 alias gtop='sudo intel_gpu_top'
-alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 alias rm='rm-trash'
 alias cheat='cheat -c'
 alias zbr='zig build run'
@@ -87,14 +86,26 @@ alias pong='ping -c 2 -W 2'
 alias wl='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
-alias wb='~/Programs/websites/personal-website/scripts/build.sh'
-alias wp='push-website /tmp/personal-website/build/'
 alias sshr='ssh racknerd'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
 alias pve='pipe-viewer'
+
+web () {
+	case "$1" in
+		b*)
+			~/Programs/websites/personal-website/scripts/build.sh
+			;;
+		p*)
+			push-website /tmp/personal-website/build/
+			;;
+		*)
+			echo "Usage: case [build|push]"
+			;;
+	esac
+}
 
 # Bug todo
 
@@ -346,10 +357,15 @@ alias cdr='cd ..'
 alias cdrr='cd ../..'
 alias cdrrr='cd ../../..'
 
-wbg () {
-	dir="$(blog "$@")"
-	[ "$dir" = "" ] || cd "$dir"
+blog () {
+	if [ "$1" = "cd" ]; then
+		cd "$(blog-devlog blog "cd")"
+	else
+		blog-devlog blog
+	fi
 }
+
+alias devlog='blog-devlog devlog'
 
 export _FASD_DATA="$XDG_CACHE_HOME/fasd"
 export _FASD_NOCASE=1
