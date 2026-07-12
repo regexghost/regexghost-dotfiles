@@ -7,7 +7,7 @@ if echo "$1" | grep -q "youtube"; then
 	rm -f /tmp/maxresdefault.webp
 elif echo "$1" | grep -q "redd.it"; then
 	filename="$(echo "$1" | sed 's/.*\///g')"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" -P /tmp "$1"
+	wget -P /tmp "$1"
 	${IMAGE_VIEWER:-feh} "/tmp/${filename}"
 	rm -rf "/tmp/${filename}"
 elif echo "$1" | grep -q "reddit.com/gallery"; then

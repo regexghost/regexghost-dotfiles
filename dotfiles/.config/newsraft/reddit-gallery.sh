@@ -20,7 +20,7 @@ links="$(cat /tmp/reddit_gallery.html | pup 'a[class="may-blank gallery-item-thu
 notify-send "Downloading"
 
 for link in $links; do
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" -P "$OUTPUT_FOLDER" "$link" &
+	wget -P "$OUTPUT_FOLDER" "$link" &
 done
 wait
 

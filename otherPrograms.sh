@@ -37,7 +37,7 @@ bsky () {
 	mkdir bsky
 	cd bsky
 	url="$(github_latest_release "github" "mattn" "bsky")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	make
@@ -52,7 +52,7 @@ forgejo () {
 	mkdir forgejo
 	cd forgejo
 	url="$(github_latest_release "codeberg" "forgejo-contrib" "forgejo-cli")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	cargo build --release
@@ -65,7 +65,7 @@ aacgain () {
 	mkdir aacgain
 	cd aacgain
 	url="$(github_latest_release "github" "dgilman" "aacgain")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 }
 
 bat () {
@@ -91,7 +91,7 @@ less () {
 	#cd less
 	#version="$(curl https://www.greenwoodsoftware.com/less/download.html | grep RECOMMENDED | tail -n 1 | sed -nE 's/.*version ([0-9]*).*/\1/p')"
 	#echo $version
-	#wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "https://greenwoodsoftware.com/less/less-${version}.zip"
+	#wget "https://greenwoodsoftware.com/less/less-${version}.zip"
 	#unzip *.zip
 	#cd */
 	git clone https://github.com/gwsw/less
@@ -110,7 +110,7 @@ nano () {
 	mkdir nano
 	cd nano
 	version="$(curl "https://www.nano-editor.org/download.php" | grep "dist/" | head -n 1 | cut -d "\"" -f 2)"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "https://nano-editor.org/${version}"
+	wget "https://nano-editor.org/${version}"
 	tar -xf *.xz
 	cd */
 	./configure --prefix="$HOME/.local"
@@ -124,7 +124,7 @@ oksh () {
 	mkdir oksh
 	cd oksh
 	url="$(github_latest_release "github" "ibara" "oksh")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	cp ../../patches/oksh-case-insensitive.diff .
@@ -143,7 +143,7 @@ opustags () {
 	mkdir opustags
 	cd opustags
 	url="$(github_latest_release "github" "fmang" "opustags")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	mkdir build
@@ -161,7 +161,7 @@ rsgain () {
 	mkdir rsgain
 	cd rsgain
 	url="$(github_latest_release "github" "complexlogic" "rsgain")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	mkdir build
@@ -233,7 +233,7 @@ bluetui () {
 	mkdir bluetui
 	cd bluetui
 	url="$(github_latest_release "github" "pythops" "bluetui")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	cargo build --release
@@ -265,7 +265,7 @@ pipeviewer () {
 	mkdir pipeviewer
 	cd pipeviewer
 	url="$(github_latest_release "github" "trizen" "pipe-viewer")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	cp ../../patches/pipe-viewer-copy.diff .
@@ -300,7 +300,7 @@ alpine () {
 	mkdir alpine
 	cd alpine
 	url="$(curl "https://alpineapp.email/" | grep "HREF" | grep "tar.xz" | head -n 1 | cut -d "\"" -f 4)"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	tar -xf *.xz
 	cd */
 	./configure
@@ -324,7 +324,7 @@ mepo () {
 	mkdir mepo
 	cd mepo
 	url="$(github_latest_release "sourcehut" '~mil' "mepo")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 
@@ -389,7 +389,7 @@ fastfetch () {
 	mkdir fastfetch
 	cd fastfetch
 	url="$(github_latest_release "github" "fastfetch-cli" "fastfetch")"
-	wget --hsts-file="$XDG_STATE_HOME/wget-hsts" "$url"
+	wget "$url"
 	unzip *.zip
 	cd */
 	mkdir build

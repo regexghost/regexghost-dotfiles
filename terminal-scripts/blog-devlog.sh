@@ -3,6 +3,7 @@
 blog () {
 	dir="$HOME/Programs/websites/personal-website/blog/$(date +%Y/%B | awk '{print tolower($0)}')"
 	[ -d "$dir" ] || mkdir -p "$dir"
+	[ "$1" = "cd" ] && echo "$dir" && exit
 	month_num="$(date "+%m")"
 	year="$(date "+%Y")"
 	date="$(date "+%d")"
@@ -11,12 +12,13 @@ blog () {
 	if ! echo "$filename" | grep -q ".md$"; then
 		filename="${filename}.md"
 	fi
-	echo "+++" >> "$filename"
-	echo "title = \"${title}\"" >> "$filename"
-	echo "datePublished = ${year}-${month_num}-${date}" >> "$filename"
-	echo "template = \"blog-page.html\"" >> "$filename"
-	echo "+++" >> "$filename"
-	"${VISUAL:-${EDITOR:-vi}}" "$filename"
+	fullpath="${dir}/${filename}"
+	echo "+++" >> "$fullpath"
+	echo "title = \"${title}\"" >> "$fullpath"
+	echo "datePublished = ${year}-${month_num}-${date}" >> "$fullpath"
+	echo "template = \"blog-page.html\"" >> "$fullpath"
+	echo "+++" >> "$fullpath"
+	"${VISUAL:-${EDITOR:-vi}}" "$fullpath"
 }
 
 devlog () {
@@ -40,7 +42,7 @@ devlog () {
 
 case "$1" in
 	b*)
-		blog
+		blog "$2"
 		;;
 	d*)
 		devlog

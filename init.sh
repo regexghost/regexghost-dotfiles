@@ -19,7 +19,7 @@ cd helpers/subgo/; make full; cd ../../
 # Create empty wgetrc to stop error
 touch ~/.config/wgetrc
 
-# Shell stuf
+# Shell stuff
 cp /etc/shells ~/Downloads/shells_backup
 echo "/usr/local/bin/oksh" | sudo tee -a /etc/shells
 chsh
@@ -31,6 +31,8 @@ mkdir ~/.config/aspell/
 mkdir ~/.local/share/aspell/
 sudo systemctl enable --now bluetooth
 systemctl --user restart pulseaudio
+
+# Make dirs
 mkdir ~/Videos
 mkdir ~/Videos/Podcasts
 mkdir ~/Videos/YouTube

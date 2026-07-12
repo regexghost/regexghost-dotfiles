@@ -5,7 +5,7 @@ curLocationFile="$XDG_CONFIG_HOME/regexghost/current_location.csv"
 lat=$(cat "$curLocationFile" | cut -d "|" -f 1)
 lon=$(cat "$curLocationFile" | cut -d "|" -f 2)
 
-theme=$(cat "$XDG_CONFIG_HOME/regexghost/current_theme.txt")
+theme=$(cat "$XDG_CONFIG_HOME/regexghost/current-theme.txt")
 
 if [[ "$theme" == "dracula" ]]; then
 	sunsetColour="8be9fd"

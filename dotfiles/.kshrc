@@ -88,12 +88,13 @@ alias wl='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
 alias wb='~/Programs/websites/personal-website/scripts/build.sh'
-alias wp='push-website /tmp/mainwebsite/build/'
+alias wp='push-website /tmp/personal-website/build/'
 alias sshr='ssh racknerd'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
+alias pve='pipe-viewer'
 
 # Bug todo
 
@@ -145,7 +146,6 @@ qfi () {
 	$VISUAL "$file"
 }
 
-alias m='micro -clipboard terminal'
 alias v='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
 
 batf () {
@@ -345,6 +345,11 @@ alias cdp='cd - > /dev/null'
 alias cdr='cd ..'
 alias cdrr='cd ../..'
 alias cdrrr='cd ../../..'
+
+wbg () {
+	dir="$(blog "$@")"
+	[ "$dir" = "" ] || cd "$dir"
+}
 
 export _FASD_DATA="$XDG_CACHE_HOME/fasd"
 export _FASD_NOCASE=1

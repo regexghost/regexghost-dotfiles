@@ -35,3 +35,4 @@
 ~/.config/newsraft/article.sh
 ~/.config/newsraft/reddit-refresh.sh
 ~/.config/newsraft/combine-feeds.sh
+~/.config/wgetrc
