@@ -5,7 +5,6 @@ mkdir output
 
 scheme="$1"
 . schemes/"$scheme.sh"
-cp schemes/"$scheme".sh "$XDG_CONFIG_HOME/regexghost/current-theme.sh"
 
 loadColours () {
 	template="$1"
@@ -36,8 +35,11 @@ loadColours () {
 if [ "$2" = "website" ]; then
 	loadColours templates/Template-style.css output/style.css
 	cp output/style.css ~/Programs/websites/personal-website/static/style.css
+	rm -rf output/
 	exit
 fi
+
+cp schemes/"$scheme".sh "$XDG_CONFIG_HOME/regexghost/current-theme.sh"
 
 for template in templates/*; do
 	outputFilename="$(echo "$template" | sed "s|Template|Colourscheme-Substitution-$scheme|g" | sed 's/templates/output/g')"
