@@ -40,6 +40,7 @@ if [ "$2" = "website" ]; then
 fi
 
 cp schemes/"$scheme".sh "$XDG_CONFIG_HOME/regexghost/current-theme.sh"
+echo "$scheme" > ~/.config/regexghost/current-theme.txt
 
 for template in templates/*; do
 	outputFilename="$(echo "$template" | sed "s|Template|Colourscheme-Substitution-$scheme|g" | sed 's/templates/output/g')"

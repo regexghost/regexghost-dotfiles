@@ -34,6 +34,11 @@ int main() {
 
 	FILE *f;
 	f = fopen(BYTES_FILE_LOC, "r");
+	if (f == NULL) {
+		printf("0.00 MiB/s\n");
+		return 0;
+	}
+
 	char buf[100] = {0};
 	fgets(buf, 100, f);
 	fclose(f);

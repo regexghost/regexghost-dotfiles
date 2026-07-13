@@ -19,7 +19,6 @@
 ~/.config/gtk2rc
 ~/.config/boomer/config
 ~/.config/alacritty/alacritty.toml
-~/.inputrc
 ~/.profile
 ~/.kshrc
 ~/.xinitrc
