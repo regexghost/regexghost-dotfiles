@@ -47,6 +47,7 @@ alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias cl='ln -si'
 alias b='bat'
+alias dud='du -s -h *'
 
 # Not POSIX compliant
 grepc () {

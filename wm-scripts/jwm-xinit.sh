@@ -10,5 +10,8 @@
 #(sleep 6 && xcompmgr -n) &
 (sleep 6 && picom --backend xrender --vsync) &
 
+# Night-shift
+(sleep 16 && gammastep -O 5200) &
+
 # Window manager
 exec jwm 2> ~/.cache/xsession-errors
