@@ -4,7 +4,7 @@ cleanup () {
 	cd ..
 	read -p "Delete temp folder (y/N)? " yesOrNo
 	if [ "$yesOrNo" = "y" ] || [ "$yesOrNo" = "Y" ]; then
-		trash-put temp_programs/
+		[ -d temp_programs/ ] && trash-put temp_programs/
 	fi
 }
 
@@ -427,6 +427,62 @@ cal () {
 	cd ..
 }
 
+zathura () {
+	sudo apt install ninja meson mupdf libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
+
+	git clone https://github.com/ArtifexSoftware/mupdf
+	cd mupdf
+	git checkout 205b8cf
+	git submodule update --init
+	make XCFLAGS=-fPIC XCXXFLAGS=-fPIC
+	make install --prefix=/usr/local
+	cd ..
+
+	mkdir girara
+	cd girara
+	tag="$(curl "https://github.com/pwmt/girara/tags" | grep "releases/tag" | head -n 3 | tail -n 1 | cut -d "\"" -f 6 | cut -d "/" -f 6)"
+	wget "https://github.com/pwmt/girara/archive/refs/tags/${tag}.zip"
+	unzip *.zip
+	cd */
+	meson build
+	cd build
+	ninja
+	sudo ninja install
+	cd ..
+	cd ..
+	cd ..
+
+	mkdir zathura
+	cd zathura
+	tag="$(curl "https://github.com/pwmt/zathura/tags" | grep "releases/tag" | head -n 3 | tail -n 1 | cut -d "\"" -f 6 | cut -d "/" -f 6)"
+	wget "https://github.com/pwmt/zathura/archive/refs/tags/${tag}.zip"
+	unzip *.zip
+	cd */
+	sed 's/test-wayland features<\/issue>/test-wayland features<\/p>/g' data/org.pwmt.zathura.metainfo.xml.in > /tmp/out
+	mv /tmp/out data/org.pwmt.zathura.metainfo.xml.in
+	meson build
+	cd build
+	ninja
+	sudo ninja install
+	cd ..
+	cd ..
+	cd ..
+
+	mkdir zathura-mupdf
+	cd zathura-mupdf
+	tag="$(curl "https://github.com/pwmt/zathura-pdf-mupdf/tags" | grep "releases/tag" | head -n 3 | tail -n 1 | cut -d "\"" -f 6 | cut -d "/" -f 6)"
+	wget "https://github.com/pwmt/zathura-pdf-mupdf/archive/refs/tags/${tag}.zip"
+	unzip *.zip
+	cd */
+	meson build
+	cd build
+	ninja
+	sudo ninja install
+	cd ..
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -463,6 +519,7 @@ elif [ "$1" = "notmine" ]; then
 	build fastfetch
 	build dragon
 	build cal
+	build zathura
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -519,6 +576,8 @@ elif [ "$1" = "dragon" ]; then
 	dragon
 elif [ "$1" = "cal" ]; then
 	cal
+elif [ "$1" = "zathura" ]; then
+	zathura
 elif [ "$1" = "alpine" ]; then
 	alpine
 else
