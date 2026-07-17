@@ -18,7 +18,7 @@ cd temp_programs
 [ -d patches/ ] || git clone https://github.com/regexghost/patches
 
 # dev tools
-sudo apt install git make gcc automake unzip gettext autopoint pkg-config cmake libtool build-essential
+sudo apt install git make gcc automake cmake meson unzip gettext autopoint pkg-config libtool build-essential
 
 jwm () {
 	sudo apt install libxext-dev libxmu-dev libxinerama-dev libxpm-dev libjpeg-dev libpng-dev libpango1.0-dev
@@ -428,14 +428,14 @@ cal () {
 }
 
 zathura () {
-	sudo apt install ninja meson mupdf libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
+	sudo apt install libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
 
 	git clone https://github.com/ArtifexSoftware/mupdf
 	cd mupdf
 	git checkout 205b8cf
 	git submodule update --init
 	make XCFLAGS=-fPIC XCXXFLAGS=-fPIC
-	make install --prefix=/usr/local
+	sudo make install
 	cd ..
 
 	mkdir girara

@@ -23,3 +23,12 @@ More information about specific WM/DE setups can be found below, both the dotfil
 
 Before loading the dotfiles, navigates to `helpers/colours/` and run `make.sh *colourscheme*`, where `*colourscheme*` is a scheme in `helpers/colours/schemes/` (without the `.sh`)  
 This will place relevant colourschemee substitution files in the correct directories to be loaded with the config files. These files aren't tracked in the repo as there a) there is a large number of them and b) they can be generated programatically from the `schemes/` files.
+
+## Guides
+
+[Arch install](/guides/archInstallGuide.md)  
+[Firefox setup](/guides/firefox.md)  
+[New git repo (GitHub)](/guides/git.md)  
+[Windows ISO USB](/guides/windowsFromLinux.md)  
+[Samba setup](/guides/samba.md)  
+[Some useful commands](/guides/commands.txt)

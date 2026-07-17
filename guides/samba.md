@@ -1,5 +1,7 @@
 # Samba Setup
 
+https://pimylifeup.com/raspberry-pi-samba/
+
 `sudo apt install samba samba-common-bin`  
 `sudo nano /etc/samba/smb.conf`  
 `sudo smbpasswd -a <username>`  
