@@ -5,46 +5,23 @@ PROMPT_COMMAND=
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Load bash completion
-#if ! shopt -oq posix; then
-#  if [ -f /usr/share/bash-completion/bash_completion ]; then
-#	. /usr/share/bash-completion/bash_completion
-#  elif [ -f /etc/bash_completion ]; then
-#	. /etc/bash_completion
-#  fi
-#fi
-
-#. /usr/share/bash-completion/completions/git
-
 # Add my directory_bookmarks program to the prompt when relevant
 PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory_bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
 # Basic Aliases
-alias grep='grep -i'
-alias greps='/usr/bin/grep' # Case sensitive
-alias grepa='grep -i -I -A 5 -B 5'
+alias grep='/usr/bin/grep -i --color=auto'
+alias greps='/usr/bin/grep --color=auto' # Case sensitive
+alias grepa='grep -i -I -A 5 -B 5 --color=auto'
 alias diff='diff --color'
-alias hs='history'
 alias n='nano'
-alias ra='ranger'
 alias py='python3'
-alias nf='fastfetch'
 alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
 alias bat='bat --wrap word --theme=base16'
 alias mv='mymv'
 alias cp='cp -r -i'
-alias cmatrix='cmatrix -u 6' # Cool fake hacker program
 alias duf='duf -hide special'
-alias gtop='sudo intel_gpu_top'
 alias rm='rm-trash'
-alias cheat='cheat -c'
 alias zbr='zig build run'
-alias bluey='bluetui'
-alias fontsreload='sudo fc-cache -fv'
-alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
-alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
-alias alpine='alpine -p ~/.config/alpine/pinerc -passfile ~/.config/alpine/pine-passfile'
-alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias cl='ln -si'
 alias b='bat'
 alias dud='du -s -h *'
@@ -72,14 +49,10 @@ rss () {
 
 alias x='chmod +x'
 alias copy='tr -d "\n" | xclip -selection c'
-alias batl='ls | sort | tail -n 1 | xargs bat --theme=base16'
 alias watchlc="watch 'ls | wc -l'"
 alias watchdu="watch 'du -s -h *'"
-alias lastyear='log -d $(date -d "-1 year" +"%y%m%d")' # Interacts with my log program
 alias fatmount='sudo mount -o rw,users,umask=000' # Mount FAT formatted drive correctly
-alias rmedir='find . -type d -empty -delete'
 alias balance='aacgain -r -m 1 *.m4a'
-alias vol='pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | cut -d "/" -f 2 | sed "s/ //g"'
 alias clearlogs='sudo journalctl --vacuum-time=2d'
 alias q='exit'
 alias reload='. ~/.kshrc'
@@ -93,6 +66,9 @@ alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
 alias pve='pipe-viewer'
+alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
+alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
+alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 
 web () {
 	case "$1" in
@@ -144,27 +120,17 @@ gpa () {
 # Other random aliases
 
 alias as='echo "Use \as to run as command, disabled as too easy to type accidentally, creating unnecessary a.out file in home directory"'
-alias todo='$VISUAL ~/Documents/todo.md'
-alias durationr='media-file-duration . -r'
-alias durationi='media-file-duration . -i'
-alias kb='~/.local/share/regexghost/wm-scripts/keyboard-settings.sh'
 
 ## Functions to basic programs
 
 # fzf -> editor
 qfi () {
-	file="$(find ~/* | grep -E '.py$|.go$|.txt$|.md$|.java$|.js$|.html$|.css$|.c$|.cc$|.conf$|.lua$|.rs$|.sh$|.bash$|.csv$' | sed 's|'"$HOME"'|~|g' | fzf --bind 'ctrl-backspace:backward-kill-word' --bind 'ctrl-delete:kill-word' --bind 'ctrl-right:forward-word' --bind 'ctrl-left:backward-word')"
+	file="$(find ~/* | grep -E '.py$|.go$|.txt$|.md$|.java$|.js$|.html$|.css$|.c$|.cc$|.conf$|.lua$|.rs$|.sh$|.bash$|.csv$' | sed 's|'"$HOME"'|~|g' | fzf)"
 	[[ "$file" == "" ]] && return
-	$VISUAL "$file"
+	"${VISUAL:-${EDITOR:-vi}}" "$file"
 }
 
 alias v='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
-
-batf () {
-	result=$(fasd -fi $@)
-	[ "$result" == "" ] && return
-	bat --theme=base16 "$result"
-}
 
 lsblk () {
 	if [[ "$1" == "-a" ]]; then

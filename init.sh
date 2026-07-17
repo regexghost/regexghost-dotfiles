@@ -40,3 +40,6 @@ mkdir ~/Videos/YouTube/Videos
 mkdir ~/Videos/YouTube/Shorts
 mkdir ~/Videos/YouTube/toDownload
 touch ~/Videos/Podcasts/toDownload.txt
+
+mkdir ~/.local/state/mpd
+mkdir ~/.cache/mpd

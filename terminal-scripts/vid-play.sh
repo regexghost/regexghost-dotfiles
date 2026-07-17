@@ -2,7 +2,7 @@
 
 LOC="$HOME/Videos/YouTube"
 
-if [ "$1" = "-s" ]; then
+if [ "$1" = "-s" ] || [ "$1" = "s" ]; then
 	dir="Shorts"
 else
 	dir="Videos"
