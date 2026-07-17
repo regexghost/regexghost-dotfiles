@@ -147,25 +147,9 @@ do_pkill () {
 
 alias pkill='do_pkill'
 
-storage () {
-	root_line=$(df -h | grep ' /$' | tr -s " ")
-	used=$(echo "$root_line" | cut -d " " -f 3)
-	free=$(echo "$root_line" | cut -d " " -f 4)
-	echo "Used: ${used}"
-	echo "Free: ${free}"
-}
-
 trash-empty () {
 	echo "Trash is $(trash-size)"
 	/usr/bin/trash-empty
-}
-
-backuphistory () {
-	wc -l ~/.history
-	read yesOrNoBackup"?Backup? (y/N) "
-	if [ "$yesOrNoBackup" = "y" ] || [ "$yesOrNoBackup" = "Y" ]; then
-		cp ~/.history ~/Downloads/.history_backup
-	fi
 }
 
 # Only use this if the history in the current terminal is suddenly way shorter than it should be
