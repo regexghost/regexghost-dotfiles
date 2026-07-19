@@ -19,4 +19,12 @@ elif [ "$1" = "make" ]; then
 	date +"%y-%m-%d" >> "$XDG_DATA_HOME/regexghost/script-data/backup-history.txt"
 	rsync -ar --links --delete --info=progress2 "${BACKUP_LOCATION}/latest/" "${BACKUP_LOCATION}/previous/"
 	rsync -ar --links --delete --info=progress2 --files-from="${BACKUP_FILE}" "$HOME" "${BACKUP_LOCATION}/latest/"
+	hashFile="${BACKUP_LOCATION}/hashes/$(date +"%y%m%d").txt"
+	while read -r thing; do
+		echo "Hashing: ${HOME}${thing}"
+		[ -f "${HOME}${thing}" ] && sha256sum "${HOME}${thing}" >> "$hashFile"
+		[ -d "${HOME}${thing}" ] && hashfolder "${HOME}${thing}" >> "$hashFile"
+	done  <<EOF
+$(cat "$BACKUP_FILE")
+EOF
 fi

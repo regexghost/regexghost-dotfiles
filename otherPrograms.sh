@@ -129,8 +129,10 @@ oksh () {
 	cd */
 	cp ../../patches/oksh-case-insensitive.diff .
 	cp ../../patches/oksh-history.diff .
+	cp ../../patches/oksh-ctrl-backspace-delete.diff .
 	patch < oksh-case-insensitive.diff
 	patch < oksh-history.diff
+	patch < oksh-ctrl-backspace-delete.diff
 	./configure
 	make
 	sudo make install
