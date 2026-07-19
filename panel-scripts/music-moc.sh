@@ -11,7 +11,7 @@ mocp_command="mocp -M $XDG_CONFIG_HOME/moc"
 ping_panel () {
 	barpid="$(cat ~/.cache/bar_pid)"
 	if ! [ "$barpid" = "" ]; then
-		kill -35 "$barpid"
+		/usr/bin/kill -35 "$barpid"
 	fi
 }
 

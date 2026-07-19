@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ "$1" = "-h" ]; then
+	echo "tag-song <genre> <amID/file.jpg> <files>*"
+	exit
+fi
+
 genre="$1"
 appleMusicID="$2"
 shift
