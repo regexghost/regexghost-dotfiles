@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH="/usr/bin:$PATH"
+
 cleanup () {
 	cd ..
 	read -p "Delete temp folder (y/N)? " yesOrNo
@@ -430,14 +432,15 @@ cal () {
 }
 
 zathura () {
-	sudo apt install libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev
+	sudo apt install libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
 
 	git clone https://github.com/ArtifexSoftware/mupdf
 	cd mupdf
 	git checkout 205b8cf
 	git submodule update --init
-	make XCFLAGS=-fPIC XCXXFLAGS=-fPIC
-	sudo make install
+	make build=release  XCFLAGS=-fPIC XCXXFLAGS=-fPIC
+	make shared=yes build=release XCFLAGS="-fPIC" XCXXFLAGS="-fPIC" USE_SYSTEM_FREETYPE=yes USE_SYSTEM_GUMBO=yes USE_SYSTEM_HARFBUZZ=yes USE_SYSTEM_JBIG2DEC=yes USE_SYSTEM_LIBJPEG=yes USE_SYSTEM_OPENJPEG=no USE_SYSTEM_ZLIB=yes USE_SYSTEM_GLUT=yes USE_SYSTEM_CURL=yes USE_SYSTEM_LEPTONICA=yes USE_SYSTEM_TESSERACT=yes USE_SYSTEM_ZXINGCPP=yes USE_SYSTEM_BROTLI=yes
+	sudo make shared=yes build=release XCFLAGS="-fPIC" XCXXFLAGS="-fPIC" USE_SYSTEM_FREETYPE=yes USE_SYSTEM_GUMBO=yes USE_SYSTEM_HARFBUZZ=yes USE_SYSTEM_JBIG2DEC=yes USE_SYSTEM_LIBJPEG=yes USE_SYSTEM_OPENJPEG=no USE_SYSTEM_ZLIB=yes USE_SYSTEM_GLUT=yes USE_SYSTEM_CURL=yes USE_SYSTEM_LEPTONICA=yes USE_SYSTEM_TESSERACT=yes USE_SYSTEM_ZXINGCPP=yes USE_SYSTEM_BROTLI=yes install
 	cd ..
 
 	mkdir girara
