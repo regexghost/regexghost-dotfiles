@@ -290,6 +290,9 @@ sbase () {
 	make
 	sudo make install
 	cd ..
+
+	read -p "Add \"/usr/bin\" to start of secure_path (enter to continue):"
+	sudo visudo
 }
 
 sxiv () {
@@ -433,6 +436,20 @@ cal () {
 	cd ..
 }
 
+mercusys () {
+	sudo apt install dkms linux-headers-amd64
+
+	git clone https://github.com/ProgrammingRainbow/mercusys-ma530-dkms
+
+	sed 's/kernel=.*/kernel="$\{1%%-*\}"\nkernel="$\{kernel%%+*\}"/g' mercusys-ma530-dkms/pre_build.sh > /tmp/pre_build.sh
+	mv /tmp/pre_build.sh mercusys-ma530-dkms/pre_build.sh
+	chmod +x mercusys-ma530-dkms/pre_build.sh
+
+	sudo dkms remove mercusys-ma530-dkms/1.0 --all || echo "Not installed"
+	sudo dkms add ./mercusys-ma530-dkms
+	sudo dkms install mercusys-ma530-dkms/1.0
+}
+
 zathura () {
 	sudo apt install libxxhash-dev libmagic-dev libgtk-4-dev xorg-dev libxcursor-dev libxrandr-dev libxinerama-dev mesa-common-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
 
@@ -525,6 +542,7 @@ elif [ "$1" = "notmine" ]; then
 	build fastfetch
 	build dragon
 	build cal
+	build mercusys
 	build zathura
 	build retroarch
 	echo "done"
@@ -582,6 +600,8 @@ elif [ "$1" = "dragon" ]; then
 	dragon
 elif [ "$1" = "cal" ]; then
 	cal
+elif [ "$1" = "mercusys" ]; then
+	mercusys
 elif [ "$1" = "zathura" ]; then
 	zathura
 elif [ "$1" = "alpine" ]; then
