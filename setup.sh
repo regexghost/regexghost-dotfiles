@@ -2,6 +2,8 @@
 
 file="lists/$2"
 
+sub="$HOME/.local/bin/sub"
+
 exec 3<&0
 if [ "$1" = "save" ]; then
 	while read -r filepath; do
@@ -12,8 +14,8 @@ if [ "$1" = "save" ]; then
 		mkdir -p "$repo_dirname"
 		echo $filepath
 		if grep -q "Start Substitute" "$real_path"; then
-			sub save "$basename" "$repo_dirname" "$real_path" <&3
-			sub clean "$basename" "$repo_dirname" "$real_path" "$repo_path"
+			"$sub" save "$basename" "$repo_dirname" "$real_path" <&3
+			"$sub" clean "$basename" "$repo_dirname" "$real_path" "$repo_path"
 		else
 			cp "$real_path" "$repo_path"
 		fi
@@ -28,7 +30,7 @@ elif [ "$1" = "make" ]; then
 		echo $filepath
 		mkdir -p "$real_dirname"
 		if grep -q "Start Substitute" "$repo_path"; then
-			sub make "$basename" "$repo_dirname" "$repo_path" "$real_path" <&3
+			"$sub" make "$basename" "$repo_dirname" "$repo_path" "$real_path" <&3
 		else
 			cp "$repo_path" "$real_path"
 		fi

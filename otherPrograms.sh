@@ -17,10 +17,10 @@ set -e
 mkdir -p temp_programs
 cd temp_programs
 
-[ -d patches/ ] || git clone https://github.com/regexghost/patches
-
 # dev tools
 sudo apt install git make gcc automake cmake meson unzip gettext autopoint pkg-config libtool build-essential
+
+[ -d patches/ ] || git clone https://github.com/regexghost/patches
 
 jwm () {
 	sudo apt install libxext-dev libxmu-dev libxinerama-dev libxpm-dev libjpeg-dev libpng-dev libpango1.0-dev
@@ -293,6 +293,8 @@ sbase () {
 }
 
 sxiv () {
+	sudo apt install libexif-dev
+
 	git clone https://github.com/xyb3rt/sxiv
 	cd sxiv
 	make
@@ -438,7 +440,6 @@ zathura () {
 	cd mupdf
 	git checkout 205b8cf
 	git submodule update --init
-	make build=release  XCFLAGS=-fPIC XCXXFLAGS=-fPIC
 	make shared=yes build=release XCFLAGS="-fPIC" XCXXFLAGS="-fPIC" USE_SYSTEM_FREETYPE=yes USE_SYSTEM_GUMBO=yes USE_SYSTEM_HARFBUZZ=yes USE_SYSTEM_JBIG2DEC=yes USE_SYSTEM_LIBJPEG=yes USE_SYSTEM_OPENJPEG=no USE_SYSTEM_ZLIB=yes USE_SYSTEM_GLUT=yes USE_SYSTEM_CURL=yes USE_SYSTEM_LEPTONICA=yes USE_SYSTEM_TESSERACT=yes USE_SYSTEM_ZXINGCPP=yes USE_SYSTEM_BROTLI=yes
 	sudo make shared=yes build=release XCFLAGS="-fPIC" XCXXFLAGS="-fPIC" USE_SYSTEM_FREETYPE=yes USE_SYSTEM_GUMBO=yes USE_SYSTEM_HARFBUZZ=yes USE_SYSTEM_JBIG2DEC=yes USE_SYSTEM_LIBJPEG=yes USE_SYSTEM_OPENJPEG=no USE_SYSTEM_ZLIB=yes USE_SYSTEM_GLUT=yes USE_SYSTEM_CURL=yes USE_SYSTEM_LEPTONICA=yes USE_SYSTEM_TESSERACT=yes USE_SYSTEM_ZXINGCPP=yes USE_SYSTEM_BROTLI=yes install
 	cd ..
