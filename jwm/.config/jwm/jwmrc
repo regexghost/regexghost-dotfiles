@@ -159,13 +159,13 @@
     <Key mask="4S" key="r">resize</Key>
     <Key mask="4S" key="q">close</Key>
 
-	<Key mask="4" key="m">exec:~/.local/share/regexghost/panel/music.sh</Key>
-	<Key mask="4S" key="m">exec:~/.local/share/regexghost/panel/music.sh --choice</Key>
-	<Key mask="4" key="equal">exec:~/.local/share/regexghost/panel/music.sh --next</Key>
-	<Key mask="4" key="minus">exec:~/.local/share/regexghost/panel/music.sh --previous</Key>
-	<Key mask="4S" key="minus">exec:~/.local/share/regexghost/panel/music.sh --quit</Key>
-	<Key mask="4S" key="equal">exec:~/.local/share/regexghost/panel/music.sh --favourite</Key>
-	<Key mask="4S" key="bracketleft">exec:~/.local/share/regexghost/panel/music.sh --toggle-pause</Key>
+	<Key mask="4" key="m">exec:~/.local/share/regexghost/panel/music-moc.sh</Key>
+	<Key mask="4S" key="m">exec:~/.local/share/regexghost/panel/music-moc.sh --choice</Key>
+	<Key mask="4" key="equal">exec:~/.local/share/regexghost/panel/music-moc.sh --next</Key>
+	<Key mask="4" key="minus">exec:~/.local/share/regexghost/panel/music-moc.sh --previous</Key>
+	<Key mask="4S" key="minus">exec:~/.local/share/regexghost/panel/music-moc.sh --quit</Key>
+	<Key mask="4S" key="equal">exec:~/.local/share/regexghost/panel/music-moc.sh --favourite</Key>
+	<Key mask="4S" key="bracketleft">exec:~/.local/share/regexghost/panel/music-moc.sh --toggle-pause</Key>
 	<Key mask="4" key="bracketleft">exec:~/.local/share/regexghost/wm-scripts/volume.sh --down</Key>
 	<Key mask="4" key="bracketright">exec:~/.local/share/regexghost/wm-scripts/volume.sh --up</Key>
 	<Key mask="4S" key="slash">exec:~/.local/share/regexghost/wm-scripts/volume.sh --toggle-mute</Key>

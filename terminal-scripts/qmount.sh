@@ -24,7 +24,7 @@ mount () {
 
 unmount () {
 	mounted="$(/usr/bin/lsblk -l -n --output NAME,MOUNTPOINTS | grep "/" | grep -v "$root_device" | tr -s " ")"
-	[ "$unmounted" = "" ] && echo "No drives to unmount" && exit
+	[ "$mounted" = "" ] && echo "No drives to unmount" && exit
 
 	chosen_path="$(echo "$mounted" | fzf | cut -d " " -f 2-)"
 	[ "$chosen_path" = "" ] && exit

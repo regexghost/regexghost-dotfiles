@@ -22,7 +22,7 @@ alias cp='cp -r -i'
 alias duf='duf -hide special'
 alias rm='rm-trash'
 alias zbr='zig build run'
-alias cl='ln -si'
+alias cl='ln -s'
 alias b='bat'
 alias dud='du -s -h *'
 
@@ -181,7 +181,7 @@ cal () {
 
 	day="$(date +'%A')"
 	date="$(date +'%d')"
-	week="$(date +'%W')"
+	week="$(date +'%V')"
 
 	echo -e "${RED_COLOUR}Day:${RESET_COLOUR}  ${day}"
 	echo -e "${BLUE_COLOUR}Date:${RESET_COLOUR} ${date}$(suffix $date)"
@@ -252,7 +252,7 @@ alias his='nl ~/.history | grep'
 
 ## Search root directory
 findr () {
-	find / -iname "$1" 2>&1 | grep -v 'Permission denied'
+	/usr/bin/find / -iname "$1" 2>&1 | grep -v 'Permission denied'
 }
 
 alias findh='find ~ -iname'
@@ -270,8 +270,8 @@ alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-d
 
 # Set variables
 
-export HISTSIZE=80000
-export HISTFILESIZE=80000
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 export HISTFILE="$HOME/.history"
 
 export HISTCONTROL=ignoredups:erasedups
