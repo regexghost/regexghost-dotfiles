@@ -26,7 +26,7 @@ https://discord.com/login
 ## Settings
 
 Remove little icon from top-left  
-Remove profile thing from bark  
+Remove profile thing from bar  
 Remove shortcuts and recommended stories  
 Set background to a photograph  
 Dark theme  

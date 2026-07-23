@@ -34,7 +34,7 @@ w
 ```
 
 `sudo mkfs.fat -F32 -n "BOOT" /dev/<drive>`  
-`sudo mkfs.ntfs -Q -L "INSTALL /dev/<drive>"`
+`sudo mkfs.ntfs -Q -L "INSTALL" /dev/<drive>`
 
 ## Mount ISO
 
