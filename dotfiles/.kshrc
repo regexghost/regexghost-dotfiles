@@ -61,14 +61,16 @@ alias wl='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
 alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool getactivewindow)" && echo "Got id"  && sleep 1 && import -frame -window "$id"'
 alias da='download-vids && download-pods'
 alias sshr='ssh racknerd'
+alias sshp='ssh piserver'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
 alias pve='pipe-viewer'
-alias trash-size='du ~/.local/share/Trash/files/ -s -h | cut -f 1'
+alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
+alias dff='df -h | grep -e Filesystem -e "^/dev" | grep -v efi'
 
 web () {
 	case "$1" in
