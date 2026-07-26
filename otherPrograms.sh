@@ -300,6 +300,10 @@ sxiv () {
 
 	git clone https://github.com/xyb3rt/sxiv
 	cd sxiv
+
+	cp ../patches/sxiv-print-index.diff .
+	patch < sxiv-print-index.diff
+
 	make
 	sudo make install
 	cd ..
