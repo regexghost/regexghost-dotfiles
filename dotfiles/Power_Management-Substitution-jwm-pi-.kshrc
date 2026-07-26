@@ -1,12 +1,16 @@
 #### Start Substitute - Power_Management
 ## Shutdown with confirmation
 shutdown_commands () {
-	mocp -M "$XDG_CONFIG_HOME/moc" --stop
+	if pgrep "mocp" > /dev/null; then
+		mocp -M "$XDG_CONFIG_HOME/moc" --stop
+	fi
 	/usr/bin/rm -rf "$XDG_CACHE_HOME/reddit-rss"
 	cp -r /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
-	tmux send-keys -t buffer_tmux.o C-s
-	tmux send-keys -t buffer_tmux.o C-q
-	tmux kill-session -t buffer_tmux
+	if pgrep -f "tmux new-session -d -s buffer_tmux" > /dev/null; then
+		tmux send-keys -t buffer_tmux.0 C-s
+		tmux send-keys -t buffer_tmux.0 C-q
+		tmux kill-session -t buffer_tmux
+	fi
 }
 
 shutdown () {
