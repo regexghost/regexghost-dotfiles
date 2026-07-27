@@ -1,0 +1,23 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2026-07-27T20:06:20.261Z",
+    "redirects": [
+        {
+            "description": "Wikipedia Vector Skin",
+            "exampleUrl": "https://en.wikipedia.org/wiki/Socket_AM4",
+            "exampleResult": "https://en.wikipedia.org/wiki/Socket_AM4?useskin=vector",
+            "error": null,
+            "includePattern": "https://*.wikipedia.org/wiki/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://$1.wikipedia.org/wiki/$2?useskin=vector",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}
