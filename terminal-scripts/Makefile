@@ -6,10 +6,10 @@ normal:
 	cp cmpfolder.sh ${BIN}/cmpfolder
 	cp hashfolder.sh ${BIN}/hashfolder
 	cp rm-trash.sh ${BIN}/rm-trash
-	gcc -o directory_bookmarks directory_bookmarks.c
-	mv directory_bookmarks ${BIN}/directory_bookmarks
-	cp github_latest_release.sh ${BIN}/github_latest_release
-	cp heic_to_jpg.sh ${BIN}/heictojpg
+	gcc -o directory-bookmarks directory-bookmarks.c
+	mv directory-bookmarks ${BIN}/directory-bookmarks
+	cp github-latest-release.sh ${BIN}/github-latest-release
+	cp heic-to-jpg.sh ${BIN}/heic-to-jpg
 	cp backup.sh ${BIN}/backup
 	cp qmount.sh ${BIN}/qmount
 	go build -o tablealigner tablealigner.go
@@ -26,7 +26,7 @@ normal:
 	cp stream-check.sh ${BIN}/stream-check
 	cp opus-soundtrack.sh ${BIN}/opus-soundtrack
 	cp opus-single.sh ${BIN}/opus-single
-	cp webm_to_m4a.sh ${BIN}/webm_to_m4a
+	cp webm-to-m4a.sh ${BIN}/webm-to-m4a
 	gcc string-trunc.c -o string-trunc
 	mv string-trunc ${BIN}/string-trunc
 	cp ytdl-wrapper.sh ${BIN}/ytdl-wrapper

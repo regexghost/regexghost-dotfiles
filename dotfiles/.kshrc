@@ -5,8 +5,8 @@ PROMPT_COMMAND=
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Add my directory_bookmarks program to the prompt when relevant
-PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory_bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
+# Add my directory-bookmarks program to the prompt when relevant
+PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
 # Basic Aliases
 alias grep='/usr/bin/grep -i --color=auto'
@@ -66,6 +66,7 @@ alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
+alias cr='comic-read'
 alias pve='pipe-viewer'
 alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
@@ -316,13 +317,13 @@ alias bin='cd ~/.local/bin/'
 alias con='cd ~/.config/'
 
 to () {
-	cd "$(directory_bookmarks get "$1")"
+	cd "$(directory-bookmarks get "$1")"
 }
 
-alias bm='directory_bookmarks add'
-alias bmr='directory_bookmarks remove'
-alias bml='directory_bookmarks list'
-alias bmc='directory_bookmarks current'
+alias bm='directory-bookmarks add'
+alias bmr='directory-bookmarks remove'
+alias bml='directory-bookmarks list'
+alias bmc='directory-bookmarks current'
 
 alias cdp='cd - > /dev/null'
 
@@ -370,14 +371,14 @@ do_z () {
 }
 
 qf () {
-	file="$(directory_bookmarks file get "$1")"
+	file="$(directory-bookmarks file get "$1")"
 	[[ "$file" == "" ]] && return
 	"${VISUAL:-${EDITOR}}" "$file"
 }
 
-alias qfa="directory_bookmarks file add"
-alias qfr="directory_bookmarks file remove"
-alias qfl="directory_bookmarks file list"
+alias qfa="directory-bookmarks file add"
+alias qfr="directory-bookmarks file remove"
+alias qfl="directory-bookmarks file list"
 
 unalias z
 unalias zz
