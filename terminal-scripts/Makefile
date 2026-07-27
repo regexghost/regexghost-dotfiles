@@ -41,3 +41,4 @@ normal:
 	cp vid-play.sh ${BIN}/vid-play
 	cp blog-devlog.sh ${BIN}/blog-devlog
 	cp howlongtobeat.py ${TERMINAL}/howlongtobeat.py
+	cp files.sh ${BIN}/files

@@ -173,12 +173,13 @@
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t btop -e btop</Key>
     <Key mask="4" key="w">exec:firefox</Key>
+    <Key mask="4" key="r">exec:keepassxc</Key>
     <Key mask="4S" key="w">exec:chromium</Key>
     <Key mask="4" key="n">exec:st -t nethogs -e nethogs</Key>
     <Key mask="4" key="u">exec:st -t cava -e cava</Key>
     <Key mask="4" key="c">exec:st -t qalc -e qalc</Key>
-    <Key mask="4" key="e">exec:st -t ranger -e ranger</Key>
-    <Key mask="4S" key="e">exec:xfiles</Key>
+    <Key mask="4" key="e">exec:st -t nnn -e files</Key>
+    <Key mask="4S" key="e">exec:xfe</Key>
     <Key mask="4" key="q">exec:~/.local/share/regexghost/wm-scripts/bookmarks.sh</Key>
     <Key mask="4" key="f">exec:~/.local/share/regexghost/wm-scripts/dmenu-programs.sh</Key>
     <Key mask="4" key="s">exec:st -t Soundboard -e soundboard</Key>

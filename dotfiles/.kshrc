@@ -31,12 +31,7 @@ grepc () {
 	grep -oP ".{0,100}${1}.{0,100}"
 }
 
-nnn () {
-	export NNN_FIFO=/tmp/nnn.fifo
-	export NNN_PLUG=v:preview-tui
-	tmux new-session -d -s mys "nnn -P v"
-	tmux attach
-}
+alias nnn='files'
 
 rss () {
 	pgrep newsraft > /dev/null && echo "Newsraft already open" && return

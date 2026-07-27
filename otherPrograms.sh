@@ -512,6 +512,27 @@ zathura () {
 	cd ..
 }
 
+ueberzugpp () {
+	sudo apt install libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-image0-dev libxcb-res0 libxcb-res0-dev
+
+	mkdir ueberzugpp
+	cd ueberzugpp
+	url="$(github_latest_release "github" "jstkdng" "ueberzugpp")"
+	wget "$url"
+	unzip *.zip
+	cd */
+
+	mkdir build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release ..
+	cmake --build .
+	cd ..
+	sudo cmake --install build
+
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -550,6 +571,7 @@ elif [ "$1" = "notmine" ]; then
 	build cal
 	build mercusys
 	build zathura
+	build ueberzugpp
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -610,6 +632,8 @@ elif [ "$1" = "mercusys" ]; then
 	mercusys
 elif [ "$1" = "zathura" ]; then
 	zathura
+elif [ "$1" = "ueberzugpp" ]; then
+	ueberzugpp
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

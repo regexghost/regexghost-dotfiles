@@ -27,4 +27,8 @@ elif [ "$1" = "make" ]; then
 	done  <<EOF
 $(cat "$BACKUP_FILE")
 EOF
+elif [ "$1" = "diff" ]; then
+	last2="$(find "${BACKUP_LOCATION}/hashes" | sort | tail -n 2 | head -n 1)"
+	last1="$(find "${BACKUP_LOCATION}/hashes" | sort | tail -n 1)"
+	diff --color=auto "$last2" "$last1"
 fi

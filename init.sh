@@ -65,3 +65,7 @@ mkdir -p ~/.cache/mpd
 cd ~/.local/share/regexghost
 python3 -m venv .venv
 ~/.local/share/regexghost/.venv/bin/pip install music-tag pillow requests beautifulsoup4 howlongtobeatpy
+
+mkdir -p ~/.config/nnn/plugins
+curl "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/plugins/preview-tui" > ~/.config/nnn/plugins/preview-tui
+chmod +x ~/.config/nnn/plugins/preview-tui
