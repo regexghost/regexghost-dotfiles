@@ -40,3 +40,4 @@ normal:
 	cp os-transfer-backup.sh ${BIN}/os-transfer-backup
 	cp vid-play.sh ${BIN}/vid-play
 	cp blog-devlog.sh ${BIN}/blog-devlog
+	cp howlongtobeat.py ${TERMINAL}/howlongtobeat.py

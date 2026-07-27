@@ -71,6 +71,7 @@ alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias dff='df -h | grep -e Filesystem -e "^/dev" | grep -v efi'
+alias hltb='~/.local/share/regexghost/.venv/bin/python3 ~/.local/share/regexghost/terminal/howlongtobeat.py'
 
 web () {
 	case "$1" in
@@ -82,6 +83,20 @@ web () {
 			;;
 		*)
 			echo "Usage: case [build|push]"
+			;;
+	esac
+}
+
+android () {
+	case "$1" in
+		m*)
+			aft-mtp-mount ~/Downloads/USBDrive
+			;;
+		u*)
+			fusermount -u ~/Downloads/USBDrive
+			;;
+		f*)
+			fusermount -uz ~/Downloads/USBDrive
 			;;
 	esac
 }
@@ -116,6 +131,11 @@ gpa () {
 	git push -u codeberg
 	git push -u mine
 }
+
+# Python venv
+
+alias py='~/.local/share/regexghost/.venv/bin/python3'
+alias pip='~/.local/share/regexghost/.venv/bin/pip'
 
 #### Start Substitute - Package_Manager
 

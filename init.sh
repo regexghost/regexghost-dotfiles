@@ -64,4 +64,4 @@ mkdir -p ~/.cache/mpd
 
 cd ~/.local/share/regexghost
 python3 -m venv .venv
-~/.local/share/regexghost/.venv/bin/pip install music-tag pillow requests beautifulsoup4
+~/.local/share/regexghost/.venv/bin/pip install music-tag pillow requests beautifulsoup4 howlongtobeatpy
