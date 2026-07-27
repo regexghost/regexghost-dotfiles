@@ -130,7 +130,6 @@
     <Key key="Return">select</Key>
     <Key key="Escape">escape</Key>
 
-    <Key mask="A" key="Tab">nextstacked</Key>
     <Key mask="4" key="#">desktop#</Key>
     <!-- <Key mask="A" key="F1">root:1</Key> -->
     <!-- <Key mask="A" key="F2">window</Key> -->

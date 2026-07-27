@@ -207,6 +207,8 @@ bug () {
 }
 
 st () {
+	sudo apt install libgd-dev
+
 	git clone https://github.com/regexghost/st
 	cd st
 	make full

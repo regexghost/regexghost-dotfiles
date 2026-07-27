@@ -13,5 +13,9 @@
 # Night-shift
 (sleep 16 && gammastep -O 5200) &
 
+# Alt Tab
+. ~/.config/regexghost/current-theme.sh
+(sleep 6 && alttab -bg "#${BACKGROUND_GREY}" -fg "#${FOREGROUND_WHITE}" -frame "#${GREEN}" -t 100x60) &
+
 # Window manager
 exec jwm 2> ~/.cache/xsession-errors
