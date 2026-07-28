@@ -5,8 +5,20 @@ PROMPT_COMMAND=
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Discipline function for relative present working directory
+# by Martijn Dekker <martijn@inlv.org> 2020-08-09; public domain
+function truncatedpwd
+{
+	v=$PWD keep=*/* # add /* for each element to keep
+	[[ ($v == "$HOME" || $v == "$HOME"/*) && $HOME != / ]] && v=\~${v#"$HOME"} # Replace /home/<user> with "~"
+	del=${v%/$keep}/
+	[[ $v == /*/$keep ]] && v=..${v#"$del"}
+	[[ $v == \~/*/$keep ]] && v=..${v#"$del"}
+	echo $v
+}
+
 # Add my directory-bookmarks program to the prompt when relevant
-PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
+PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
 # Basic Aliases
 alias grep='/usr/bin/grep -i --color=auto'
