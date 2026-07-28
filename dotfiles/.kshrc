@@ -57,6 +57,7 @@ alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool
 alias da='download-vids && download-pods'
 alias sshr='ssh racknerd'
 alias sshp='ssh piserver'
+alias sshg='ssh gopherbox'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'

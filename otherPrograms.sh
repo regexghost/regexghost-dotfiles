@@ -207,7 +207,7 @@ bug () {
 }
 
 st () {
-	sudo apt install libgd-dev
+	sudo apt install libgd-dev papirus-icon-theme
 
 	git clone https://github.com/regexghost/st
 	cd st
@@ -308,6 +308,33 @@ sxiv () {
 
 	make
 	sudo make install
+	cd ..
+}
+
+openssh () {
+	mkdir openssh
+	cd openssh
+	url="$(curl "https://www.openssh.org/openbsd.html" | grep "ftp" | head -n 2 | tail -n 1 | cut -d "\"" -f 2)"
+	wget "$url"
+	tar -xf *.tar.gz/
+}
+
+cava () {
+	sudo apt install libfftw3-dev libasound2-dev libpulse-dev libtool libiniparser-dev libsdl2-2.0-0 libsdl2-dev libjack-jackd2-dev
+
+	mkdir cava
+	cd cava
+	url="$(github_latest_release "github" "karlstav" "cava")"
+	wget "$url"
+	unzip *.zip
+	cd */
+
+	./autogen.sh
+	./configure --prefix="$HOME/.local"
+	make
+	make install
+
+	cd ..
 	cd ..
 }
 
@@ -572,6 +599,8 @@ elif [ "$1" = "notmine" ]; then
 	build mercusys
 	build zathura
 	build ueberzugpp
+	build openssh
+	build cava
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -634,6 +663,10 @@ elif [ "$1" = "zathura" ]; then
 	zathura
 elif [ "$1" = "ueberzugpp" ]; then
 	ueberzugpp
+elif [ "$1" = "openssh" ]; then
+	openssh
+elif [ "$1" = "cava" ]; then
+	cava
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

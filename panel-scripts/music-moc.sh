@@ -62,7 +62,7 @@ if ! $mocp_command -i | grep -q "State: STOP"; then
 	total="$(echo "$mocp_i" | awk '/^TotalSec/ {print $2}')"
 	current="$(echo "$mocp_i" | awk '/^CurrentSec/ {print $2}')"
 	progress=$(echo "$current/$total*100" | bc -l | cut -d "." -f 1)
-	notify-send -i emblem-music-symbolic "Currently Playing:" "$song_name" -h "int:value:${progress}"
+	notify-send -i "${XDG_DATA_HOME}/regexghost/panel/emblem-music-symbolic.png" "Currently Playing:" "$song_name" -h "int:value:${progress}"
 	exit
 fi
 

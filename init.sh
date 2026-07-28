@@ -69,3 +69,5 @@ python3 -m venv .venv
 mkdir -p ~/.config/nnn/plugins
 curl "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/plugins/preview-tui" > ~/.config/nnn/plugins/preview-tui
 chmod +x ~/.config/nnn/plugins/preview-tui
+sed 's/currentColor/white/g' /usr/share/icons/Papirus/24x24/symbolic/emblems/emblem-music-symbolic.svg > /tmp/temp.svg
+magick -background none -fill white -density 400 /tmp/temp.svg -resize 100x100 ~/.local/share/regexghost/panel/emblem-music-symbolic.png
