@@ -61,10 +61,10 @@ fi
 
 # Check for sub playlists
 if [ $(find "$playlist_path" -type d | wc -l) -ne 1 ]; then
-	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All Songs\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
+	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
 	# If all songs, don't change playlist path
-	if ! [ "$playlist" = "All Songs" ]; then
+	if ! [ "$playlist" = "All" ]; then
 		playlist_path="$playlist_path/$(echo "$playlist" | sed 's/ //g')"
 	fi
 fi

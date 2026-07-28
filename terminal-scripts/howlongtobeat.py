@@ -39,7 +39,7 @@ gameName = ' '.join(args).rstrip()
 if not outputJson:
 	print("Searching for game: " + gameName)
 
-results = HowLongToBeat().search(gameName)
+results = HowLongToBeat(0.0).search(gameName)
 
 length = len(results)
 
