@@ -539,6 +539,21 @@ zathura () {
 	cd ..
 }
 
+zig () {
+	mkdir zig
+	cd zig
+	url="$(curl "https://ziglang.org/download/" | pup 'table:nth-of-type(2)' | grep "zig-x86_64-linux" | head -n 1 | cut -d "\"" -f 2)"
+	wget "$url"
+	unxz *.xz
+	tar -xf *.tar
+	cd */
+	cp -r doc/* ~/.local/share/doc/
+	cp -r lib/ ~/.local/bin/
+	cp zig ~/.local/bin/
+	cd ..
+	cd ..
+}
+
 ueberzugpp () {
 	sudo apt install libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-image0-dev libxcb-res0 libxcb-res0-dev
 
@@ -592,7 +607,6 @@ elif [ "$1" = "notmine" ]; then
 	build sxiv
 	build alpine
 	build dotacat
-	build mepo
 	build fastfetch
 	build dragon
 	build cal
@@ -600,6 +614,8 @@ elif [ "$1" = "notmine" ]; then
 	build zathura
 	build ueberzugpp
 	build openssh
+	build zig
+	build mepo
 	build cava
 	build retroarch
 	echo "done"
@@ -665,6 +681,8 @@ elif [ "$1" = "ueberzugpp" ]; then
 	ueberzugpp
 elif [ "$1" = "openssh" ]; then
 	openssh
+elif [ "$1" = "zig" ]; then
+	zig
 elif [ "$1" = "cava" ]; then
 	cava
 elif [ "$1" = "alpine" ]; then

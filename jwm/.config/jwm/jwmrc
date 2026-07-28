@@ -145,13 +145,13 @@
     <Key mask="4S" key="period">sendr</Key>
 
     <Key mask="4" key="Left">maxleft</Key>
-    <Key mask="4C" key="Left">maxtopleft</Key>
+    <Key mask="4S" key="Left">maxtopleft</Key>
     <Key mask="4" key="Right">maxright</Key>
-    <Key mask="4C" key="Right">maxbottomright</Key>
+    <Key mask="4S" key="Right">maxbottomright</Key>
     <Key mask="4" key="Up">maxtop</Key>
-    <Key mask="4C" key="Up">maxtopright</Key>
+    <Key mask="4S" key="Up">maxtopright</Key>
     <Key mask="4" key="Down">maxbottom</Key>
-    <Key mask="4C" key="Down">maxbottomleft</Key>
+    <Key mask="4S" key="Down">maxbottomleft</Key>
 
     <Key mask="4" key="apostrophe">maximize</Key>
     <Key mask="4" key="slash">minimize</Key>

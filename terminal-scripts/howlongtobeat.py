@@ -34,7 +34,7 @@ while args[0].startswith("-"):
 	args = args[1:]
 
 
-gameName = ' '.join(args)
+gameName = ' '.join(args).rstrip()
 
 if not outputJson:
 	print("Searching for game: " + gameName)
