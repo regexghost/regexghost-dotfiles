@@ -12,18 +12,19 @@ function truncatedpwd
 	v=$PWD keep=*/* # add /* for each element to keep
 	[[ ($v == "$HOME" || $v == "$HOME"/*) && $HOME != / ]] && v=\~${v#"$HOME"} # Replace /home/<user> with "~"
 	del=${v%/$keep}/
-	[[ $v == /*/$keep ]] && v=..${v#"$del"}
-	[[ $v == \~/*/$keep ]] && v=..${v#"$del"}
+	[[ $v == /*/$keep ]] && v=.../${v#"$del"}
+	[[ $v == \~/*/$keep ]] && v=.../${v#"$del"}
 	echo $v
 }
 
 # Add my directory-bookmarks program to the prompt when relevant
-PS1='\[\033[1;32m\]\u:\[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
+PS1=' \[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;36m\] >\[\033[0m\] '
 
 # Basic Aliases
 alias grep='/usr/bin/grep -i --color=auto'
 alias greps='/usr/bin/grep --color=auto' # Case sensitive
 alias grepa='grep -i -I -A 5 -B 5 --color=auto'
+alias gi='/usr/bin/grep -ir --color=auto'
 alias diff='diff --color'
 alias n='nano'
 alias py='python3'
@@ -74,7 +75,6 @@ alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
 alias vp='vid-play'
 alias vps='vid-play -s'
-alias cr='comic-read'
 alias pve='pipe-viewer'
 alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
