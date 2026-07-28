@@ -10,7 +10,7 @@ lat=$(cat "$curLocationFile" | cut -d "|" -f 1)
 lon=$(cat "$curLocationFile" | cut -d "|" -f 2)
 geohash=$(geohash $lat $lon 9)
 today_string="$(date "+%Y-%m-%d")"
-if date --version | grep -q "GNU coreutils"; then
+if date --version 2>1 | grep -q "GNU coreutils" > /dev/null; then
 	tomorrow_string="$(date -d @$(($(date +%s)+86400)) "+%Y-%m-%d")"
 	second_day_string="$(date -d @$(($(date +%s)+86400+86400)) "+%Y-%m-%d")"
 else

@@ -23,6 +23,9 @@ stream_live_colour="%{F#${GREEN}}"
 stream_not_live_colour="%{F#${YELLOW}}"
 stream_error_colour="%{F#${RED}}"
 
+trap "echo not loaded yet" "RTMIN"
+trap "echo not loaded yet" "RTMIN+1"
+
 update_time () {
 	current_time="$(date +"%a %d %b - %H:%M")"
 }
