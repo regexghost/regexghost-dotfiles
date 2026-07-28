@@ -18,7 +18,7 @@ function truncatedpwd
 }
 
 # Add my directory-bookmarks program to the prompt when relevant
-PS1='\[\033[1;30m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
+PS1='\[\033[1;32m\]\u:\[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;31m\]\$\[\033[0m\] '
 
 # Basic Aliases
 alias grep='/usr/bin/grep -i --color=auto'
@@ -185,9 +185,12 @@ trash-empty () {
 
 # Only use this if the history in the current terminal is suddenly way shorter than it should be
 restorehistory () {
-	history | sed 's/^[ ]*[0-9]*[ ]*//g' > /tmp/new_history
-	cat "$HOME/Downloads/.history_backup" /tmp/new_history > /tmp/all_history
-	mv /tmp/all_history "$HOME/.history"
+	if [ "$1" = "-o" ]; then
+		cp "$HOME/Downloads/.history_backup" "$HOME/.history"
+	else
+		cat "$HOME/Downloads/.history_backup" "$HOME/.history" > /tmp/new_history
+		mv /tmp/new_history "$HOME/.history"
+	fi
 }
 
 cal () {
