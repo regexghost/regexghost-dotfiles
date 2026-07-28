@@ -20,6 +20,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk2rc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_DATA_HOME/aspell/en.pws; repl $XDG_DATA_HOME/aspell/en.prepl"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 
 # Other variables
 export BUG_PROJECT="$XDG_DATA_HOME/regexghost/todo-bug"

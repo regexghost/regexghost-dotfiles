@@ -539,7 +539,7 @@ zathura () {
 	cd ..
 }
 
-zig () {
+zigitself () {
 	mkdir zig
 	cd zig
 	url="$(curl "https://ziglang.org/download/" | pup 'table:nth-of-type(2)' | grep "zig-x86_64-linux" | head -n 1 | cut -d "\"" -f 2)"
@@ -614,7 +614,7 @@ elif [ "$1" = "notmine" ]; then
 	build zathura
 	build ueberzugpp
 	build openssh
-	build zig
+	build zigitself
 	build mepo
 	build cava
 	build retroarch
@@ -682,7 +682,7 @@ elif [ "$1" = "ueberzugpp" ]; then
 elif [ "$1" = "openssh" ]; then
 	openssh
 elif [ "$1" = "zig" ]; then
-	zig
+	zigitself
 elif [ "$1" = "cava" ]; then
 	cava
 elif [ "$1" = "alpine" ]; then
