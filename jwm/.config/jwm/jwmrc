@@ -181,6 +181,7 @@
     <Key mask="4" key="e">exec:st -t nnn -e files</Key>
     <Key mask="4S" key="e">exec:xfe</Key>
     <Key mask="4" key="q">exec:~/.local/share/regexghost/wm-scripts/bookmarks.sh</Key>
+    <Key mask="4" key="a">exec:~/.local/share/regexghost/wm-scripts/snippets.sh</Key>
     <Key mask="4" key="f">exec:~/.local/share/regexghost/wm-scripts/dmenu-programs.sh</Key>
     <Key mask="4" key="s">exec:st -t Soundboard -e soundboard</Key>
     <Key mask="4S" key="c">exec:dunstctl close-all</Key>

@@ -10,3 +10,4 @@ normal:
 	cp keyboard-settings.sh ${PREFIX}/keyboard-settings.sh
 	cp jwm-xinit.sh ${PREFIX}/jwm-xinit.sh
 	cp jwm-scratchpad.sh ${PREFIX}/jwm-scratchpad.sh
+	cp snippets.sh ${PREFIX}/snippets.sh
