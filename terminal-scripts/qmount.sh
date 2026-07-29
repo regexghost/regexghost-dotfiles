@@ -16,7 +16,7 @@ mount () {
 	chosen_mount_point="$(echo "$mount_points" | fzf | sed "s|~|$HOME|")"
 	[ "$chosen_mount_point" = "" ] && exit
 	args=""
-	if [ "$chosen_fstype" = "vfat" ]; then
+	if [ "$chosen_fstype" = "vfat" ] || [ "$chosen_fstype" = "exfat" ]; then
 		args="-o rw,users,umask=000"
 	fi
 	sudo mount $args "/dev/${chosen_partition}" "$chosen_mount_point" && notify-send "Mounted Successfully" || notify-send "Mount Failed"

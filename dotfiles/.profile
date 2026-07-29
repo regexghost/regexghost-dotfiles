@@ -27,7 +27,7 @@ export BUG_PROJECT="$XDG_DATA_HOME/regexghost/todo-bug"
 
 export EDITOR="vi"
 export VISUAL="nano"
-export PAGER="bat --wrap word --theme=base16 --paging always"
+export PAGER="bat --wrap=word --theme=base16 --paging=always"
 export BROWSER="firefox"
 export PATH=~/.local/bin:$PATH:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
 export TERMINAL="st"

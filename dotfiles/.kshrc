@@ -30,13 +30,13 @@ alias n='nano'
 alias py='python3'
 alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
 alias bat='bat --wrap word --theme=base16'
+alias b='bat'
 alias mv='mymv'
 alias cp='cp -r -i'
+alias cl='ln -s'
 alias duf='duf -hide special'
 alias rm='rm-trash'
 alias zbr='zig build run'
-alias cl='ln -s'
-alias b='bat'
 alias dud='du -s -h *'
 
 # Not POSIX compliant
@@ -281,8 +281,8 @@ archiveplaylist () {
 
 # Search commands
 
-alias hs='nl ~/.history'
-alias his='nl ~/.history | grep'
+alias hs="fc -l 0 100000 | sed 's/[^[:print:]\n	]//g'"
+alias his='hs | grep'
 
 ## Search root directory
 findr () {

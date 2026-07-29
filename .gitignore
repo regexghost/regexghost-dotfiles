@@ -1,4 +1,4 @@
-terminal-scripts/soundboard/go.sum
+/terminal-scripts/soundboard/go.sum
 Colourscheme-Substitution-*
-helpers/colours/newThemes.txt
-temp_programs/
+/helpers/colours/newThemes.txt
+/temp_programs/

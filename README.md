@@ -13,11 +13,13 @@ More information about specific WM/DE setups can be found below, both the dotfil
 
 ![JWM Pi 3B+ setup screenshot](screenshots/fastfetch.png)
 
-## Window Managers/Desktop Environments
+## General Setup Guide
 
-* [JWM (Raspberry Pi)] - [Website](https://www.regexghost.com/linux/jwm)
-* [i3](i3/README.md) - [Website](https://www.regexghost.com/linux/i3)
-* [KDE](kde/README.md) - [Website](https://www.regexghost.com/linux/kde)
+`./init.sh`  
+`./setup.sh make dotfiles`  
+`./setup.sh make <wm/de>`  
+`./otherPrograms.sh mine`  
+`./otherPrograms.sh notmine` (will take a while, checks with user after every command)
 
 ## Colour Schemes
 
