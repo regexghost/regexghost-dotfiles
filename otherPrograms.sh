@@ -116,6 +116,10 @@ nano () {
 	tar -xf *.xz
 	cd */
 	./configure --prefix="$HOME/.local"
+
+	cp ../../patches/nano-copy-system.diff .
+	patch -p 1 < nano-copy-system.diff
+
 	make
 	make install
 	cd ..

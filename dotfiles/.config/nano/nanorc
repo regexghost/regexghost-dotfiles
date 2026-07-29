@@ -36,6 +36,7 @@ bind ^T findprevious all
 bind ^R replace main
 bind ^X cut all
 bind ^C copy main
+bind ^I copysystem main
 bind ^V paste all
 bind ^P location main
 bind ^A mark main
