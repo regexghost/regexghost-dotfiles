@@ -81,6 +81,7 @@ alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias dff='df -h | grep -e Filesystem -e "^/dev" | grep -v efi'
 alias hltb='~/.local/share/regexghost/.venv/bin/python3 ~/.local/share/regexghost/terminal/howlongtobeat.py'
+alias wttr='curl wttr.in'
 
 web () {
 	case "$1" in
