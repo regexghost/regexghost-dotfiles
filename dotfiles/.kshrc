@@ -298,7 +298,6 @@ alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-d
 
 # Load my other aliases and functions
 
-#. "$HOME/.local/share/regexghost/terminal/autocompletion.sh"
 . "$HOME/.local/share/regexghost/terminal/ls_aliases.sh"
 [ -f ~/Programs/localStuff/aliases.sh ] && . ~/Programs/localStuff/aliases.sh
 [ -f ~/.profile ] && . ~/.profile
@@ -308,12 +307,10 @@ alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-d
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 export HISTFILE="$HOME/.history"
-
 export HISTCONTROL=ignoredups:erasedups
+
 export MICRO_TRUECOLOR=1
 export PASSWORD_STORE_CLIP_TIME=120
-
-#set +o emacs
 
 # Quick file/directory access
 

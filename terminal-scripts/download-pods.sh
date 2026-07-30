@@ -16,8 +16,9 @@ while read -r podcast_file; do
 		exit
 	fi
 
-	filename="$(mediainfo /tmp/out.mp3  | grep -e "Track name" -e "Album" | sed 's/Track name/Trackname/g' | tr -s " " | cut -d " " -f 3- | tr  "\n" "+" | sed 's/[+]/ - /g' | sed 's/ - $//g').mp3"
-	mv /tmp/out.mp3 "${LOC}/${filename}"
+	filename="$(mediainfo /tmp/out.mp3  | grep -e "Track name" -e "Album" | sed 's/Track name/Trackname/g' | tr -s " " | cut -d " " -f 3- | tr  "\n" "+" | sed 's/[+]/ - /g' | sed 's/ - $//g')"
+	[ "$filename" = "" ] && filename="$(date +"%y-%m-%d-%H-%M-%S")"
+	mv /tmp/out.mp3 "${LOC}/${filename}.mp3"
 	grep -v "$podcast_file" /tmp/toDownload.txt > /tmp/toDownload.txt.tmp
 	mv /tmp/toDownload.txt.tmp /tmp/toDownload.txt
 done < "$queueFile"

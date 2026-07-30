@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2026-07-27T20:06:20.261Z",
+    "createdAt": "2026-07-30T20:35:20.985Z",
     "redirects": [
         {
             "description": "Wikipedia Vector Skin",
@@ -11,6 +11,23 @@
             "excludePattern": "",
             "patternDesc": "",
             "redirectUrl": "https://$1.wikipedia.org/wiki/$2?useskin=vector",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "old reddit redirect",
+            "exampleUrl": "https://www.reddit.com/r/buildapc",
+            "exampleResult": "https://old.reddit.com/r/buildapc",
+            "error": null,
+            "includePattern": "https://www.reddit.com/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://old.reddit.com/$1",
             "patternType": "W",
             "processMatches": "noProcessing",
             "disabled": false,

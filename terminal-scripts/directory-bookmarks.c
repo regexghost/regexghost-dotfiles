@@ -202,7 +202,7 @@ void bookmark_for_current_dir() {
 
 	char cwd[PATH_MAX] = {0};
 	if (getcwd(cwd, sizeof(cwd)) == NULL) {
-		printf("Error, unable to get current directory\n");
+		printf("-(error)");
 		return;
 	}
 

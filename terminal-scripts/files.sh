@@ -1,6 +1,4 @@
 #!/bin/sh
 
-export NNN_FIFO=/tmp/nnn.fifo
-export NNN_PLUG=v:preview-tui
-tmux new-session -d -s mys "nnn -P v"
-tmux attach
+tmux new-session -d -s mys "NNN_FIFO=/tmp/nnn.fifo NNN_PLUG=v:preview-tui nnn -P v"
+tmux attach -t mys
