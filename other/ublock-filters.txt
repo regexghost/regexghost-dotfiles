@@ -1,0 +1,7 @@
+! 28 Jul 2026 https://www.google.com
+www.google.com##div.EjQTId.YNk70c:nth-of-type(1) > .SLPe5b.Kevs9 > div
+www.google.com###slim_appbar
+www.google.com###oFNiHe
+
+! 30 Jul 2026 https://old.reddit.com
+old.reddit.com##.cookie-infobar.with-btn.with-icon.updated.md-container-small.reddit-infobar

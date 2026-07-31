@@ -48,6 +48,20 @@ cp libretro-gpsp/gpsp_libretro.so "${CONFIG_LOC}/cores/"
 read -p "q to quit if errors" quit
 [ "$quit" = "q" ] && exit
 
+./libretro-fetch.sh fceumm
+JOBS=1 ./libretro-build.sh fceumm
+cp libretro-fceumm/fceumm_libretro.so "${CONFIG_LOC}/cores/"
+
+read -p "q to quit if errors" quit
+[ "$quit" = "q" ] && exit
+
+./libretro-fetch.sh smsplus
+JOBS=1 ./libretro-build.sh smsplus
+cp libretro-smsplus/smsplus_libretro.so "${CONFIG_LOC}/cores/"
+
+read -p "q to quit if errors" quit
+[ "$quit" = "q" ] && exit
+
 ./libretro-install.sh infofiles
 cp infofiles/picodrive_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/nestopia_libretro.info "${CONFIG_LOC}/cores/"
@@ -55,5 +69,7 @@ cp infofiles/gambatte_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/stella2014_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/mgba_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/gpsp_libretro.info "${CONFIG_LOC}/cores/"
+cp infofiles/fceumm_libretro.info "${CONFIG_LOC}/cores/"
+cp infofiles/smsplus_libretro.info "${CONFIG_LOC}/cores/"
 cd ..
 cd ..

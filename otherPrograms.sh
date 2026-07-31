@@ -38,7 +38,7 @@ bsky () {
 	sudo apt install golang
 	mkdir bsky
 	cd bsky
-	url="$(github_latest_release "github" "mattn" "bsky")"
+	url="$(github-latest-release "github" "mattn" "bsky")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -53,7 +53,7 @@ forgejo () {
 	rustup default stable
 	mkdir forgejo
 	cd forgejo
-	url="$(github_latest_release "codeberg" "forgejo-contrib" "forgejo-cli")"
+	url="$(github-latest-release "codeberg" "forgejo-contrib" "forgejo-cli")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -66,7 +66,7 @@ forgejo () {
 aacgain () {
 	mkdir aacgain
 	cd aacgain
-	url="$(github_latest_release "github" "dgilman" "aacgain")"
+	url="$(github-latest-release "github" "dgilman" "aacgain")"
 	wget "$url"
 }
 
@@ -129,7 +129,7 @@ nano () {
 oksh () {
 	mkdir oksh
 	cd oksh
-	url="$(github_latest_release "github" "ibara" "oksh")"
+	url="$(github-latest-release "github" "ibara" "oksh")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -150,7 +150,7 @@ opustags () {
 	sudo apt install libogg-dev
 	mkdir opustags
 	cd opustags
-	url="$(github_latest_release "github" "fmang" "opustags")"
+	url="$(github-latest-release "github" "fmang" "opustags")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -168,7 +168,7 @@ rsgain () {
 	sudo apt install libavcodec-dev libavformat-dev libtag-dev libebur128-dev libinih-dev libfmt-dev
 	mkdir rsgain
 	cd rsgain
-	url="$(github_latest_release "github" "complexlogic" "rsgain")"
+	url="$(github-latest-release "github" "complexlogic" "rsgain")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -242,7 +242,7 @@ slock () {
 bluetui () {
 	mkdir bluetui
 	cd bluetui
-	url="$(github_latest_release "github" "pythops" "bluetui")"
+	url="$(github-latest-release "github" "pythops" "bluetui")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -274,7 +274,7 @@ pipeviewer () {
 	sudo apt install libmodule-build-perl libwww-curl-perl libjson-perl libterm-readline-gnu-perl libdata-dump-perl liblwp-protocol-https-perl libunicode-linebreak-perl
 	mkdir pipeviewer
 	cd pipeviewer
-	url="$(github_latest_release "github" "trizen" "pipe-viewer")"
+	url="$(github-latest-release "github" "trizen" "pipe-viewer")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -328,7 +328,7 @@ cava () {
 
 	mkdir cava
 	cd cava
-	url="$(github_latest_release "github" "karlstav" "cava")"
+	url="$(github-latest-release "github" "karlstav" "cava")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -369,7 +369,7 @@ mepo () {
 
 	mkdir mepo
 	cd mepo
-	url="$(github_latest_release "sourcehut" '~mil' "mepo")"
+	url="$(github-latest-release "sourcehut" '~mil' "mepo")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -434,7 +434,7 @@ mepo () {
 fastfetch () {
 	mkdir fastfetch
 	cd fastfetch
-	url="$(github_latest_release "github" "fastfetch-cli" "fastfetch")"
+	url="$(github-latest-release "github" "fastfetch-cli" "fastfetch")"
 	wget "$url"
 	unzip *.zip
 	cd */
@@ -563,7 +563,7 @@ ueberzugpp () {
 
 	mkdir ueberzugpp
 	cd ueberzugpp
-	url="$(github_latest_release "github" "jstkdng" "ueberzugpp")"
+	url="$(github-latest-release "github" "jstkdng" "ueberzugpp")"
 	wget "$url"
 	unzip *.zip
 	cd */

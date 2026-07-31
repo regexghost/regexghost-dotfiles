@@ -15,6 +15,10 @@ https://addons.mozilla.org/en-GB/firefox/addon/vimium-ff/
 
 Import settings from `other/redirector-config.json`
 
+### uBlock Origin
+
+Import filters from `other/ublock-filters.txt`
+
 ## Login
 
 https://www.microsoft.com/en-gb/microsoft-365/outlook/log-in  
