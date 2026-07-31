@@ -12,6 +12,8 @@ function format() {
 			echo "\${color #$YELLOW}\${font4}  \${font}\${color}"
 		elif [[ "$icon_name" == "Light shower day" ]]; then
 			echo "\${color #$WHITE}\${font4}  \${font}\${color}"
+		elif [[ "$icon_name" == "Heavy shower day" ]]; then
+			echo "\${color #$WHITE}\${font4}  \${font}\${color}"
 		elif [[ "$icon_name" == "Sunny intervals" ]]; then
 			echo "\${color #$YELLOW}\${font4}  \${font}\${color}"
 		elif [[ "$icon_name" == "Light rain" ]]; then
@@ -32,6 +34,8 @@ function format() {
 			echo "%{F#$YELLOW}  %{F-}"
 		elif [[ "$icon_name" == "Light shower day" ]]; then
 			echo "%{F#$WHITE}  %{F-}"
+		elif [[ "$icon_name" == "Heavy shower day" ]]; then
+			echo "%{F#$WHITE}  %{F-}"
 		elif [[ "$icon_name" == "Sunny intervals" ]]; then
 			echo "%{F#$YELLOW}  %{F-}"
 		elif [[ "$icon_name" == "Light rain" ]]; then
@@ -52,6 +56,8 @@ function format() {
 			echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$YELLOW'>  </span>"
 		elif [[ "$icon_name" == "Light shower day" ]]; then
 			echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$WHITE'>  </span>"
+		elif [[ "$icon_name" == "Heavy shower day" ]]; then
+			echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$WHITE'>  </span>"
 		elif [[ "$icon_name" == "Sunny intervals" ]]; then
 			echo "<span font='Font Awesome 7 Free Solid 9' foreground='#$YELLOW'>  </span>"
 		elif [[ "$icon_name" == "Light rain" ]]; then
