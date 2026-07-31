@@ -4,9 +4,9 @@
 rs () {
 	toOpen=$@
 	if [[ "$toOpen" == "" ]]; then
-		setsid sxiv . &
+		setsid sxiv .
 	else
-		setsid sxiv "$@" &
+		setsid sxiv "$@"
 	fi
 }
 #### End Substitute

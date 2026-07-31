@@ -1,7 +1,6 @@
 # regexghost's .kshrc file
 # Hopefully in a coherent order
 
-PROMPT_COMMAND=
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -22,29 +21,22 @@ PS1=' \[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks curr
 
 # Basic Aliases
 alias grep='/usr/bin/grep -i --color=auto'
-alias greps='/usr/bin/grep --color=auto' # Case sensitive
 alias grepa='grep -i -I -A 5 -B 5 --color=auto'
 alias gi='/usr/bin/grep -ir --color=auto'
 alias diff='diff --color'
 alias n='nano'
-alias py='python3'
-alias sq='ncdu --color off' # Not sure why this is "sq" but I'm used to it now
-alias bat='bat --wrap word --theme=base16'
-alias b='bat'
+alias sq='ncdu' # Not sure why this is "sq" but I'm used to it now
+alias b='bat --wrap word --theme=base16'
 alias mv='mymv'
 alias cp='cp -r -i'
 alias cl='ln -s'
 alias duf='duf -hide special'
 alias rm='rm-trash'
-alias zbr='zig build run'
-alias dud='du -s -h *'
-
-# Not POSIX compliant
-grepc () {
-	grep -oP ".{0,100}${1}.{0,100}"
-}
-
 alias nnn='files'
+alias q='exit'
+alias pve='pipe-viewer'
+alias vp='vid-play'
+alias vps='vid-play -s'
 
 rss () {
 	pgrep newsraft > /dev/null && echo "Newsraft already open" && return
@@ -55,14 +47,13 @@ rss () {
 
 # Aliases to Specific Commands
 
+alias dud='du -s -h *'
 alias x='chmod +x'
-alias copy='tr -d "\n" | xclip -selection c'
+alias copy="sed 's/\n$//g' | xclip -selection c"
 alias watchlc="watch 'ls | wc -l'"
 alias watchdu="watch 'du -s -h *'"
 alias fatmount='sudo mount -o rw,users,umask=000' # Mount FAT formatted drive correctly
 alias balance='aacgain -r -m 1 *.m4a'
-alias clearlogs='sudo journalctl --vacuum-time=2d'
-alias q='exit'
 alias reload='. ~/.kshrc'
 alias pong='ping -c 2 -W 2'
 alias wl='feh --bg-fill --no-fehbg ~/.config/regexghost/wallpaper.jpg'
@@ -73,9 +64,6 @@ alias sshp='ssh piserver'
 alias sshg='ssh gopherbox'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias dns='dig A +short'
-alias vp='vid-play'
-alias vps='vid-play -s'
-alias pve='pipe-viewer'
 alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
 alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
@@ -114,9 +102,7 @@ android () {
 # Bug todo
 
 alias bgl='bug ls'
-alias bglt='bug ls | grep -v "Anytime"' # bug ls but only timed/important things
 alias bglc='bug ls | wc -l'
-alias bgltc='bug ls | grep -v "Anytime" | wc -l'
 alias bgr='bug rm'
 alias bgv='bug view'
 alias bge='bug edit'
@@ -131,7 +117,7 @@ alias gs='git status .'
 alias gsa='git status'
 alias gpl='git pull'
 alias gl='git log'
-alias glc='echo $(git rev-list --count HEAD) commits'
+alias glc='echo "$(git rev-list --count HEAD) commits"'
 alias gp='git push'
 alias ga='git add'
 alias gc='git commit'
@@ -172,12 +158,10 @@ lsblk () {
 	fi
 }
 
-do_pkill () {
+pkill () {
 	pkill "$@"
 	[ "$?" == "0" ] || echo "Program not found"
 }
-
-alias pkill='do_pkill'
 
 trash-empty () {
 	echo "Trash is $(trash-size)"
@@ -194,53 +178,8 @@ restorehistory () {
 	fi
 }
 
-cal () {
-	MAGENTA_COLOUR='\033[0;35m\033[1m'
-	RED_COLOUR='\033[0;34m\033[1m'
-	BLUE_COLOUR='\033[0;36m\033[1m'
-	RESET_COLOUR='\033[0m'
-
-	suffix () {
-		if [[ "$1" == "1" ]] || [[ "$1" == "21" ]] || [[ "$1" == "31" ]]; then
-			echo "st"
-		elif [[ "$1" == "2" ]] || [[ "$1" == "22" ]]; then
-			echo "nd"
-		elif [[ "$1" == "3" ]] || [[ "$1" == "23" ]]; then
-			echo "rd"
-		else
-			echo "th"
-		fi
-	}
-
-	unbuffer cal -w -n 3 "$@" | sed '/^ *$/d'
-
-	day="$(date +'%A')"
-	date="$(date +'%d')"
-	week="$(date +'%V')"
-
-	echo -e "${RED_COLOUR}Day:${RESET_COLOUR}  ${day}"
-	echo -e "${BLUE_COLOUR}Date:${RESET_COLOUR} ${date}$(suffix $date)"
-	echo -e "${MAGENTA_COLOUR}Week:${RESET_COLOUR} ${week}"
-}
-
-pyweb () {
-	$(sleep 0.5 && firefox "http://0.0.0.0:8000/") &
-	python3 -m http.server -d "$1"
-}
-
-## Function to show time in various locations
-t () {
-	MAGENTA_COLOUR='\033[0;35m\033[1m'
-	RESET_COLOUR='\033[0m'
-	curDateZone=$(date +"%a, %b %d (%Z)")
-	TZ="America/Los_Angeles" date +"  Los Angeles:    %H:%M:%S - %a, %b %d (%Z)"
-	TZ="America/New_York" date +"  New York:       %H:%M:%S - %a, %b %d (%Z)"
-	date -u +"  UTC:            %H:%M:%S - %a, %b %d (%Z)"
-	TZ="Europe/London" date +"  London:         %H:%M:%S - %a, %b %d (%Z)"
-	TZ="Europe/Paris" date +"  Paris:          %H:%M:%S - %a, %b %d (%Z)"
-	TZ="Asia/Seoul" date +"  Seoul:          %H:%M:%S - %a, %b %d (%Z)"
-	TZ="Australia/Sydney" date +"  Sydney:         %H:%M:%S - %a, %b %d (%Z)"
-}
+alias cal='calendar'
+alias t='date-time'
 
 # External program openers
 
@@ -282,6 +221,7 @@ archiveplaylist () {
 
 # Search commands
 
+# History
 alias hs="fc -l 0 100000 | sed 's/[^[:print:]\n	]//g'"
 alias his='hs | grep'
 
@@ -292,9 +232,7 @@ findr () {
 
 alias findh='find ~ -iname'
 alias fig='find . | sort | grep'
-alias psg='ps -aux | grep'
-
-alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-data/bookmarks.txt'
+alias psg='pgrep -a'
 
 # Load my other aliases and functions
 
