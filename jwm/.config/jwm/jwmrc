@@ -171,7 +171,7 @@
     <Key mask="4S" key="apostrophe">exec:~/.local/share/regexghost/wm-scripts/keyboard-settings.sh</Key>
     <Key mask="4" key="Return">exec:st</Key>
     <Key mask="4S" key="Return">exec:xterm</Key>
-    <Key mask="4" key="b">exec:st -t btop -e btop</Key>
+    <Key mask="4" key="b">exec:st -t htop -e htop</Key>
     <Key mask="4" key="w">exec:firefox</Key>
     <Key mask="4" key="r">exec:keepassxc</Key>
     <Key mask="4S" key="w">exec:chromium</Key>
