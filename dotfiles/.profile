@@ -29,7 +29,7 @@ export EDITOR="vi"
 export VISUAL="nano"
 export PAGER="bat --wrap=word --theme=base16 --paging=always"
 export BROWSER="firefox"
-export PATH=~/.local/bin:$PATH:~/.npm/bin:~/.local/share/npm/bin:~/.local/share/go/bin:~/.local/share/cargo/bin
+export PATH="$HOME/.local/bin:$PATH"
 export TERMINAL="st"
 export IMAGE_VIEWER="sxiv"
 export VIDEO_PLAYER="mpv"

@@ -304,8 +304,8 @@ alias edit-bookmarks='${VISUAL:${EDITOR:-vi}} ~/.local/share/regexghost/script-d
 
 # Set variables
 
-export HISTSIZE=100000
-export HISTFILESIZE=100000
+export HISTSIZE=200000
+export HISTFILESIZE=200000
 export HISTFILE="$HOME/.history"
 export HISTCONTROL=ignoredups:erasedups
 
