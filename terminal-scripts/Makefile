@@ -42,3 +42,5 @@ normal:
 	cp blog-devlog.sh ${BIN}/blog-devlog
 	cp howlongtobeat.py ${TERMINAL}/howlongtobeat.py
 	cp files.sh ${BIN}/files
+	cp calendar.sh ${BIN}/calendar
+	cp date-time.sh ${BIN}/date-time
