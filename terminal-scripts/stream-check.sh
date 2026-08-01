@@ -56,5 +56,6 @@ fi
 
 if [ "$format" = "yn" ]; then
 	echo "n"
-	exit
+else
+	echo "${name} is not live"
 fi
