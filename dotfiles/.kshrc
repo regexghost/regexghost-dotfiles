@@ -114,10 +114,8 @@ alias gdc='git diff --cached' # Show diff for things `git add`'ed
 alias gdw='git diff --word-diff-regex=.'
 alias gs='git status .'
 alias gsa='git status'
-alias gpl='git pull'
 alias gl='git log'
 alias glc='echo "$(git rev-list --count HEAD) commits"'
-alias gp='git push'
 alias ga='git add'
 alias gc='git commit'
 
@@ -195,26 +193,11 @@ alias t='date-time'
 ## Wrapper script
 alias yt-dlp='ytdl-wrapper'
 
-yt-playlist () {
-	quality_option="--720p"
-	if [[ "$1" == "--1080p" ]]; then
-		quality_option="--1080p"
-		shift
-	fi
-	ytdl-wrapper --playlist-order --all-metadata --firefox-cookies --aria --archive "$quality_option" "$@"
-}
-
-archivevideo () {
-	for url in "$@"; do
-		yt-dlp --cookies-from-browser firefox -o "%(title)s.%(ext)s" --embed-chapters --embed-thumbnail --embed-metadata -f "bestvideo[protocol=https][vcodec*=avc]+bestaudio[ext=m4a]" "$url"
-	done
-}
-
 archiveplaylist () {
 	if [[ "$1" == "-t" ]]; then
-		yt-dlp --cookies-from-browser firefox --flat-playlist --skip-download -J "$2" | jq '{title, videos: [.entries[] | {title, channel, id}]}' | yq -t
+		ytdl-wrapper --firefox-cookies --json "$2" | jq '{title, videos: [.entries[] | {title, channel, id}]}' | yq -t
 	else
-		yt-dlp --cookies-from-browser firefox -J --flat-playlist "$1" | jq '.entries[] | [.title,.channel,.url]| @csv'
+		ytdl-wrapper --firefox-cookies --json "$1" | jq '.entries[] | [.title,.channel,.url]| @csv'
 	fi
 }
 
@@ -296,8 +279,6 @@ if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
 fi
 . "$fasd_cache"
 unset fasd_cache
-
-#eval "$(fasd --init auto)"
 
 do_z () {
 	command="fasd_cd -d"

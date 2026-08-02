@@ -12,3 +12,7 @@ fio --name=usbseq --filename=test.test --size=1G --rw=readwrite --bs=1M --direct
 = disable ~/.sudo_as_admin_successful
 sudo visudo
 `Defaults !admin_flag`
+
+= sed print or delete given line
+sed '4p'
+sed '4d'

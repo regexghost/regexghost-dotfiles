@@ -2,7 +2,7 @@
 # Open images in sxiv
 # The alias is called "rs" as I originally used Xfce with Ristretto
 rs () {
-	toOpen=$@
+	toOpen="$@"
 	if [[ "$toOpen" == "" ]]; then
 		setsid sxiv .
 	else

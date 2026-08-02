@@ -1,6 +1,6 @@
 # Arch Install Guide
 
-This install guide is mainly for my reference, specific to my normal setup process. Most of the commands below would likely be the same on any system, and I have included different commands for UEFI or BIOS, or for NVidia cards.
+This install guide is mainly for my reference, specific to my normal setup process. Most of the commands below would likely be the same on any system, and I have included different commands for UEFI or BIOS, for NVidia cards, and for Intel and AMD CPUs.
 
 It's recommanded you read [the Arch wiki install guide](https://wiki.archlinux.org/title/Installation_guide) if you are installing Arch for the first time.
 

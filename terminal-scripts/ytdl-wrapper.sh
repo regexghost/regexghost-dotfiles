@@ -51,6 +51,14 @@ while [[ $# -gt 0 ]]; do
 			archive_args=("--download-archive" "archive.txt")
 			shift
 			;;
+		--json)
+			other_args=("--flat-playlist" "--skip-download" "-J")
+			shift
+			;;
+		--best)
+			format_args=("-f" "bestvideo[protocol=https][vcodec*=avc]+bestaudio[ext=m4a]")
+			shift
+			;;
 		--1080p)
 			format_args=("-f" "bestvideo[height<=1080][protocol=https][vcodec*=avc]+bestaudio[ext=m4a]")
 			shift
