@@ -11,7 +11,7 @@ This repo is a work in progress, as well as standard dotfiles updates I also pla
 
 More information about specific WM/DE setups can be found below, both the dotfiles themselves and relevant articles on my website
 
-![JWM Pi 3B+ setup screenshot](screenshots/fastfetch.png)
+![JWM Pi 3B+ setup screenshot](screenshots/jwm-fastfetch.png)
 
 ## General Setup Guide
 
@@ -28,9 +28,9 @@ This will place relevant colourschemee substitution files in the correct directo
 
 ## Guides
 
-[Arch install](/guides/archInstallGuide.md)  
-[Firefox setup](/guides/firefox.md)  
-[New git repo (GitHub)](/guides/git.md)  
-[Windows ISO USB](/guides/windowsFromLinux.md)  
-[Samba setup](/guides/samba.md)  
-[Some useful commands](/guides/commands.txt)
+[Arch install](guides/archInstallGuide.md)  
+[Firefox setup](guides/firefox.md)  
+[New git repo (GitHub)](guides/git.md)  
+[Windows ISO USB](guides/windowsFromLinux.md)  
+[Samba setup](guides/samba.md)  
+[Some useful commands](guides/commands.txt)

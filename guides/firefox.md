@@ -19,6 +19,10 @@ Import settings from `other/redirector-config.json`
 
 Import filters from `other/ublock-filters.txt`
 
+## Theme
+
+https://github.com/black7375/Firefox-UI-Fix
+
 ## Login
 
 https://www.microsoft.com/en-gb/microsoft-365/outlook/log-in  
