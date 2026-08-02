@@ -34,6 +34,7 @@
 ~/.config/newsraft/article.sh
 ~/.config/newsraft/reddit-refresh.sh
 ~/.config/newsraft/combine-feeds.sh
+~/.config/newsraft/teen-vogue.sh
 ~/.config/wgetrc
 ~/.config/mpv/mpv.conf
 ~/.config/mpv/input.conf
