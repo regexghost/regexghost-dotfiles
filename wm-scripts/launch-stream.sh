@@ -4,6 +4,8 @@ DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 
 stream="$(cat "$XDG_CONFIG_HOME/regexghost/streams.csv" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select Stream:" -ix)"
 
+[ "$stream" = "" ] && exit
+
 line="$(sed -n "$((stream+1))p" "$XDG_CONFIG_HOME/regexghost/streams.csv")"
 twitch="$(echo "$line" | cut -d "," -f 2)"
 youtube="$(echo "$line" | cut -d "," -f 3)"
