@@ -11,3 +11,4 @@ normal:
 	cp jwm-xinit.sh ${PREFIX}/jwm-xinit.sh
 	cp jwm-scratchpad.sh ${PREFIX}/jwm-scratchpad.sh
 	cp snippets.sh ${PREFIX}/snippets.sh
+	cp launch-stream.sh ${PREFIX}/launch-stream.sh
