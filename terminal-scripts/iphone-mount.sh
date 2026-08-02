@@ -34,6 +34,10 @@ elif [[ "$1" == "pocketbookmount" ]]; then
 	idevicepair validate
 	idevicepair pair || exit
 	ifuse --documents com.obreey.reader "$MOUNTPOINT"
+elif [[ "$1" == "comicbookreadermount" ]]; then
+	idevicepair validate
+	idevicepair pair || exit
+	ifuse --documents com.realvirtuality.Comic-Book-Reader "$MOUNTPOINT"
 elif [[ "$1" == "unmount" ]] || [[ "$1" == "umount" ]]; then
 	fusermount -u "$MOUNTPOINT"
 elif [[ "$1" == "force" ]]; then

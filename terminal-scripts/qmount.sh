@@ -2,6 +2,7 @@
 
 mount_points="~/Downloads/USBDrive
 ~/Downloads/BackupMount"
+
 root_device="$(/usr/bin/lsblk -l -n --output NAME,MOUNTPOINTS | grep '/$' | sed 's/p[0-9] \///g; s/[0-9] \///g')"
 
 mount () {
@@ -15,10 +16,12 @@ mount () {
 	[ "$chosen_partition" = "" ] && exit
 	chosen_mount_point="$(echo "$mount_points" | fzf | sed "s|~|$HOME|")"
 	[ "$chosen_mount_point" = "" ] && exit
+
 	args=""
 	if [ "$chosen_fstype" = "vfat" ] || [ "$chosen_fstype" = "exfat" ]; then
 		args="-o rw,users,umask=000"
 	fi
+
 	sudo mount $args "/dev/${chosen_partition}" "$chosen_mount_point" && notify-send "Mounted Successfully" || notify-send "Mount Failed"
 }
 
@@ -28,6 +31,7 @@ unmount () {
 
 	chosen_path="$(echo "$mounted" | fzf | cut -d " " -f 2-)"
 	[ "$chosen_path" = "" ] && exit
+
 	sudo umount "$chosen_path" && notify-send "Unmounted Successfully" || notify-send "Unmounting Failed"
 }
 

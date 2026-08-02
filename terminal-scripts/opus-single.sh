@@ -17,7 +17,7 @@ for file in "${files[@]}"; do
 	filename="$(basename "$file" | sed 's/.m4a//g')"
 	outputDir="$(dirname "$outputFile")"
 	mkdir -p "$outputDir"
-	
+
 	success=no
 	ffmpeg -y -i "$file" -map 0:1 "${outputDir}/${filename}.jpg" && success=yes
 	ffmpeg -i "$file" -b:a "${BITRATE_KBPS}000" "$outputFile"

@@ -8,6 +8,7 @@ dirs=( $(find "$1" -type d) )
 IFS="$oldIFS"
 
 for dir in "${dirs[@]}"; do
+	# Only leaf dirs, in theory should be no music in non-leaf dirs
 	if [ "$(find "$dir" -type d | wc -l)" -gt 2 ]; then
 		continue
 	fi

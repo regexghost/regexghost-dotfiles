@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# wrapper script around the rm, and trash-cli commands
+# Wrapper script around the rm, and trash-cli commands
 
 command="trash-put"
 dialog="rm: Trash"

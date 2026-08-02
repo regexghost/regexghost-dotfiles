@@ -3,7 +3,7 @@
 CONFIG_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
 
 format="pretty"
-[ "$1" = "-yn" ] && format="yn" && shift
+[ "$1" = "-yn" ] && format="yn" && shift # Pretty print, or just yes/no (for scripts)
 
 line="$(grep "^${1}," "$CONFIG_FILE")"
 [ "$line" = "" ] && exit

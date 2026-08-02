@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Helper scripts for my blog and devlog
+
 blog () {
 	dir="$HOME/Programs/websites/personal-website/blog/$(date +%Y/%B | awk '{print tolower($0)}')"
 	[ -d "$dir" ] || mkdir -p "$dir"

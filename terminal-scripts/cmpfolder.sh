@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Script to compare two folders to ensure they are byte for byte identical 
+# Script to compare two folders to ensure they are byte for byte identical
 
 if [[ "$2" == "" ]]; then
 	echo "Usage: ./cmpfolder.sh [-o] folder1 folder2"

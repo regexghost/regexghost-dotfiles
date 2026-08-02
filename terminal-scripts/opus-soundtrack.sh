@@ -21,7 +21,6 @@ for dir in "${dirs[@]}"; do
 	echo "First File: ${firstFile}"
 	ffmpeg -y -i "$firstFile" -map 0:1 "$dir/output.jpg"
 	cp "${dir}/output.jpg" "${outputDir}/output.jpg"
-	# [[ "$dir" == *"Other"* ]] && exit
 done
 
 i=0
