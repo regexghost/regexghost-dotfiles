@@ -1,25 +1,25 @@
 #!/bin/sh
 
+# Exit on fail
 set -e
 
-export PATH="$HOME/.local/bin:$PATH"
-
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+# Have to load all the variables
+. dotfiles/.profile
 
 [ -d "$XDG_CACHE_HOME" ] || mkdir -p "$XDG_CACHE_HOME"
 [ -d "$XDG_DATA_HOME" ] || mkdir -p "$XDG_DATA_HOME"
 [ -d "$XDG_CONFIG_HOME" ] || mkdir -p "$XDG_CONFIG_HOME"
 [ -d "$XDG_STATE_HOME" ] || mkdir -p "$XDG_STATE_HOME"
 
-./setup.sh make dotfiles
-
-. ~/.profile
-
 # Install programs
-./apt-install.sh
+if uname -a | grep -q Debian; then
+	./apt-install.sh
+fi
+
+# Make substitution program before running setup.sh
+cd helpers/subgo; make full; cd ../..
+
+./setup.sh make dotfiles
 
 # Install dotfile scripts
 cd panel-scripts/; make; cd ../
@@ -58,18 +58,22 @@ mkdir -p ~/Videos/YouTube/Videos
 mkdir -p ~/Videos/YouTube/Shorts
 mkdir -p ~/Videos/YouTube/toDownload
 touch ~/Videos/Podcasts/toDownload.txt
-
 mkdir -p ~/.local/state/mpd
 mkdir -p ~/.cache/mpd
 
+# Python3 venv
 cd ~/.local/share/regexghost
 python3 -m venv .venv
 ~/.local/share/regexghost/.venv/bin/pip install music-tag pillow requests beautifulsoup4 howlongtobeatpy
 
+# nnn preview
 mkdir -p ~/.config/nnn/plugins
 curl "https://raw.githubusercontent.com/jarun/nnn/refs/heads/master/plugins/preview-tui" > ~/.config/nnn/plugins/preview-tui
 chmod +x ~/.config/nnn/plugins/preview-tui
+
+# Music icon
 sed 's/currentColor/white/g' /usr/share/icons/Papirus/24x24/symbolic/emblems/emblem-music-symbolic.svg > /tmp/temp.svg
 magick -background none -fill white -density 400 /tmp/temp.svg -resize 100x100 ~/.local/share/regexghost/panel/emblem-music-symbolic.png
 
-sudo apt remove intel-media-va-driver # For old intel systems <= 4th gen, stops an mpv error
+# For old intel systems <= 4th gen, stops an mpv error
+sudo apt remove intel-media-va-driver
