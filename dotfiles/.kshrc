@@ -158,7 +158,7 @@ lsblk () {
 }
 
 pkill () {
-	pkill "$@"
+	command pkill "$@"
 	[ "$?" == "0" ] || echo "Program not found"
 }
 

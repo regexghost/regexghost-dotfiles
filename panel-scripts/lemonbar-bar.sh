@@ -40,7 +40,7 @@ update_network_down () {
 
 update_vol () {
 	if [ $(cat ~/.cache/muted) = "yes" ]; then
-		vol="${muted_colour} ${COLOUR_RESET}"
+		vol="${muted_colour}${COLOUR_RESET}"
 	else
 		vol="${volume_colour} $(cat ~/.cache/volume)%%${COLOUR_RESET}"
 	fi
