@@ -18,6 +18,7 @@ if ! [ "$twitch_at" = "NONE" ]; then
 	if grep -q "live_user" /tmp/live_twitch.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is live on Twitch: https://www.twitch.tv/${twitch_at}"
+			exit
 		elif [ "$format" = "yn" ]; then
 			echo "y"
 			exit
@@ -29,6 +30,7 @@ if ! [ "$youtube_at" = "NONE" ]; then
 	if grep -q "isUpcoming\":true" /tmp/live_youtube.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is about to go live on YouTube: https://www.youtube.com/${youtube_at}/live"
+			exit
 		elif [ "$format" = "yn" ]; then
 			echo "w"
 			exit
@@ -36,6 +38,7 @@ if ! [ "$youtube_at" = "NONE" ]; then
 	elif grep -q "isLive\":true" /tmp/live_youtube.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is live on YouTube: https://www.youtube.com/${youtube_at}/live"
+			exit
 		elif [ "$format" = "yn" ]; then
 			echo "y"
 			exit
@@ -47,6 +50,7 @@ if ! [ "$kick_at" = "NONE" ]; then
 	if grep -q "is_live\":true" /tmp/live_kick.html; then
 		if [ "$format" = "pretty" ]; then
 			echo "${name} is live on Kick: https://www.kick.com/${kick_at}"
+			exit
 		elif [ "$format" = "yn" ]; then
 			echo "y"
 			exit

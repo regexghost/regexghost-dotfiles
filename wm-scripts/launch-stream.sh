@@ -14,7 +14,7 @@ kick="$(echo "$line" | cut -d "," -f 4)"
 
 if ! [ "$youtube" = "NONE" ]; then
 	notify-send "Launching ${name} YouTube stream"
-	mpv --no-resume-playback --ytdl-format="bestvideo[height<=480]" "https://youtube.com/${youtube}/live" && exit
+	mpv --no-resume-playback --ytdl-format="best[height<=480]" "https://youtube.com/${youtube}/live" && exit
 	notify-send "Failed to open YouTube stream"
 fi
 

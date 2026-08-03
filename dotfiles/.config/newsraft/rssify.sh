@@ -9,7 +9,7 @@ if ! echo "$channelUrl" | grep -q "youtube.com"; then
 	fi
 fi
 
-echo "$channelUrl"
+name="$(echo "$channelUrl" | sed 's/.*@//g')"
 
 id="$(yt-dlp --flat-playlist -J --playlist-end 1 "$channelUrl" | jq -r .channel_id)"
-echo https://www.youtube.com/feeds/videos.xml?channel_id="${id}"
+echo "https://www.youtube.com/feeds/videos.xml?channel_id=${id} ${name}"
