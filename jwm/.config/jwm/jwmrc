@@ -175,6 +175,7 @@
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t htop -e htop</Key>
     <Key mask="4" key="g">exec:st -t pulsemixer -e pulsemixer</Key>
+    <Key mask="4" key="v">exec:st -t bluetui -e bluetui</Key>
     <Key mask="4" key="w">exec:firefox</Key>
     <Key mask="4" key="r">exec:keepassxc</Key>
     <Key mask="4S" key="w">exec:chromium</Key>
