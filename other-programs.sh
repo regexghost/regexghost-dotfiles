@@ -24,8 +24,22 @@ sudo apt install git make gcc automake cmake meson unzip gettext autopoint pkg-c
 
 jwm () {
 	sudo apt install libxext-dev libxmu-dev libxinerama-dev libxpm-dev libjpeg-dev libpng-dev libpango1.0-dev
-	git clone https://github.com/regexghost/jwm
+	git clone https://github.com/joewing/jwm
+
 	cd jwm
+
+	cp ../patches/jwm-desktop-change.diff .
+	cp ../patches/jwm-border-flicker.diff .
+	cp ../patches/jwm-caps-lock.diff .
+	cp ../patches/jwm-move-unmap.diff .
+	cp ../patches/jwm-centered.diff .
+
+	patch -p 1 < jwm-desktop-change.diff
+	patch -p 1 < jwm-border-flicker.diff
+	patch -p 1 < jwm-caps-lock.diff
+	patch -p 1 < jwm-move-unmap.diff
+	patch -p 1 < jwm-centered.diff
+
 	./autogen.sh
 	gettextize -f
 	./configure
