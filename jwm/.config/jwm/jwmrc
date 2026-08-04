@@ -52,6 +52,18 @@
     	<Class>scratchpad</Class>
     	<Option>nolist</Option>
     </Group>
+    <Group>
+    	<Class>htop</Class>
+    	<Class>btop</Class>
+    	<Class>pulsemixer</Class>
+    	<Class>bluetui</Class>
+    	<Class>nethogs</Class>
+    	<Class>cava</Class>
+    	<Class>qalc</Class>
+    	<Class>nnn</Class>
+    	<Class>soundboard</Class>
+    	<Option>centered</Option>
+    </Group>
 
     <!-- Tray at the bottom. -->
     <Tray x="0" y="0" autohide="off" delay="1000" height="26" width="494">
@@ -173,23 +185,23 @@
     <Key mask="4S" key="apostrophe">exec:~/.local/share/regexghost/wm-scripts/keyboard-settings.sh</Key>
     <Key mask="4" key="Return">exec:st</Key>
     <Key mask="4S" key="Return">exec:xterm</Key>
-    <Key mask="4" key="b">exec:st -t htop -e htop</Key>
-    <Key mask="4" key="g">exec:st -t pulsemixer -e pulsemixer</Key>
-    <Key mask="4" key="v">exec:st -t bluetui -e bluetui</Key>
+    <Key mask="4" key="b">exec:st -t htop -c htop -e htop</Key>
+    <Key mask="4" key="g">exec:st -t pulsemixer -c pulsemixer-e pulsemixer</Key>
+    <Key mask="4" key="v">exec:st -t bluetui -c bluetui -e bluetui</Key>
     <Key mask="4" key="w">exec:firefox</Key>
     <Key mask="4" key="r">exec:keepassxc</Key>
     <Key mask="4S" key="w">exec:chromium</Key>
-    <Key mask="4" key="n">exec:st -t nethogs -e nethogs</Key>
-    <Key mask="4" key="u">exec:st -t cava -e cava</Key>
-    <Key mask="4" key="c">exec:st -t qalc -e qalc</Key>
-    <Key mask="4" key="e">exec:st -t nnn -e files</Key>
+    <Key mask="4" key="n">exec:st -t nethogs -c nethogs -e nethogs</Key>
+    <Key mask="4" key="u">exec:st -t cava -c cave -e cava</Key>
+    <Key mask="4" key="c">exec:st -t qalc -c qalc -e qalc</Key>
+    <Key mask="4" key="e">exec:st -t nnn -c nnn -e files</Key>
     <Key mask="4S" key="e">exec:xfe</Key>
     <Key mask="4S" key="l">exec:slock</Key>
     <Key mask="4" key="q">exec:~/.local/share/regexghost/wm-scripts/bookmarks.sh</Key>
     <Key mask="4" key="a">exec:~/.local/share/regexghost/wm-scripts/snippets.sh</Key>
     <Key mask="4" key="f">exec:~/.local/share/regexghost/wm-scripts/dmenu-programs.sh</Key>
     <Key mask="4S" key="f">exec:~/.local/share/regexghost/wm-scripts/launch-stream.sh</Key>
-    <Key mask="4" key="s">exec:st -t Soundboard -e soundboard</Key>
+    <Key mask="4" key="s">exec:st -t Soundboard -c soundboard -g 40x30 -e soundboard</Key>
     <Key mask="4S" key="c">exec:dunstctl close-all</Key>
     <Key mask="4" key="x">exec:~/.local/share/regexghost/wm-scripts/jwm-scratchpad.sh</Key>
 
