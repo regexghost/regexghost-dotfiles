@@ -8,7 +8,7 @@
         <Opacity>1.0</Opacity>
         <Active>
             <Foreground>#FOREGROUND_WHITE</Foreground>
-            <Background>#GREEN</Background>
+            <Background>#MAGENTA</Background>
             <Opacity>1.0</Opacity>
         </Active>
     </WindowStyle>

@@ -48,10 +48,12 @@ rss () {
 # Aliases to Specific Commands
 
 alias dud='du -s -h *'
+alias buf='cat /proc/meminfo | grep --color=no -e Writeback -e Dirty'
 alias x='chmod +x'
 alias copy="sed 's/\n$//g' | xclip -selection c"
 alias watchlc="watch 'ls | wc -l'"
 alias watchdu="watch 'du -s -h *'"
+alias watchbuf="watch 'cat /proc/meminfo | /usr/bin/grep --color=no -e Writeback -e Dirty'"
 alias fatmount='sudo mount -o rw,users,umask=000' # Mount FAT formatted drive correctly
 alias balance='aacgain -r -m 1 *.m4a'
 alias reload='. ~/.kshrc'
