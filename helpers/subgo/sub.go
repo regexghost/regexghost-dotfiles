@@ -51,13 +51,13 @@ func hashLines(lines []string) string {
 
 func hashFile(filepath string) string {
 	hash := sha256.New()
-			
+
 	file, err := os.Open(filepath)
 	panicIfErr(err)
-			
+
 	_, err = io.Copy(hash, file)
 	panicIfErr(err)
-			
+
 	return hex.EncodeToString(hash.Sum(nil))
 }
 
@@ -170,7 +170,7 @@ func extractZones(lines []string) ([]SubZone) {
 func newSubs(paths Paths) {
 	lines := fileParse(paths.InputFilepath)
 	zones := extractZones(lines)
-	
+
 	for _, zone := range zones {
 		match := false
 		hash := zone.CurrentInstance.Hash
@@ -182,7 +182,7 @@ func newSubs(paths Paths) {
 				break
 			}
 		}
-		
+
 		// If we get a match don't save again
 		if !match {
 			newSub(paths, zone, relevantInstances)
@@ -271,7 +271,7 @@ func main() {
 		SubsDir: os.Args[3],
 		TrueName: os.Args[2],
 	}
-	
+
 	if command == "save" {
 		newSubs(paths)
 	} else if command == "clean" {

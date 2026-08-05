@@ -53,14 +53,14 @@ alias lcda='ls -d */ .*/ | wc -l'
 
 ### Recursive
 
-alias lcr="find . -not -path '*/[@.]*' -type f | wc -l"
-alias lcra="find . -type f | wc -l"
-alias lcdr="find . -not -path '*/[@.]*' -type d | wc -l"
-alias lcdra="find . -type d | wc -l"
+alias lcr="/usr/bin/find . -not -path '*/[@.]*' -type f | wc -l"
+alias lcra="/usr/bin/find . -type f | wc -l"
+alias lcdr="/usr/bin/find . -not -path '*/[@.]*' -type d | wc -l"
+alias lcdra="/usr/bin/find . -type d | wc -l"
 
 ## File Sizes
 
-alias ldu='du -Sh --exclude "./.*" | tail -n 1'
-alias ldua='du -Sh | tail -n 1'
-alias ldur='du -h --exclude "./.*" | tail -n 1'
-alias ldura='du -h | tail -n 1'
+alias ldu='/usr/bin/du -Sh --exclude "./.*" | tail -n 1'
+alias ldua='/usr/bin/du -Sh | tail -n 1'
+alias ldur='/usr/bin/du -h --exclude "./.*" | tail -n 1'
+alias ldura='/usr/bin/du -h | tail -n 1'

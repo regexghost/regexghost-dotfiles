@@ -157,7 +157,8 @@ qfi () {
 }
 
 # Moving config out of ~/
-alias v='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
+alias vim='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
+alias v='vim'
 
 # By default only show broadly useful info
 lsblk () {

@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2026-07-30T20:35:20.985Z",
+    "createdAt": "2026-08-05T16:01:31.771Z",
     "redirects": [
         {
             "description": "Wikipedia Vector Skin",
@@ -24,10 +24,44 @@
             "exampleUrl": "https://www.reddit.com/r/buildapc",
             "exampleResult": "https://old.reddit.com/r/buildapc",
             "error": null,
-            "includePattern": "https://www.reddit.com/*",
+            "includePattern": "https://www.reddit.com/r/*",
             "excludePattern": "",
             "patternDesc": "",
-            "redirectUrl": "https://old.reddit.com/$1",
+            "redirectUrl": "https://old.reddit.com/r/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "old reddit redirect",
+            "exampleUrl": "https://www.reddit.com/user/example",
+            "exampleResult": "https://old.reddit.com/user/example",
+            "error": null,
+            "includePattern": "https://www.reddit.com/user/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://old.reddit.com/user/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "old reddit redirect",
+            "exampleUrl": "https://www.reddit.com/u/example",
+            "exampleResult": "https://old.reddit.com/u/example",
+            "error": null,
+            "includePattern": "https://www.reddit.com/u/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://old.reddit.com/u/$1",
             "patternType": "W",
             "processMatches": "noProcessing",
             "disabled": false,
