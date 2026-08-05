@@ -12,6 +12,8 @@ twitch="$(echo "$line" | cut -d "," -f 2)"
 youtube="$(echo "$line" | cut -d "," -f 3)"
 kick="$(echo "$line" | cut -d "," -f 4)"
 
+# Try YouTube, then Kick, then Twitch
+
 if ! [ "$youtube" = "NONE" ]; then
 	notify-send "Launching ${name} YouTube stream"
 	mpv --no-resume-playback --ytdl-format="best[height<=480]" "https://youtube.com/${youtube}/live" && exit

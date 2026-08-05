@@ -2,6 +2,7 @@
 
 . "$XDG_CONFIG_HOME/regexghost/current-theme.sh"
 
+# Check for index and print anyway arguments
 arg1=""
 arg2=""
 for arg; do
