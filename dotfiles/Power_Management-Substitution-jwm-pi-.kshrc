@@ -1,11 +1,14 @@
 #### Start Substitute - Power_Management
 ## Shutdown with confirmation
 shutdown_commands () {
+	# Check if moc is running, if so stop
 	if pgrep "mocp" > /dev/null; then
 		mocp -M "$XDG_CONFIG_HOME/moc" --stop
 	fi
+	# Save latest reddit rss to ~/.cache
 	/usr/bin/rm -rf "$XDG_CACHE_HOME/reddit-rss"
 	cp -r /tmp/reddit-rss "$XDG_CACHE_HOME/reddit-rss"
+	# Save and exit scratchpad buffer (if running)
 	if pgrep -f "tmux new-session -d -s buffer_tmux" > /dev/null; then
 		tmux send-keys -t buffer_tmux.0 C-s
 		tmux send-keys -t buffer_tmux.0 C-q
