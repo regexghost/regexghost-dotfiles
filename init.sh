@@ -77,3 +77,7 @@ magick -background none -fill white -density 400 /tmp/temp.svg -resize 100x100 ~
 
 # For old intel systems <= 4th gen, stops an mpv error
 sudo apt remove intel-media-va-driver
+
+# Put chromium data in ~/.local/share
+mkdir ~/.local/share/chromium
+ln -sf ~/.local/share/chromium ~/.config/chromium

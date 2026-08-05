@@ -17,19 +17,19 @@ kick="$(echo "$line" | cut -d "," -f 4)"
 if ! [ "$youtube" = "NONE" ]; then
 	notify-send "Launching ${name} YouTube stream"
 	mpv --no-resume-playback --ytdl-format="best[height<=480]" "https://youtube.com/${youtube}/live" && exit
-	notify-send "Failed to open YouTube stream"
+	notify-send "Failed to open ${name} YouTube stream"
 fi
 
 if ! [ "$kick" = "NONE" ]; then
 	notify-send "Launching ${name} Kick stream"
 	mpv --no-resume-playback --ytdl-format="2" "https://kick.com/${kick}" && exit
-	notify-send "Failed to open Kick stream"
+	notify-send "Failed to open ${name} Kick stream"
 fi
 
 if ! [ "$twitch" = "NONE" ]; then
 	notify-send "Launching ${name} Twitch stream"
 	mpv --no-resume-playback "https://twitch.tv/${twitch}" && exit
-	notify-send "Failed to open Twitch stream"
+	notify-send "Failed to open ${name} Twitch stream"
 fi
 
 notify-send "Not live or unable to open stream"

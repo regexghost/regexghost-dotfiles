@@ -41,7 +41,7 @@ tar czf firefox-backup.tar.gz .mozilla
 cp "$HOME/firefox-backup.tar.gz" "${BACKUP_LOCATION}/firefox-backup.tar.gz"
 
 echo "Copying Chromium data"
-cd "$HOME/.config"
+cd "$HOME/.local/share"
 tar czf chromium-backup.tar.gz chromium
 cp "$HOME/.config/chromium-backup.tar.gz" "${BACKUP_LOCATION}/chromium-backup.tar.gz"
 
