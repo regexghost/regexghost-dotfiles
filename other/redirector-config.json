@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2026-08-05T16:01:31.771Z",
+    "createdAt": "2026-08-05T18:33:48.940Z",
     "redirects": [
         {
             "description": "Wikipedia Vector Skin",
@@ -20,7 +20,7 @@
             ]
         },
         {
-            "description": "old reddit redirect",
+            "description": "old reddit redirect (r)",
             "exampleUrl": "https://www.reddit.com/r/buildapc",
             "exampleResult": "https://old.reddit.com/r/buildapc",
             "error": null,
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "description": "old reddit redirect",
+            "description": "old reddit redirect (user)",
             "exampleUrl": "https://www.reddit.com/user/example",
             "exampleResult": "https://old.reddit.com/user/example",
             "error": null,
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "description": "old reddit redirect",
+            "description": "old reddit redirect (u)",
             "exampleUrl": "https://www.reddit.com/u/example",
             "exampleResult": "https://old.reddit.com/u/example",
             "error": null,

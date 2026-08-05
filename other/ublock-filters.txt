@@ -5,3 +5,9 @@ www.google.com###oFNiHe
 
 ! 30 Jul 2026 https://old.reddit.com
 old.reddit.com##.cookie-infobar.with-btn.with-icon.updated.md-container-small.reddit-infobar
+
+! https://old.reddit.com/r/uBlockOrigin/comments/y2op8t/how_to_remove_youtubes_new_ambient_background/iu0mt77/
+youtube.com###cinematics.ytd-watch-flexy
+
+! 5 Aug 2026 https://www.decathlon.co.uk
+www.decathlon.co.uk##.banner
