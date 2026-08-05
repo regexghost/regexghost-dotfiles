@@ -14,10 +14,12 @@ fi
 
 if pgrep firefox; then
 	echo "Close Firefox"
+	exit
 fi
 
 if pgrep chromium; then
 	echo "Close Chromium"
+	exit
 fi
 
 BACKUP_LOCATION="$HOME/temp/OSTransfer"

@@ -43,3 +43,4 @@ normal:
 	cp files.sh ${BIN}/files
 	cp calendar.sh ${BIN}/calendar
 	cp date-time.sh ${BIN}/date-time
+	cp qssh.sh ${BIN}/qssh
