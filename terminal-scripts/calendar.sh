@@ -17,6 +17,7 @@ suffix () {
 	fi
 }
 
+# Unbuffer keeps the little box around the current day, sed deletes empty line at the end
 unbuffer cal -w -n 3 "$@" | sed '/^ *$/d'
 
 day="$(date +'%A')"

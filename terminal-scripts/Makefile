@@ -26,7 +26,6 @@ normal:
 	cp stream-check.sh ${BIN}/stream-check
 	cp opus-soundtrack.sh ${BIN}/opus-soundtrack
 	cp opus-single.sh ${BIN}/opus-single
-	cp webm-to-m4a.sh ${BIN}/webm-to-m4a
 	gcc string-trunc.c -o string-trunc
 	mv string-trunc ${BIN}/string-trunc
 	cp ytdl-wrapper.sh ${BIN}/ytdl-wrapper

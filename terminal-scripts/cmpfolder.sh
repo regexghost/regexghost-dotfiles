@@ -12,6 +12,8 @@ IFS=$'\n'
 filesA=( $(find "$1" -type f | sort) )
 filesB=( $(find "$2" -type f | sort) )
 
+# -o means only cmp files in first dir, to matching files in second dir
+# Useful if first directory is an incomplete copy of the second one
 if [[ "$3" == "-o" ]]; then
 	for fileA in "${filesA[@]}"; do
 		fileName=$(basename "$fileA")

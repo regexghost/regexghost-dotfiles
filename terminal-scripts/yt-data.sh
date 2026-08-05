@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Get basic data for a YouTube video
+# Get basic data for a YouTube video without yt-dlp
 
 url="$1"
 TEMP_FILE=/tmp/yt-data.html

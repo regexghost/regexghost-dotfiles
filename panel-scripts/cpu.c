@@ -36,20 +36,16 @@ void save_new_values(Values new_values) {
 
 int main() {
 	Values prev_values = get_previous_values();
-	
+
 	FILE *f;
 	f = fopen("/proc/stat", "r");
 	char buf[100] = {0};
 	fgets(buf, 100, f);
-	//printf("%s\n", buf);
 	fclose(f);
 
 	int user, nice, system, idle, iowait, irq, softirq, steal;
 
 	sscanf(buf, "%*s %d %d %d %d %d %d %d %d %*d %*d", &user, &nice, &system, &idle, &iowait, &irq, &softirq, &steal);
-	
-	//printf("Current: %d %d %d %d %d %d %d %d\n", user, nice, system, idle, iowait, irq, softirq, steal);
-	//printf("Old: %d %d\n", prev_values.total, prev_values.idle);
 
 	int total = user + nice + system + idle + iowait + irq + softirq + steal;
 	int total_since_last = total - prev_values.total;
@@ -59,7 +55,6 @@ int main() {
 	double usage = 1 - fraction;
 	double percentage = usage * 100;
 
-	//printf("%f %f %f\n", fraction, usage, percentage);
 	if (percentage < 9.995) {
 		printf("%0.2f%%\n", percentage);
 	} else {

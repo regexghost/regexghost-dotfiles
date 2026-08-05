@@ -13,6 +13,7 @@ start_time="$2"
 end_time="$3"
 output_file="$4"
 
+# I got this from somewhere, but I can't find where, likely stackoverflow
 cut_time=$(awk -v start="$start_time" -v end="$end_time" '
 	BEGIN {
 		split(start, a, ":")

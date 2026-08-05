@@ -39,6 +39,8 @@ gameName = ' '.join(args).rstrip()
 if not outputJson:
 	print("Searching for game: " + gameName)
 
+# Added `0.0`, otherwise sometimes you get 0 results if the string match isn't big enough
+# e.g. typing "Lufia" wouldn't return anything, because you are missing 80% of the title of each game
 results = HowLongToBeat(0.0).search(gameName)
 
 length = len(results)

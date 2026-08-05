@@ -6,6 +6,7 @@ mount_points="~/Downloads/USBDrive
 root_device="$(/usr/bin/lsblk -l -n --output NAME,MOUNTPOINTS | grep '/$' | sed 's/p[0-9] \///g; s/[0-9] \///g')"
 
 mount () {
+	# Filter out root disk
 	unmounted="$(/usr/bin/lsblk -l -n --output NAME,FSTYPE,SIZE,MOUNTPOINTS,TYPE | grep "part" | grep -v "/" | grep -v "$root_device" | tr -s " " | cut -d " " -f 1-3)"
 
 	[ "$unmounted" = "" ] && echo "No drives to mount" && exit
@@ -17,6 +18,7 @@ mount () {
 	chosen_mount_point="$(echo "$mount_points" | fzf | sed "s|~|$HOME|")"
 	[ "$chosen_mount_point" = "" ] && exit
 
+	# Check if vfat or exfat, if so need special mount options to get permissions right
 	args=""
 	if [ "$chosen_fstype" = "vfat" ] || [ "$chosen_fstype" = "exfat" ]; then
 		args="-o rw,users,umask=000"
@@ -26,6 +28,7 @@ mount () {
 }
 
 unmount () {
+	# Filter out root disk
 	mounted="$(/usr/bin/lsblk -l -n --output NAME,MOUNTPOINTS | grep "/" | grep -v "$root_device" | tr -s " ")"
 	[ "$mounted" = "" ] && echo "No drives to unmount" && exit
 

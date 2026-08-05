@@ -48,7 +48,7 @@ int get_bookmarks(Bookmark* bookmarks) {
 
 	int i = 0;
 	char buffer[400];
-	
+
 	while (fgets(buffer, sizeof(buffer), f) != NULL) {
 		if (i > 99) {
 			printf("Error, bookmarks file too big\n");
@@ -77,7 +77,7 @@ int get_file_bookmarks(FileBookmark* bookmarks) {
 
 	int i = 0;
 	char buffer[400];
-	
+
 	while (fgets(buffer, sizeof(buffer), f) != NULL) {
 		if (i > 99) {
 			printf("Error, file bookmarks file too big\n");
@@ -164,7 +164,7 @@ void add_bookmark(char* to_add) {
 
 	strcpy(bookmarks[num_bookmarks].bookmark_name, to_add);
 	strcpy(bookmarks[num_bookmarks].directory_name, cwd);
-	
+
 	num_bookmarks++;
 	write_bookmarks(bookmarks, num_bookmarks);
 }

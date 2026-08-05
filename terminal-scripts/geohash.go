@@ -22,14 +22,14 @@ func main() {
 		printHelp()
 		os.Exit(1)
 	}
-	
+
 	var lat string = os.Args[1]
 	var lon string = os.Args[2]
 	var precision string = "12"
 	if len(os.Args) == 4 {
 		precision = os.Args[3]
 	}
-	
+
 	fmt.Println(encode(lat, lon, precision))
 }
 
@@ -53,12 +53,12 @@ func encode(latInput, lonInput, precisionInput string) string {
 	var lat float64 = getFloat64(latInput)
 	var lon float64 = getFloat64(lonInput)
 	var precision int = getInt(precisionInput)
-	
+
 	var n, s int = 0, 0
 	var o bool = true
 	var r, c, d, l float64 = -90, 90, -180, 180
 	var encodedString string = ""
-	
+
 	for len(encodedString) < precision {
 		if o {
 			var e2 float64 = (d + l) / 2
@@ -87,6 +87,6 @@ func encode(latInput, lonInput, precisionInput string) string {
 			n = 0
 		}
 	}
-	
+
 	return encodedString
 }

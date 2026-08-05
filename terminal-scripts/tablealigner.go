@@ -7,7 +7,6 @@ import (
 	"strings"
 	"regexp"
 	"os/exec"
-	//"strconv"
 )
 
 func Print(str string) {
@@ -15,6 +14,7 @@ func Print(str string) {
 	cmd.Run()
 }
 
+// This is definitely not a good solution to wide characters
 var EMOJIS []rune = []rune{'❌', '✅', '❔', '❓', '📅', '🚗', '🌙', '⏳'}
 
 func isEmoji(r rune) bool {
@@ -29,10 +29,7 @@ func isEmoji(r rune) bool {
 func properLen(input string) int {
 	var noEndSpaces string = strings.TrimRight(input, " ")
 	var length int = utf8.RuneCountInString(noEndSpaces) + 1
-	
-	//fmt.Printf("A:%s:B\n", input)
-	//fmt.Printf("C:%s:D\n", noEndSpaces)
-	
+
 	for _, r := range noEndSpaces {
 		if isEmoji(r) {
 			length++
@@ -46,7 +43,7 @@ func readFile(filename string) []string {
 	if err != nil {
 		panic(err)
 	}
-	
+
 	return strings.Split(string(dat), "\n")
 }
 
@@ -54,7 +51,7 @@ func testForAlignRow(line string) bool {
 	if len(line) < 1 {
 		return false
 	}
-	
+
 	if line[0] != '|' || line[len(line)-1] != '|' {
 		return false
 	}
@@ -65,7 +62,7 @@ func testForAlignRow(line string) bool {
 			return false
 		}
 	}
-	
+
 	return true
 }
 
@@ -78,9 +75,9 @@ func testForEnd(line string) bool {
 
 func findTables(input []string) [][]int {
 	var tables [][]int
-	
+
 	var inTable bool = false
-	
+
 	for i, line := range input {
 		if !inTable && testForAlignRow(line) {
 			tables = append(tables, []int{i-1})
@@ -90,7 +87,7 @@ func findTables(input []string) [][]int {
 			inTable = false
 		}
 	}
-	
+
 	return tables
 }
 
@@ -100,19 +97,18 @@ func calcLengths(thisTable []string) []int {
 	if numCells < 1 {
 		os.Exit(1)
 	}
-	
+
 	var columnLengths []int = make([]int, numCells)
-	
+
 	for i, line := range thisTable {
 		if i == 1 {
 			continue
 		}
 		cells := strings.Split(line, "|")
 		cells = cells[1:len(cells)-1]
-		
+
 		for j, cell := range cells {
 			var cellLen int = properLen(cell)
-			//fmt.Println(cell)
 			if cellLen > columnLengths[j] {
 				columnLengths[j] = cellLen
 			}
@@ -122,15 +118,13 @@ func calcLengths(thisTable []string) []int {
 }
 
 func alignTable(table []int, data[]string) []string {
-	//fmt.Println("Table:")
 	thisTable := data[table[0]:table[1]+1]
 	columnLengths := calcLengths(thisTable)
-	//fmt.Println(columnLengths)
-	
+
 	for i:=0; i<len(thisTable); i++ {
 		cells := strings.Split(thisTable[i], "|")
 		cells = cells[1:len(cells)-1]
-		
+
 		newCells := []string{}
 		for j, cell := range cells {
 			cell = strings.TrimRight(cell, " ") + " "
@@ -138,7 +132,7 @@ func alignTable(table []int, data[]string) []string {
 			if cellLen != columnLengths[j] {
 				var paddedCell string = padCell(cell, cellLen, i, j, columnLengths)
 				newCells = append(newCells, paddedCell)
-				
+
 			} else {
 				newCells = append(newCells, cell)
 			}
@@ -189,21 +183,18 @@ func main() {
 		fmt.Println("Usage: \n  tablealigner input.md output.md")
 		panic("wrong args")
 	}
-	
+
 	var inputFile string = os.Args[1]
 	var outputFile string = os.Args[2]
 	if os.Args[1] == "-s" {
 		inputFile = os.Args[2]
 		outputFile = os.Args[2]
 	}
-		
+
 	data := readFile(inputFile)
-	
+
 	tables := findTables(data)
-	//fmt.Println(tables)
 	data = alignTables(tables, data)
-	
-	//data = fixEmojis(data)
-	
+
 	saveToFile(data, outputFile)
 }

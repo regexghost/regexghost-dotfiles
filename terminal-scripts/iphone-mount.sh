@@ -2,6 +2,9 @@
 
 MOUNTPOINT="$HOME/Downloads/USBDrive"
 
+# This is a horrible script and I need to re-write it to dynamically get all these apps
+# and present using fzf
+
 if [[ "$1" == "mount" ]]; then
 	idevicepair validate
 	idevicepair pair || exit
