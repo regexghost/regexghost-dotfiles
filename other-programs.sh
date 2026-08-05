@@ -572,6 +572,19 @@ zigitself () {
 	cd ..
 }
 
+onetrueawk () {
+	sudo apt install bison
+
+	git clone "https://github.com/onetrueawk/awk"
+	cd awk/
+
+	make
+	sudo cp a.out /usr/local/bin/awk
+	sudo cp awk.1 /usr/local/man/man1/awk.1
+
+	cd ..
+}
+
 ueberzugpp () {
 	sudo apt install libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-image0-dev libxcb-res0 libxcb-res0-dev
 
@@ -635,6 +648,7 @@ elif [ "$1" = "notmine" ]; then
 	build zigitself
 	build mepo
 	build cava
+	build onetrueawk
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -703,6 +717,8 @@ elif [ "$1" = "zig" ]; then
 	zigitself
 elif [ "$1" = "cava" ]; then
 	cava
+elif [ "$1" = "onetrueawk" ]; then
+	onetrueawk
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

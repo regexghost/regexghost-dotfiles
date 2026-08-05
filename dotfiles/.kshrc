@@ -20,9 +20,9 @@ function truncatedpwd
 PS1=' \[\033[1;35m\]'"\$(truncatedpwd)"'\[\033[1;34m\]$(directory-bookmarks current)\[\033[1;36m\] >\[\033[0m\] '
 
 # Basic Aliases
-alias grep='/usr/bin/grep -i --color=auto'
-alias grepa='grep -i -I -A 5 -B 5 --color=auto'
-alias gi='/usr/bin/grep -ir --color=auto'
+alias grep='/usr/bin/grep -i --color=auto' # Standard grep
+alias grepa='grep -i -I -A 5 -B 5 --color=auto' # grep surrounding lines
+alias gi='/usr/bin/grep -ir --color=auto' # recursive grep
 alias diff='diff --color'
 alias n='nano'
 alias sq='ncdu' # Not sure why this is "sq" but I'm used to it now
@@ -71,6 +71,7 @@ alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man'
 alias dff='df -h | grep -e Filesystem -e "^/dev" | grep -v efi'
 alias hltb='~/.local/share/regexghost/.venv/bin/python3 ~/.local/share/regexghost/terminal/howlongtobeat.py'
 alias wttr='curl wttr.in'
+alias im='iphone-mount'
 
 web () {
 	case "$1" in
@@ -78,6 +79,10 @@ web () {
 			~/Programs/websites/personal-website/scripts/build.sh
 			;;
 		p*)
+			push-website /tmp/personal-website/build/
+			;;
+		f*)
+			~/Programs/websites/personal-website/scripts/build.sh
 			push-website /tmp/personal-website/build/
 			;;
 		*)
