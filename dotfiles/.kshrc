@@ -178,16 +178,6 @@ trash-empty () {
 	/usr/bin/trash-empty
 }
 
-# Only use this if the history in the current terminal is suddenly way shorter than it should be
-restorehistory () {
-	if [ "$1" = "-o" ]; then
-		cp "$HOME/Downloads/.history_backup" "$HOME/.history"
-	else
-		cat "$HOME/Downloads/.history_backup" "$HOME/.history" > /tmp/new_history
-		mv /tmp/new_history "$HOME/.history"
-	fi
-}
-
 # Aliases to scripts, calendar info and time zone display
 alias cal='calendar'
 alias t='date-time'
