@@ -51,3 +51,6 @@ $(cat /tmp/to_download)
 EOF
 
 [ -f /tmp/to_download ] && rm /tmp/to_download
+
+rm "$HOME/Videos/YouTube/Videos/*.json
+rm "$HOME/Videos/YouTube/Shorts/*.json

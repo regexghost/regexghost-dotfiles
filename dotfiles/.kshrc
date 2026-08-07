@@ -141,7 +141,7 @@ alias pip='~/.local/share/regexghost/.venv/bin/pip'
 
 #### Start Substitute - Package_Manager
 
-alias as='echo "Use \as to run as command, disabled as too easy to type accidentally, creating unnecessary a.out file in home directory"'
+alias as='echo "Use \\\as to run as command, disabled as too easy to type accidentally, creating unnecessary a.out file in home directory"'
 
 ## Functions to basic programs
 
