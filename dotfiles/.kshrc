@@ -143,13 +143,20 @@ alias pip='~/.local/share/regexghost/.venv/bin/pip'
 
 alias as='echo "Use \\\as to run as command, disabled as too easy to type accidentally, creating unnecessary a.out file in home directory"'
 
+# fzf -> cd
+qcd () {
+	dir="$(find "$HOME/Documents" "$HOME/Downloads" "$HOME/Music" "$HOME/Pictures" "$HOME/Programs" "$HOME/Videos" "$HOME/Work" "$HOME/.local/share/regexghost" -type d | fzf)"
+	[ "dir" = "" ] && return
+	cd "$dir"
+}
+
 ## Functions to basic programs
 
 # fzf -> editor
 qfi () {
 	# Only look for file types you might actually want to manually edit
 	file="$(find ~/* | grep -E '.py$|.go$|.txt$|.md$|.java$|.js$|.html$|.css$|.c$|.cc$|.conf$|.lua$|.rs$|.sh$|.bash$|.csv$' | sed 's|'"$HOME"'|~|g' | fzf)"
-	[[ "$file" == "" ]] && return
+	[ "$file" = "" ] && return
 	"${VISUAL:-${EDITOR:-vi}}" "$file"
 }
 
