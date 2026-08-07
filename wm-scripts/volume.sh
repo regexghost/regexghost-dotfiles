@@ -1,33 +1,42 @@
 #!/bin/sh
 
-VOLUME_CACHE_FILE="$XDG_CACHE_HOME/volume"
-MUTED_CACHE_FILE="$XDG_CACHE_HOME/muted"
+VOLUME_CACHE_FILE="$XDG_CACHE_HOME/panel_volume/volume"
+MUTED_CACHE_FILE="$XDG_CACHE_HOME/panel_volume/muted"
+SINK_CACHE_FILE="$XDG_CACHE_HOME/panel_volume/sink"
+
+if [ "$2" = "--bluez" ]; then
+	sink="$(pactl list sinks | grep "Name:" | grep "bluez" | sed 's/.*Name: //g')"
+	echo "bluez" > "$SINK_CACHE_FILE"
+else
+	sink="@DEFAULT_SINK@"
+	echo "default" > "$SINK_CACHE_FILE"
+fi
 
 volume_up () {
-	current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk ' /Volume/ {print $5}' | sed 's/%//g')
+	current_volume=$(pactl get-sink-volume "$sink" | awk ' /Volume/ {print $5}' | sed 's/%//g')
 	if [ $current_volume -gt 97 ]; then
-		pactl set-sink-volume @DEFAULT_SINK@ 100%
+		pactl set-sink-volume "$sink" 100%
 		echo "100" > "$VOLUME_CACHE_FILE"
 	else
-		pactl set-sink-volume @DEFAULT_SINK@ +3%
+		pactl set-sink-volume "$sink" +3%
 		echo $((current_volume+3)) > "$VOLUME_CACHE_FILE"
 	fi
 }
 
 volume_down () {
-	current_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk ' /Volume/ {print $5}' | sed 's/%//g')
+	current_volume=$(pactl get-sink-volume "$sink" | awk ' /Volume/ {print $5}' | sed 's/%//g')
 	if [ $current_volume -lt 3 ]; then
-		pactl set-sink-volume @DEFAULT_SINK@ 0%
+		pactl set-sink-volume "$sink" 0%
 		echo "0" > "$VOLUME_CACHE_FILE"
 	else
-		pactl set-sink-volume @DEFAULT_SINK@ -3%
+		pactl set-sink-volume "$sink" -3%
 		echo $((current_volume-3)) > "$VOLUME_CACHE_FILE"
 	fi
 }
 
 toggle_mute () {
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
-	pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}' > "$MUTED_CACHE_FILE"
+	pactl set-sink-mute "$sink" toggle
+	pactl get-sink-mute "$sink" | awk '{print $2}' > "$MUTED_CACHE_FILE"
 }
 
 if [ "$1" = "--up" ]; then

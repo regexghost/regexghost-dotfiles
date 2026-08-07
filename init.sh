@@ -43,8 +43,10 @@ fi
 chsh
 
 # Random setup
-echo "50" > ~/.cache/volume
-echo "no" > ~/.cache/muted
+mkdir ~/.cache/panel_volume
+echo "50" > ~/.cache/panel_volume/volume
+echo "no" > ~/.cache/panel_volume/muted
+echo "default" > ~/.cache/panel_volume/sink
 mkdir -p ~/.config/aspell/
 mkdir -p ~/.local/share/aspell/
 sudo systemctl enable --now bluetooth

@@ -4,6 +4,13 @@ file="lists/$2"
 
 sub="$HOME/.local/bin/sub"
 
+if [ "$2" = "all" ]; then
+	for x in lists/*; do
+		"$0" "$1" "$(basename "$x")"
+	done
+	exit
+fi
+
 exec 3<&0
 if [ "$1" = "save" ]; then
 	while read -r filepath; do

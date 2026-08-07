@@ -39,10 +39,15 @@ update_network_down () {
 }
 
 update_vol () {
-	if [ $(cat ~/.cache/muted) = "yes" ]; then
+	if [ "$(cat ~/.cache/panel_volume/sink)" = "bluez" ]; then
+		icon=""
+	else
+		icon=""
+	fi
+	if [ "$(cat ~/.cache/panel_volume/muted)" = "yes" ]; then
 		vol="${muted_colour}${COLOUR_RESET}"
 	else
-		vol="${volume_colour} $(cat ~/.cache/volume)%%${COLOUR_RESET}"
+		vol="${volume_colour}${icon} $(cat ~/.cache/panel_volume/volume)%%${COLOUR_RESET}"
 	fi
 }
 
