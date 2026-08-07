@@ -17,6 +17,10 @@ th {
 	padding: 0px 18px 4px 0px;
 }
 
+img {
+	max-width: 80%;
+}
+
 div.sidebar a {
 	font-size: 25px;
 	text-decoration: none;
