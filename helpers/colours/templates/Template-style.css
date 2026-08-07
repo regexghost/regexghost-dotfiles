@@ -9,6 +9,14 @@ a {
 	color: #CYAN;
 }
 
+td {
+	padding: 0px 18px 2px 0px;
+}
+
+th {
+	padding: 0px 18px 4px 0px;
+}
+
 div.sidebar a {
 	font-size: 25px;
 	text-decoration: none;
