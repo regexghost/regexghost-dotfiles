@@ -6,6 +6,7 @@ SINK_CACHE_FILE="$XDG_CACHE_HOME/panel_volume/sink"
 
 if [ "$2" = "--bluez" ]; then
 	sink="$(pactl list sinks | grep "Name:" | grep "bluez" | sed 's/.*Name: //g')"
+	[ "$sink" = "" ] && exit
 	echo "bluez" > "$SINK_CACHE_FILE"
 else
 	sink="@DEFAULT_SINK@"
