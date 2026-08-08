@@ -178,13 +178,13 @@
 	<Key mask="4" key="minus">exec:~/.local/share/regexghost/panel/music-moc.sh --previous</Key>
 	<Key mask="4S" key="minus">exec:~/.local/share/regexghost/panel/music-moc.sh --quit</Key>
 	<Key mask="4S" key="equal">exec:~/.local/share/regexghost/panel/music-moc.sh --favourite</Key>
-	<Key mask="4S" key="apostrophe">exec:~/.local/share/regexghost/panel/music-moc.sh --toggle-pause</Key>
+	<Key mask="4S" key="semicolon">exec:~/.local/share/regexghost/panel/music-moc.sh --toggle-pause</Key>
 	<Key mask="4" key="bracketleft">exec:~/.local/share/regexghost/wm-scripts/volume.sh --down</Key>
 	<Key mask="4" key="bracketright">exec:~/.local/share/regexghost/wm-scripts/volume.sh --up</Key>
 	<Key mask="4S" key="bracketleft">exec:~/.local/share/regexghost/wm-scripts/volume.sh --down --bluez</Key>
 	<Key mask="4S" key="bracketright">exec:~/.local/share/regexghost/wm-scripts/volume.sh --up --bluez</Key>
 	<Key mask="4S" key="slash">exec:~/.local/share/regexghost/wm-scripts/volume.sh --toggle-mute</Key>
-    <Key mask="4S" key="semicolon">exec:~/.local/share/regexghost/wm-scripts/keyboard-settings.sh</Key>
+    <Key mask="4S" key="apostrophe">exec:~/.local/share/regexghost/wm-scripts/keyboard-settings.sh</Key>
     <Key mask="4" key="Return">exec:st</Key>
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t htop -c htop -e htop</Key>
