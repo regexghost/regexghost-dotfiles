@@ -25,7 +25,7 @@ alias grepa='grep -i -I -A 5 -B 5 --color=auto' # grep surrounding lines
 alias gi='/usr/bin/grep -ir --color=auto' # recursive grep
 alias diff='diff --color'
 alias n='nano'
-alias sq='ncdu' # not sure why this is "sq" but I'm used to it now
+alias sq='ncdu --disable-delete --disable-shell' # not sure why this is "sq" but I'm used to it now
 alias b='bat --wrap word --theme=base16'
 alias mv='mymv' # sbase mv doesn't have -i option
 alias cp='cp -r -i'

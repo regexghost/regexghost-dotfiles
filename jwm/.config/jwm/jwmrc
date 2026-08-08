@@ -194,7 +194,7 @@
     <Key mask="4" key="r">exec:keepassxc</Key>
     <Key mask="4S" key="w">exec:chromium</Key>
     <Key mask="4" key="n">exec:st -t nethogs -c nethogs -e nethogs</Key>
-    <Key mask="4" key="u">exec:st -t cava -c cave -e cava</Key>
+    <Key mask="4" key="u">exec:st -t cava -c cava -e cava</Key>
     <Key mask="4" key="c">exec:st -t qalc -c qalc -e qalc</Key>
     <Key mask="4" key="e">exec:st -t nnn -c nnn -e files</Key>
     <Key mask="4S" key="e">exec:xfe</Key>

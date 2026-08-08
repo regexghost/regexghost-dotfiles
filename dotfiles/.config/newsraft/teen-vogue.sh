@@ -31,4 +31,3 @@ sed 's/<\/a>//g' |\
 echo "$content" | fold -s >> "$OUTPUT_FILE"
 
 ${PAGER:-less} "$OUTPUT_FILE"
-
