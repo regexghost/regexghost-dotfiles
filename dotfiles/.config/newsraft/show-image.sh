@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if echo "$1" | grep -q -e "youtube" -e "youtu.be"; then
+if echo "$1" | grep -q -e "youtube" -e "youtu.be" -e youtube.com/shorts; then
 	~/.config/newsraft/extract-thumbnail.sh "$1"
 	${IMAGE_VIEWER:-feh} /tmp/youtube_thumbnail.webp
 	rm -f /tmp/youtube_thumbnail.webp

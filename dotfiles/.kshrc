@@ -162,6 +162,7 @@ qfi () {
 
 # Moving config out of ~/
 alias vim='vim -u ~/.config/vim/vimrc -i ~/.config/vim/viminfo'
+alias vi='vim'
 alias v='vim'
 
 # By default only show broadly useful info

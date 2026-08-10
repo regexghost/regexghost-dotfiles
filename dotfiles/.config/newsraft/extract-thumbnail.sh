@@ -8,6 +8,8 @@ if echo "$video_id" | grep -q "www."; then
 	video_id=$(echo "$URL" | sed 's/.*\/shorts\///g')
 elif echo "$video_id" | grep -q "youtu.be"; then
 	video_id="$(echo "$URL" | sed 's/.*youtu.be\///g')"
+elif echo "$video_id" | grep -q "youtube.com/shorts"; then
+	video_id="$(echo "$URL" | sed 's/.*youtube.com\/shorts\///g')"
 fi
 
 video_id="$(echo "$video_id" | sed 's/?.*//g')"

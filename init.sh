@@ -32,9 +32,6 @@ cd helpers/subgo/; make full; cd ../../
 ./otherPrograms.sh mine
 ./otherPrograms.sh notmine
 
-# Create empty wgetrc to stop error
-touch ~/.config/wgetrc
-
 # Shell stuff
 if ! grep -q "/usr/local/bin/oksh" /etc/shells; then
 	cp /etc/shells ~/Downloads/shells_backup
@@ -81,5 +78,5 @@ magick -background none -fill white -density 400 /tmp/temp.svg -resize 100x100 ~
 sudo apt remove intel-media-va-driver
 
 # Put chromium data in ~/.local/share
-mkdir ~/.local/share/chromium
+[ -d ~/.config/chromium ] && mv ~/.config/chromium ~/.local/share/chromium || mkdir ~/.local/share/chromium
 ln -sf ~/.local/share/chromium ~/.config/chromium
