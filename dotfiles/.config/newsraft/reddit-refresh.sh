@@ -5,6 +5,10 @@ TMP_LOC="/tmp/reddit-rss"
 
 [ -d "$XDG_CACHE_HOME/reddit-rss" ] && cp -r "$XDG_CACHE_HOME/reddit-rss" "$TMP_LOC" || mkdir "$TMP_LOC"
 
+while read -r subreddit; do
+		touch "${TMP_LOC}/r.${subreddit}"
+done < "$XDG_CONFIG_HOME/newsraft/reddit-rss.txt"
+
 while true; do
 	while read -r subreddit; do
 		sleep 60
