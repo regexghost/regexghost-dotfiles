@@ -10,3 +10,4 @@ normal:
 	cp Xmodmap "${PREFIX}/wm-scripts/Xmodmap"
 	sudo cp no-wifi-powersave.conf /etc/NetworkManager/conf.d/no-wifi-powersave.conf
 	sudo systemctl restart NetworkManager
+	sudo cp 20-no-console-print.conf /etc/sysctl.d/20-no-console-print.conf
