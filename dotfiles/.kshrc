@@ -37,6 +37,7 @@ alias q='exit'
 alias pve='pipe-viewer'
 alias vp='vid-play' # normal vids
 alias vps='vid-play -s' # shorts
+alias pd='podcast-play' # podcasts
 
 # I originally used this on the Pi, because the storage being slow meant newsraft
 # lagged when accessing the database
