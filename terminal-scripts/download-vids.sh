@@ -31,10 +31,16 @@ read -p "Select videos to download (e.g. 1 2 3): " toDownload
 
 [ -f /tmp/to_download ] && rm /tmp/to_download
 
-for i in $toDownload; do
-	path="$(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort | sed -n "${i}p")"
-	echo "$path" >> /tmp/to_download
-done
+[ "$toDownload" = "" ] && exit
+
+if [ "$toDownload" = "a" ] || [ "$toDownload" = "all" ]; then
+	find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort >> /tmp/to_download
+else
+	for i in $toDownload; do
+		path="$(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort | sed -n "${i}p")"
+		echo "$path" >> /tmp/to_download
+	done
+fi
 
 while read -r path; do
 	id="$(basename "$path" | sed 's/.txt//g')"
