@@ -1,3 +1,30 @@
 #!/bin/sh
 
-sudo apt install curl wget golang xorg xinit x11-xserver-utils bluetooth unzip git firefox-esr mpv vlc tar moc fasd fonts-roboto fonts-firacode figlet jq xcompmgr picom trash-cli ncdu pulsemixer feh moc-ffmpeg-plugin keepassxc-full fzf libnotify-bin dunst texinfo xmlstarlet duf gh tidy w3m bluetooth xclip wbritish wbritish-huge rsync pup rename ifuse libimobiledevice-utils chromium groff xdotool pulseaudio-module-bluetooth sqlite3 expect aria2 gammastep qimgv kimageformat-plugins kimageformat6-plugins nomacs mediainfo mpd mpc htop python3-venv btop alpine unrar-free android-file-transfer nnn xfe vim yq qalc intel-gpu-tools
+# x11
+# system utils
+# web
+# video
+# audio
+# images
+# fonts
+# terminal utils
+# terminal programs
+# gui programs
+# dev stuff
+# mobile
+# other
+
+sudo apt install \
+	xorg xinit x11-xserver-utils xcompmgr picom xclip xdotool libnotify-bin dunst gammastep \
+	curl wget bluetooth unzip git tar unrar-free \
+	firefox-esr chromium w3m \
+	mpv vlc \
+	moc moc-ffmpeg-plugin pulseaudio-module-bluetooth mpd mpc \
+	feh nomacs qimgv kimageformat-plugins kimageformat6-plugins \
+	fonts-roboto fonts-firacode fonts-noto-core \
+	fzf fasd trash-cli duf rsync pup aria2 mediainfo xmlstarlet rename jq yq expect \
+	figlet ncdu pulsemixer gh nnn qalc vim alpine htop btop intel-gpu-tools \
+	keepassxc-full xfe \
+	golang python3-venv groff texinfo \
+	ifuse libimobiledevice-utils android-file-transfer \
+	tidy wbritish wbritish-huge sqlite3
