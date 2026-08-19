@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Syntax for playlist csv file:
+# `TerrariaSoundtrack,Terraria Soundtrack`
+# `local-dirname,remote-title`
+
+PLAYLISTS_FILE="$XDG_CONFIG_HOME/regexghost/playlists-phone-sync.csv"
+
 MOUNT_LOCATION="$HOME/Downloads/USBDrive"
 
 # Mount phone
@@ -37,7 +43,7 @@ while read -r line; do
 	# Shuffle into playlist file
 	find "${MOUNT_LOCATION}/${phone}/" -type f | sort | sed "s|.*${phone}/|../${phone}/|g" > "/tmp/${phone}.m3u8"
 	cp "/tmp/${phone}.m3u8" "${MOUNT_LOCATION}/Playlists/"
-done < "$XDG_CONFIG_HOME/regexghost/playlists-phone-sync.csv"
+done < "$PLAYLISTS_FILE"
 
 # Unmount phone
 

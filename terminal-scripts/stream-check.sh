@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Format for streams.csv:
+# `NerdCubed,nerdcubed,@NerdCubed,NONE`
+# Syntax is: `name,twitch,youtube-at-kick`
+
 CONFIG_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
 
 format="pretty"

@@ -24,6 +24,12 @@ var sounds []sound
 
 var cmds []*exec.Cmd
 
+/*
+soundboard.csv:
+`v,Vine boom,wav/vineboom.wav`
+`<key>,<name>,<filename>`
+*/
+
 const CONFIG_FILE=".config/regexghost/soundboard.csv"
 const SOUND_LOC=".local/share/regexghost/sounds"
 

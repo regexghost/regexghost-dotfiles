@@ -1,12 +1,18 @@
 #!/bin/sh
 
+# Format for streams.csv:
+# `NerdCubed,nerdcubed,@NerdCubed,NONE`
+# Syntax is: `name,twitch,youtube-at-kick`
+
+STREAMS_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
+
 DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 
-stream="$(cat "$XDG_CONFIG_HOME/regexghost/streams.csv" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select Stream:" -ix)"
+stream="$(cat "$STREAMS_FILE" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select Stream:" -ix)"
 
 [ "$stream" = "" ] && exit
 
-line="$(sed -n "$((stream+1))p" "$XDG_CONFIG_HOME/regexghost/streams.csv")"
+line="$(sed -n "$((stream+1))p" "$STREAMS_FILE")"
 name="$(echo "$line" | cut -d "," -f 1)"
 twitch="$(echo "$line" | cut -d "," -f 2)"
 youtube="$(echo "$line" | cut -d "," -f 3)"
