@@ -12,3 +12,4 @@ normal:
 	cp jwm-scratchpad.sh ${PREFIX}/jwm-scratchpad.sh
 	cp snippets.sh ${PREFIX}/snippets.sh
 	cp launch-stream.sh ${PREFIX}/launch-stream.sh
+	cp dmenu-wiki.sh ${PREFIX}/dmenu-wiki.sh

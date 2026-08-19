@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Script to install packages, for Debian 13 (currently)
+# Packages needed for program compiling are installed separately in other-programs.sh
+
 # x11
 # system utils
 # web
@@ -25,6 +28,6 @@ sudo apt install \
 	fzf fasd trash-cli duf rsync pup aria2 mediainfo xmlstarlet rename jq yq expect \
 	figlet ncdu pulsemixer gh nnn qalc vim alpine htop btop intel-gpu-tools \
 	keepassxc-full xfe \
-	golang python3-venv groff texinfo \
+	golang python3-venv rustup groff texinfo \
 	ifuse libimobiledevice-utils android-file-transfer \
 	tidy wbritish wbritish-huge sqlite3

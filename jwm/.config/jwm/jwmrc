@@ -206,6 +206,8 @@
     <Key mask="4" key="s">exec:st -t Soundboard -c soundboard -g 40x30 -e soundboard</Key>
     <Key mask="4S" key="c">exec:dunstctl close-all</Key>
     <Key mask="4" key="x">exec:~/.local/share/regexghost/wm-scripts/jwm-scratchpad.sh</Key>
+	<Key mask="4S" key="k">exec:~/.local/share/regexghost/wm-scripts/dmenu-wiki.sh</Key>
+
 
     <!-- Mouse bindings -->
     <!-- <Mouse context="root" button="4">ldesktop</Mouse> -->
