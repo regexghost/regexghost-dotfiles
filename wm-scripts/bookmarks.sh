@@ -11,4 +11,7 @@ real_bookmark=$(cat "$BOOKMARKS_FILE" | grep "${output}DELIM" | sed 's/.*DELIM//
 # Return - default
 if [ $status -eq 0 ]; then
 	echo -n "$real_bookmark"  | xclip -selection clipboard
+# Shift+Return - open in browser
+elif [ $status -eq 10 ]; then
+	$BROWSER "$real_bookmark" &
 fi
