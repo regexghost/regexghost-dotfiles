@@ -24,8 +24,8 @@ sudo apt install \
 	mpv vlc \
 	moc moc-ffmpeg-plugin pulseaudio-module-bluetooth mpd mpc \
 	feh nomacs qimgv kimageformat-plugins kimageformat6-plugins \
-	fonts-roboto fonts-firacode fonts-noto-core \
-	fzf fasd trash-cli duf rsync pup aria2 mediainfo xmlstarlet rename jq yq expect \
+	fonts-roboto fonts-firacode fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji \
+	fzf fasd trash-cli duf rsync pup aria2 gallery-dl mediainfo xmlstarlet rename jq yq expect \
 	figlet ncdu pulsemixer gh nnn qalc vim alpine htop btop intel-gpu-tools \
 	keepassxc-full xfe \
 	golang python3-venv rustup groff texinfo \
