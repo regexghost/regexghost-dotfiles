@@ -3,7 +3,7 @@
 
     <!-- The root menu. -->
     <RootMenu onroot="3">
-        <Program icon="utilities-terminal" label="Terminal">st</Program>
+        <Program icon="utilities-terminal" label="Terminal">st-title</Program>
         <Menu icon="folder" label="Applications">
             <Program icon="sound" label="Audacious">audacious</Program>
             <Program icon="calc" label="Calculator">xcalc</Program>
@@ -185,7 +185,7 @@
 	<Key mask="4S" key="bracketright">exec:~/.local/share/regexghost/wm-scripts/volume.sh --up --bluez</Key>
 	<Key mask="4S" key="slash">exec:~/.local/share/regexghost/wm-scripts/volume.sh --toggle-mute</Key>
     <Key mask="4S" key="apostrophe">exec:~/.local/share/regexghost/wm-scripts/keyboard-settings.sh</Key>
-    <Key mask="4" key="Return">exec:st</Key>
+    <Key mask="4" key="Return">exec:st-title</Key>
     <Key mask="4S" key="Return">exec:xterm</Key>
     <Key mask="4" key="b">exec:st -t htop -c htop -e htop</Key>
     <Key mask="4" key="g">exec:st -t pulsemixer -c pulsemixer-e pulsemixer</Key>

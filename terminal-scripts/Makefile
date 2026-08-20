@@ -45,3 +45,4 @@ normal:
 	cp date-time.sh ${BIN}/date-time
 	cp qssh.sh ${BIN}/qssh
 	cp podcast-play.sh ${BIN}/podcast-play
+	cp st-title.sh ${BIN}/st-title
