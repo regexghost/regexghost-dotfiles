@@ -24,7 +24,7 @@ mount () {
 		args="-o rw,users,umask=000"
 	fi
 
-	sudo mount $args "/dev/${chosen_partition}" "$chosen_mount_point" && notify-send "Mounted Successfully" || notify-send "Mount Failed"
+	sudo mount $args "/dev/${chosen_partition}" "$chosen_mount_point" && echo "Mounted Successfully" || echo "Mount Failed"
 }
 
 unmount () {
@@ -35,7 +35,7 @@ unmount () {
 	chosen_path="$(echo "$mounted" | fzf | cut -d " " -f 2-)"
 	[ "$chosen_path" = "" ] && exit
 
-	sudo umount "$chosen_path" && notify-send "Unmounted Successfully" || notify-send "Unmounting Failed"
+	sudo umount "$chosen_path" && echo "Unmounted Successfully" || echo "Unmounting Failed"
 }
 
 case "$1" in
