@@ -52,7 +52,7 @@ update_vol () {
 }
 
 update_wifi () {
-	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | string-trunc 6 ".." | sed 's/ $//g')"
+	con="$(nmcli -t -f NAME c show --active | grep -v "^lo$" | head -n 1 | string-trunc 6 ".." | sed 's/ $//g')"
 	if [ "$con" = "" ]; then
 		wifi="${wifi_down_colour} N/A${COLOUR_RESET}"
 
