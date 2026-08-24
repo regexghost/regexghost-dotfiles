@@ -2,6 +2,7 @@ bind g exec-quiet '~/.config/newsraft/show-image.sh "%l"'
 bind f exec-quiet '~/.config/newsraft/queue-vid.sh "%l"'
 bind t exec '~/.config/newsraft/article.sh "%l"'
 bind w exec 'w3m "%l"'
+bind e exec-quiet 'mpv "%l"'
 global-section-hide true 
 item-limit 20
 menu-item-sorting unread-desc
