@@ -74,25 +74,6 @@ alias hltb='~/.local/share/regexghost/.venv/bin/python3 ~/.local/share/regexghos
 alias wttr='curl wttr.in'
 alias im='iphone-mount'
 
-# Build and deploy my main website
-web () {
-	case "$1" in
-		b*)
-			~/Programs/websites/personal-website/scripts/build.sh
-			;;
-		p*)
-			push-website /tmp/personal-website/build/
-			;;
-		f*)
-			~/Programs/websites/personal-website/scripts/build.sh
-			push-website /tmp/personal-website/build/
-			;;
-		*)
-			echo "Usage: case [build|push]"
-			;;
-	esac
-}
-
 # Mount android phone/tablet
 android () {
 	case "$1" in
