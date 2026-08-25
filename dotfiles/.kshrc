@@ -128,7 +128,7 @@ alias as='echo "Use \\\as to run as command, disabled as too easy to type accide
 
 # fzf -> cd
 qcd () {
-	dir="$(find "$HOME/Documents" "$HOME/Downloads" "$HOME/Music" "$HOME/Pictures" "$HOME/Programs" "$HOME/Videos" "$HOME/Work" "$HOME/.local/share/regexghost" -type d | fzf)"
+	dir="$(find "$HOME/Documents" "$HOME/Downloads" "$HOME/Music" "$HOME/Pictures" "$HOME/Programs" "$HOME/Videos" "$HOME/Work" "$HOME/.local/share/regexghost" -type d | sed 's/$/\//g' | fzf)"
 	[ "dir" = "" ] && return
 	cd "$dir"
 }
