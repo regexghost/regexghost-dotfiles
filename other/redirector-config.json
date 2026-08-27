@@ -1,6 +1,6 @@
 {
     "createdBy": "Redirector v3.5.3",
-    "createdAt": "2026-08-05T18:33:48.940Z",
+    "createdAt": "2026-08-26T20:46:03.425Z",
     "redirects": [
         {
             "description": "Wikipedia Vector Skin",
@@ -62,6 +62,23 @@
             "excludePattern": "",
             "patternDesc": "",
             "redirectUrl": "https://old.reddit.com/u/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "YouTube videos url cleaner",
+            "exampleUrl": "https://www.youtube.com/watch?v=fxaDvRA4Qas&list=PLwH1xJhcXG0eE6b4otk8dCBCNTvrvqUY-&index=1",
+            "exampleResult": "https://www.youtube.com/watch?v=fxaDvRA4Qas",
+            "error": null,
+            "includePattern": "https://www.youtube.com/watch?v=*&*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://www.youtube.com/watch?v=$1",
             "patternType": "W",
             "processMatches": "noProcessing",
             "disabled": false,

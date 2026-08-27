@@ -32,7 +32,7 @@ elif [[ "$1" == "readeramount" ]]; then
 elif [[ "$1" == "ashellmount" ]]; then
 	idevicepair validate
 	idevicepair pair || exit
-	ifuse --documents org.AsheKube.app.a-Shell "$MOUNTPOINT"
+	ifuse --documents AsheKube.app.a-Shell "$MOUNTPOINT"
 elif [[ "$1" == "pocketbookmount" ]]; then
 	idevicepair validate
 	idevicepair pair || exit

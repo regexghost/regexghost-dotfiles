@@ -15,7 +15,7 @@
 
 # Alt Tab
 . ~/.config/regexghost/current-theme.sh
-(sleep 6 && alttab -bg "#${BACKGROUND_GREY}" -fg "#${FOREGROUND_WHITE}" -frame "#${GREEN}" -t 100x60) &
+(sleep 6 && alttab -font "xft:Fira Code-11" -bg "#${BACKGROUND_GREY}" -fg "#${FOREGROUND_WHITE}" -frame "#${GREEN}" -t 110x80) &
 
 # Window manager
 exec jwm 2> ~/.cache/xsession-errors
