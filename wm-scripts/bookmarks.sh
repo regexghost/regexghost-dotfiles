@@ -13,5 +13,9 @@ if [ $status -eq 0 ]; then
 	echo -n "$real_bookmark"  | xclip -selection clipboard
 # Shift+Return - open in browser
 elif [ $status -eq 10 ]; then
-	$BROWSER "$real_bookmark" &
+	if echo "$real_bookmark" | grep -q "^https*://"; then
+		$BROWSER "$real_bookmark" &
+	else
+		notify-send "Not a URL"
+	fi
 fi
