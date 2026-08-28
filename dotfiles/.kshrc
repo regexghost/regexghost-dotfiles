@@ -67,7 +67,7 @@ alias capture-window='echo "Focus window to capture" && sleep 1 && id="$(xdotool
 alias da='download-vids; download-pods'
 alias qv='~/.config/newsraft/queue-vid.sh'
 alias trash-size='du -s -h ~/.local/share/Trash/files/ | cut -f 1'
-alias sync='echo "Syncing"; sync; echo "Done"; lsblk'
+alias sync='echo "Syncing"; sync; echo "Done"; lk'
 alias man='MANWIDTH=$(($(stty size | cut -d " " -f 2)-20)) man' # fixs a bug with word wrapping in bat by limiting man size
 alias dff='df -h | grep -e Filesystem -e "^/dev" -e "$HOME" | grep -v efi' # show size of proper filesystems
 alias hltb='~/.local/share/regexghost/.venv/bin/python3 ~/.local/share/regexghost/terminal/howlongtobeat.py'
@@ -149,11 +149,11 @@ alias vi='vim'
 alias v='vim'
 
 # By default only show broadly useful info
-lsblk () {
+lk () {
 	if [[ "$1" == "-a" ]]; then
-		/usr/bin/lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
+		command lsblk -o NAME,MAJ:MIN,RM,SIZE,RO,TYPE,FSTYPE,MOUNTPOINTS
 	else
-		/usr/bin/lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
+		command lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
 	fi
 }
 
