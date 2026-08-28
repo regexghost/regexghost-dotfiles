@@ -27,9 +27,10 @@ done <<EOF
 $(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort)
 EOF
 
-read -p "Select videos to download (e.g. 1 2 3): " toDownload
+read -p "Select videos to download/delete (e.g. 1 2 -3): " toDownload
 
 [ -f /tmp/to_download ] && rm /tmp/to_download
+[ -f /tmp/to_delete ] && rm /tmp/to_delete
 
 [ "$toDownload" = "" ] && exit
 
@@ -37,10 +38,25 @@ if [ "$toDownload" = "a" ] || [ "$toDownload" = "all" ]; then
 	find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort >> /tmp/to_download
 else
 	for i in $toDownload; do
-		path="$(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort | sed -n "${i}p")"
-		echo "$path" >> /tmp/to_download
+		index="$(echo "$i" | sed 's/^-//g')"
+		path="$(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort | sed -n "${index}p")"
+		if [ "$(echo "$i" | cut -c 1)" = "-" ]; then
+			echo "$path" >> /tmp/to_delete
+		else
+			echo "$path" >> /tmp/to_download
+		fi
 	done
 fi
+
+if [ -f /tmp/to_delete ]; then
+	while read -r path; do
+		rm "$path"
+	done <<EOF
+$(cat /tmp/to_delete)
+EOF
+fi
+
+[ -f /tmp/to_download ] || exit
 
 while read -r path; do
 	id="$(basename "$path" | sed 's/.txt//g')"
