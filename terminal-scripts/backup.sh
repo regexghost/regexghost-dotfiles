@@ -41,4 +41,11 @@ elif [ "$1" = "diff" ]; then
 	last1="$(find "${BACKUP_LOCATION}/hashes" | sort | tail -n 1)"
 	# --color=always so that you can grep -v while maintaining colour
 	diff --color=always "$last2" "$last1"
+else
+	echo "Options:"
+	echo "  add"
+	echo "  remove/rm"
+	echo "  ls"
+	echo "  make"
+	echo "  diff"
 fi

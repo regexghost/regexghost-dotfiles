@@ -45,4 +45,9 @@ case "$1" in
 	u*)
 		unmount
 		;;
+	*)
+		echo "Options:"
+		echo "  m - mount"
+		echo "  u - unmount"
+		;;
 esac

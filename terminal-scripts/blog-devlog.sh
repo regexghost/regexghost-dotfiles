@@ -58,4 +58,9 @@ case "$1" in
 	d*)
 		devlog
 		;;
+	*)
+		echo "Options:"
+		echo "  blog [cd]"
+		echo "  devlog"
+		;;
 esac

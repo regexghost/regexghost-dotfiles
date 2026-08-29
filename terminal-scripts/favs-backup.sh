@@ -24,4 +24,8 @@ elif [[ "$1" == "backup" ]]; then
 	outputFile="$2"
 	cp "$outputFile" /tmp/backup-file
 	find "$HOME/Music/Favourites" > "$outputFile"
+else
+	echo "Options:"
+	echo "  backup"
+	echo "  restore"
 fi
