@@ -10,6 +10,9 @@
 #(sleep 6 && xcompmgr -n) &
 (sleep 6 && picom --backend xrender --vsync) &
 
+# Hide cursor when not moving for a while
+(sleep 7 && unclutter) &
+
 # Night-shift
 (sleep 16 && gammastep -O 5200) &
 
