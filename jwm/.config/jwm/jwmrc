@@ -151,8 +151,6 @@
     <!-- <Key mask="A" key="Up">udesktop</Key> -->
     <!-- <Key mask="A" key="Down">ddesktop</Key> -->
 
-    <Key mask="4" key="d">showdesktop</Key>
-
     <Key mask="4" key="period">rdesktop</Key>
     <Key mask="4" key="comma">ldesktop</Key>
     <Key mask="4S" key="comma">sendl</Key>
