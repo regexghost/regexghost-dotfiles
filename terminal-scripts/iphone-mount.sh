@@ -5,6 +5,15 @@ MOUNTPOINT="$HOME/Downloads/USBDrive"
 # This is a horrible script and I need to re-write it to dynamically get all these apps
 # and present using fzf
 
+removegphoto () {
+	read -p "Delete ~/.gphoto? (y/N) " deleteYesOrNo
+
+	if [ "$deleteYesOrNo" = "y" ] || [ "$deleteYesOrNo" = "Y" ]; then
+		command rm -r ~/.gphoto
+		echo "Deleted"
+	fi
+}
+
 if [[ "$1" == "mount" ]]; then
 	idevicepair validate
 	idevicepair pair || exit
@@ -43,8 +52,10 @@ elif [[ "$1" == "comicbookreadermount" ]]; then
 	ifuse --documents com.realvirtuality.Comic-Book-Reader "$MOUNTPOINT"
 elif [[ "$1" == "unmount" ]] || [[ "$1" == "umount" ]]; then
 	fusermount -u "$MOUNTPOINT"
+	removegphoto
 elif [[ "$1" == "force" ]]; then
 	fusermount -uz "$MOUNTPOINT"
+	removegphoto
 fi
 
 echo "Done"

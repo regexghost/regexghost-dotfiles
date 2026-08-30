@@ -27,7 +27,7 @@ done <<EOF
 $(find "$targetDir/Shorts" "$targetDir/Videos" -type f | sort)
 EOF
 
-read -p "Select videos to download/delete (e.g. 1 2 -3): " toDownload
+read -p "Select videos to download/delete (e.g. 1 2 -3, a=all): " toDownload
 
 [ -f /tmp/to_download ] && rm /tmp/to_download
 [ -f /tmp/to_delete ] && rm /tmp/to_delete

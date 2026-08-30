@@ -311,7 +311,7 @@ sbase () {
 	sudo make install
 	cd ..
 
-	read -p "Add \"/usr/bin\" to start of secure_path (enter to continue):"
+	read -p "Add \"/usr/bin\" to start of secure_path (enter to continue):" thing
 	sudo visudo
 }
 

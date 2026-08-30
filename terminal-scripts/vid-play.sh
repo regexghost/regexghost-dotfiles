@@ -8,7 +8,8 @@ else
 	dir="Videos"
 fi
 
-vid="$(find "${LOC}/${dir}/" -type f | sed "s|${LOC}/${dir}/||g" | fzf)"
+# Remove .txt files as there might be yt-dlp archive files
+vid="$(find "${LOC}/${dir}/" -type f | grep -v "[.]txt$" | sed "s|${LOC}/${dir}/||g" | fzf)"
 
 [ "$vid" = "" ] && exit
 
