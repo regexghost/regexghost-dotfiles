@@ -1,0 +1,14 @@
+{
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://billing.dedirock.com/*"
+    }
+  ],
+  "newTabDestination": "browserNewTabPage",
+  "settingsVersion": "2.4.2"
+}
