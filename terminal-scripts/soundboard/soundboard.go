@@ -85,7 +85,7 @@ func loadSounds() {
 
 func drawSoundboard(s tcell.Screen) {
 	s.Clear()
-	drawText(s, 0, 0, 50, 10, styles["pink"], "Soundboard")
+	drawText(s, 0, 0, 50, 10, styles["pink-bold"], "Soundboard")
 	for i, soundEntry := range sounds {
 		line := string(soundEntry.key) + ": " + soundEntry.name
 		drawText(s, 0, i+2, 50, 100, styles["blue"], line)
@@ -134,7 +134,7 @@ func main() {
 	// Use the colours to make styles and add to "styles" map
 	styles["white"] = tcell.StyleDefault.Background(tcell.ColorReset).Foreground(tcell.ColorReset)
 	styles["blue"] = tcell.StyleDefault.Background(tcell.ColorReset).Foreground(blueColour)
-	styles["pink"] = tcell.StyleDefault.Background(tcell.ColorReset).Foreground(pinkColour)
+	styles["pink-bold"] = tcell.StyleDefault.Background(tcell.ColorReset).Foreground(pinkColour).Bold(true)
 
 	s.SetStyle(styles["white"])
 	s.Clear()

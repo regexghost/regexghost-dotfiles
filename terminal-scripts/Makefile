@@ -16,7 +16,7 @@ normal:
 	mv tablealigner ${BIN}/tablealigner
 	go build -o geohash geohash.go
 	mv geohash ${BIN}/geohash
-	cd soundboard/; go build -o soundboard soundboard.go; mv soundboard ${BIN}/soundboard; cd ..
+	cd soundboard/; go get; go build -o soundboard soundboard.go; mv soundboard ${BIN}/soundboard; cd ..
 	cp tag-song.sh ${BIN}/tag-song
 	cp download-vids.sh ${BIN}/download-vids
 	cp download-pods.sh ${BIN}/download-pods
