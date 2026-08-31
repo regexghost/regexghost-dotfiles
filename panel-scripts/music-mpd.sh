@@ -23,6 +23,7 @@ elif [ "$1" = "--previous" ]; then
 	exit
 elif [ "$1" = "--favourite" ]; then
 	song="$(mpc current -f '%file%')"
+	[ "$song" = "" ] && exit
 	echo "$song" | grep -q "CurrentPlaylist/" && exit
 	favourite_path="$song"
 	favourite_dir="$(dirname "$favourite_path")"
@@ -63,6 +64,7 @@ fi
 if [ $(find "$playlist_path" -type d | wc -l) -ne 1 ]; then
 	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
+	[ "$playlist" = "" ] && exit
 	# If all songs, don't change playlist path
 	if ! [ "$playlist" = "All" ]; then
 		playlist_path="$playlist_path/$(echo "$playlist" | sed 's/ //g')"

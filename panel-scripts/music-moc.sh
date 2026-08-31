@@ -35,6 +35,7 @@ elif [ "$1" = "--previous" ]; then
 	exit
 elif [ "$1" = "--favourite" ]; then
 	song="$($mocp_command -i | grep "File:" | sed 's/File: //g')"
+	[ "$song" = "" ] && exit
 	echo "$song" | grep -q "CurrentPlaylist/" && exit
 	favourite_path="$(echo "$song" | sed "s|$MUSIC_DIR/||g")"
 	favourite_dir="$(dirname "$favourite_path")"
@@ -70,6 +71,7 @@ if [ "$1" = "--choice" ]; then
 	# Ask for playlist
 	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
+	[ "$playlist" = "" ] && exit
 	playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
 else
 	playlist_path="$MUSIC_DIR/CurrentPlaylist"

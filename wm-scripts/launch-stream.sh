@@ -8,7 +8,7 @@ STREAMS_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
 
 DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 
-stream="$(cat "$STREAMS_FILE" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select Stream:" -ix)"
+stream="$(cat "$STREAMS_FILE" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select stream:" -ix)"
 
 [ "$stream" = "" ] && exit
 

@@ -5,7 +5,7 @@
 DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 SNIPPETS_DIR="$XDG_DATA_HOME/regexghost/snippets"
 
-output="$(ls "$SNIPPETS_DIR" | "$DMENU_SCRIPT" "Select Snippet:")"
+output="$(ls "$SNIPPETS_DIR" | "$DMENU_SCRIPT" "Select snippet:")"
 status=$?
 [ "$output" = "" ] && exit
 

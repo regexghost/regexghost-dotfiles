@@ -3,7 +3,7 @@
 DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 BOOKMARKS_FILE="$XDG_DATA_HOME/regexghost/script-data/bookmarks.txt"
 
-output="$(cat "$BOOKMARKS_FILE" | sed 's/DELIM.*//g' | "$DMENU_SCRIPT" "Select Bookmark:")"
+output="$(cat "$BOOKMARKS_FILE" | sed 's/DELIM.*//g' | "$DMENU_SCRIPT" "Select bookmark:")"
 status=$?
 
 real_bookmark=$(cat "$BOOKMARKS_FILE" | grep "${output}DELIM" | sed 's/.*DELIM//g')
