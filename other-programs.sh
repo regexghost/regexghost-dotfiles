@@ -606,6 +606,21 @@ ueberzugpp () {
 	cd ..
 }
 
+doggo () {
+	mkdir doggo
+	cd doggo
+	url="$(github-latest-release "github" "mr-karan" "doggo")"
+	wget "$url"
+	unzip *.zip
+	cd */
+	make
+	cp bin/doggo.bin ~/.local/bin/doggo
+
+	cd ..
+	cd ..
+}
+
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -649,6 +664,7 @@ elif [ "$1" = "notmine" ]; then
 	build mepo
 	build cava
 	build onetrueawk
+	build doggo
 	build retroarch
 	echo "done"
 elif [ "$1" = "jwm" ]; then
@@ -719,6 +735,8 @@ elif [ "$1" = "cava" ]; then
 	cava
 elif [ "$1" = "onetrueawk" ]; then
 	onetrueawk
+elif [ "$1" = "doggo" ]; then
+	doggo
 elif [ "$1" = "alpine" ]; then
 	alpine
 else
