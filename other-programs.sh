@@ -1,9 +1,11 @@
 #!/bin/sh
 
+root="$(pwd)"
+
 export PATH="/usr/bin:$PATH"
 
 cleanup () {
-	cd ..
+	cd "$root"
 	read -p "Delete temp folder (y/N)? " yesOrNo
 	if [ "$yesOrNo" = "y" ] || [ "$yesOrNo" = "Y" ]; then
 		[ -d temp_programs/ ] && trash-put temp_programs/
@@ -360,7 +362,7 @@ alpine () {
 	mkdir alpine
 	cd alpine
 	url="$(curl "https://alpineapp.email/" | grep "HREF" | grep "tar.xz" | head -n 1 | cut -d "\"" -f 4)"
-	wget "$url"
+	wget "https://alpineapp.email/${url}"
 	tar -xf *.xz
 	cd */
 	./configure

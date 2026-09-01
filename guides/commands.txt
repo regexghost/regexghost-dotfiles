@@ -16,3 +16,6 @@ sudo visudo
 = sed print or delete given line
 sed '4p'
 sed '4d'
+
+= X toggle caps lock
+xdotool key Caps_lock
