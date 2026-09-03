@@ -37,6 +37,9 @@ cp -r "$HOME/Downloads" "${BACKUP_LOCATION}/Downloads"
 echo "Copying ~/.local/bin"
 cp -r "$HOME/.local/bin" "${BACKUP_LOCATION}/local-bin"
 
+echo "Copying ~/.local/state/mpv"
+cp -r "$HOME/.local/state/mpv" "${BACKUP_LOCATION}/mpv-state"
+
 echo "Copying Firefox data"
 cd "$HOME"
 tar czf firefox-backup.tar.gz .mozilla

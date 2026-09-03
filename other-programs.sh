@@ -227,7 +227,7 @@ bug () {
 }
 
 st () {
-	sudo apt install libgd-dev papirus-icon-theme
+	sudo apt install libgd-dev papirus-icon-theme libxft-dev
 
 	git clone https://github.com/regexghost/st
 	cd st
@@ -238,6 +238,8 @@ st () {
 }
 
 dmenu () {
+	sudo apt install libxinerama-dev
+
 	git clone https://github.com/regexghost/dmenu
 	cd dmenu
 	make full
@@ -588,7 +590,7 @@ onetrueawk () {
 }
 
 ueberzugpp () {
-	sudo apt install libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-image0-dev libxcb-res0 libxcb-res0-dev
+	sudo apt install libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-image0-dev libxcb-res0 libxcb-res0-dev libopencv-dev
 
 	mkdir ueberzugpp
 	cd ueberzugpp

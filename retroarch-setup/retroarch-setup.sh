@@ -12,7 +12,7 @@ git clone https://github.com/libretro/RetroArch
 cd RetroArch
 ./configure --prefix="$HOME/.local"
 make clean
-make -j 1
+make -j 3
 make install
 cd ..
 retroarch 2> /dev/null > /dev/null # Just to create config

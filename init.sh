@@ -19,6 +19,8 @@ fi
 # Make substitution program before running setup.sh
 cd helpers/subgo; make full; cd ../..
 
+cd helpers/colours; ./make.sh DoomOne; cd ../..
+
 ./setup.sh make dotfiles
 
 # Install dotfile scripts
@@ -26,7 +28,6 @@ cd panel-scripts/; make; cd ../
 cd terminal-scripts/; make; cd ../
 cd other/; make; cd ../
 cd wm-scripts/; make; cd ../
-cd helpers/subgo/; make full; cd ../../
 
 # Compile programs
 ./otherPrograms.sh mine

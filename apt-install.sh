@@ -18,7 +18,7 @@
 # other
 
 sudo apt install \
-	xorg xinit x11-xserver-utils xcompmgr picom xclip xdotool libnotify-bin dunst gammastep unclutter \
+	xorg xinit x11-xserver-utils xcompmgr picom xclip xdotool libnotify-bin dunst gammastep unclutter alttab \
 	curl wget bluetooth unzip git tar unrar-free \
 	firefox-esr chromium w3m \
 	mpv vlc \
