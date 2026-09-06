@@ -4,10 +4,10 @@
 
 [ -d "/tmp/panel_i3_data" ] || mkdir "/tmp/panel_i3_data"
 
-# Syntax for current_location.csv:
+# Syntax for current-location.csv:
 # `lat|lon`
 
-curLocationFile="$XDG_CONFIG_HOME/regexghost/current_location.csv"
+curLocationFile="$XDG_CONFIG_HOME/regexghost/current-location.csv"
 
 lat=$(cat "$curLocationFile" | cut -d "|" -f 1)
 lon=$(cat "$curLocationFile" | cut -d "|" -f 2)

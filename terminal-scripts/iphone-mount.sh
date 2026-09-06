@@ -6,6 +6,8 @@ MOUNTPOINT="$HOME/Downloads/USBDrive"
 # and present using fzf
 
 removegphoto () {
+	[ -d ~/.gphoto ] || return
+
 	read -p "Delete ~/.gphoto? (y/N) " deleteYesOrNo
 
 	if [ "$deleteYesOrNo" = "y" ] || [ "$deleteYesOrNo" = "Y" ]; then
@@ -52,9 +54,11 @@ elif [[ "$1" == "comicbookreadermount" ]]; then
 	ifuse --documents com.realvirtuality.Comic-Book-Reader "$MOUNTPOINT"
 elif [[ "$1" == "unmount" ]] || [[ "$1" == "umount" ]]; then
 	fusermount -u "$MOUNTPOINT"
+	echo "Unmounted"
 	removegphoto
 elif [[ "$1" == "force" ]]; then
 	fusermount -uz "$MOUNTPOINT"
+	echo "Force unmounted"
 	removegphoto
 fi
 
