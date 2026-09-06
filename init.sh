@@ -29,9 +29,8 @@ cd terminal-scripts/; make; cd ../
 cd other/; make; cd ../
 cd wm-scripts/; make; cd ../
 
-# Compile programs
-./otherPrograms.sh mine
-./otherPrograms.sh notmine
+# Compile programs (just the ones needed for my system to function)
+./otherPrograms.sh needed
 
 # Shell stuff
 if ! grep -q "/usr/local/bin/oksh" /etc/shells; then

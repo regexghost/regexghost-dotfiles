@@ -79,13 +79,6 @@ forgejo () {
 	cd ..
 }
 
-aacgain () {
-	mkdir aacgain
-	cd aacgain
-	url="$(github-latest-release "github" "dgilman" "aacgain")"
-	wget "$url"
-}
-
 bat () {
 	git clone https://github.com/sharkdp/bat
 	cd bat
@@ -670,6 +663,25 @@ elif [ "$1" = "notmine" ]; then
 	build onetrueawk
 	build doggo
 	build retroarch
+	echo "done"
+elif [ "$1" = "needed" ]; then
+	build bug
+	build st
+	build dmenu
+	build slock
+	build jwm
+	build bat
+	build less
+	build nano
+	build oksh
+	build bluetui
+	build lemonbar
+	build sbase
+	build sxiv
+	build dotacat
+	build dragon
+	build cal
+	build mercusys
 	echo "done"
 elif [ "$1" = "jwm" ]; then
 	jwm
