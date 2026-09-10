@@ -3,7 +3,7 @@
 # Get basic data for a YouTube video without yt-dlp
 
 url="$1"
-TEMP_FILE=/tmp/yt-data.html
+TEMP_FILE=/tmp/yt-data$(date +%s).html
 
 curl -s "$url" > "$TEMP_FILE"
 
