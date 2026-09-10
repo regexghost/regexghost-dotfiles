@@ -32,6 +32,13 @@ loadColours () {
 	sed "s|FONT_FAMILY|$FONT_FAMILY|g" > "$output"
 }
 
+if [ "$2" = "homepage" ]; then
+	loadColours templates/Template-homepage.html output/homepage.html
+	cp output/homepage.html ~/Programs/websites/personal-website/homepage.html
+	rm -rf output/
+	exit
+fi
+
 if [ "$2" = "website" ]; then
 	loadColours templates/Template-style.css output/style.css
 	cp output/style.css ~/Programs/websites/personal-website/static/style.css

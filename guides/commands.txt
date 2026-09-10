@@ -19,3 +19,11 @@ sed '4d'
 
 = X toggle caps lock
 xdotool key Caps_lock
+
+= Verify USB
+sudo cmp -n `stat -c %s FILE.iso` FILE.iso /dev/sdX
+sudo head -c $(stat -c '%s' FILE.iso) /dev/sdX | sha256sum
+
+= Debian Python3 GTK install
+== https://stackoverflow.com/questions/56823857/valueerror-namespace-gtk-not-available
+sudo apt install python3-gi gobject-introspection gir1.2-gtk-3.0
