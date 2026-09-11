@@ -2,7 +2,7 @@
 
 LOC="$HOME/Videos/Podcasts"
 
-vid="$(find "${LOC}/" -type f | sed "s|${LOC}/||g" | fzf)"
+vid="$(find "${LOC}/" -type f | grep -v "[.]txt$" | sed "s|${LOC}/||g" | fzf)"
 
 [ "$vid" = "" ] && exit
 

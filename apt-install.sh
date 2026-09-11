@@ -20,7 +20,7 @@
 sudo apt install \
 	xorg xinit x11-xserver-utils xcompmgr picom xclip xdotool libnotify-bin dunst gammastep unclutter alttab \
 	curl wget bluetooth unzip git tar unrar-free \
-	firefox-esr chromium w3m \
+	firefox-esr chromium w3m netsurf-gtk \
 	mpv vlc \
 	moc moc-ffmpeg-plugin pulseaudio-module-bluetooth mpd mpc \
 	feh nomacs qimgv kimageformat-plugins kimageformat6-plugins \
