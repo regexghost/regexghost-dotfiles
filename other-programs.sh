@@ -617,7 +617,6 @@ doggo () {
 	cd ..
 }
 
-
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit

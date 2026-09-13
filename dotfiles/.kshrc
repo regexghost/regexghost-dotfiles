@@ -137,9 +137,11 @@ qcd () {
 
 # fzf -> editor
 qfi () {
+	[ "$1" = "-p" ] && "${VISUAL:-${EDITOR:-vi}}" "$(head -n 1 ~/.cache/qfi-files.txt)" && return
 	# Only look for file types you might actually want to manually edit
 	file="$(find ~/* | grep -E '.py$|.go$|.txt$|.md$|.java$|.js$|.html$|.css$|.c$|.cc$|.conf$|.lua$|.rs$|.sh$|.bash$|.csv$' | sed 's|'"$HOME"'|~|g' | fzf)"
 	[ "$file" = "" ] && return
+	echo "$file" >> ~/.cache/qfi-files.txt
 	"${VISUAL:-${EDITOR:-vi}}" "$file"
 }
 

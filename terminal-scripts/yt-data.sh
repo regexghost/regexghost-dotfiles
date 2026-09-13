@@ -17,3 +17,5 @@ echo "$title"
 echo "$channel"
 echo "$description"
 echo "$release_date"
+
+command rm "$TEMP_FILE"
