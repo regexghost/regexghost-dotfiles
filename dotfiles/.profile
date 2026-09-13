@@ -33,5 +33,6 @@ export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr
 export TERMINAL="st"
 export IMAGE_VIEWER="sxiv"
 export VIDEO_PLAYER="mpv"
+export PDF_VIEWER="zathura"
 export ENV="$HOME/.kshrc"
 export MPD_HOST="$XDG_CACHE_HOME/mpd/socket"
