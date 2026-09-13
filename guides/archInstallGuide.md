@@ -195,11 +195,6 @@ Uncomment `%wheel ALL=(ALL) ALL`
 
 ### Install Things
 
-`sudo pacman -Syu` - Update system  
-`sudo pacman -S xfce4 xorg-server mousepad lightdm lightdm-gtk-greeter alacritty xfce4-pulseaudio-plugin xfce4-genmon-plugin git` - Install programs  
-`sudo systemctl enable lightdm.service`  
-`reboot`
-
 Enabled multilib by uncommenting:  
 ```
 [multilib]
@@ -207,6 +202,16 @@ Include = /etc/pacman.d/mirrorlist
 ```
 in `/etc/pacman.conf`  
 `pacman -Syu`
+
+#### X11/Xfce
+
+`sudo pacman -S xfce4 xorg-server mousepad lightdm lightdm-gtk-greeter alacritty xfce4-pulseaudio-plugin xfce4-genmon-plugin` - Install programs  
+`sudo systemctl enable lightdm.service`
+
+#### Wayland/KDE Plasma
+
+`sudo pacman -S plasma-desktop plasma-login-manager konsole`  
+`sudo systemctl enable plasmalogin.service`
 
 ### Enable Hibernation
 
@@ -219,4 +224,7 @@ Add `resume` before `fsck` in `/etc/mkinitcpio.conf`
 
 Remove `kms` from `HOOKS` array in `/etc/mkinitcpio.conf`  
 `sudo mkinitcpio -P`  
+
+### Final Reboot
+
 `reboot`

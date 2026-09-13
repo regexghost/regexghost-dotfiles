@@ -27,3 +27,7 @@ sudo head -c $(stat -c '%s' FILE.iso) /dev/sdX | sha256sum
 = Debian Python3 GTK install
 == https://stackoverflow.com/questions/56823857/valueerror-namespace-gtk-not-available
 sudo apt install python3-gi gobject-introspection gir1.2-gtk-3.0
+
+= Bash file basename and no extension
+base="$(basename "$file")"
+no_ext="${base%%.*}"
