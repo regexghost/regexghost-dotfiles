@@ -11,28 +11,28 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export GOPATH="$XDG_DATA_HOME/go"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
-export GRIPHOME="$XDG_CONFIG_HOME/grip"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-#export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk2rc"
-export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_DATA_HOME/aspell/en.pws; repl $XDG_DATA_HOME/aspell/en.prepl"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 
 # Other variables
 export BUG_PROJECT="$XDG_DATA_HOME/regexghost/todo-bug"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 
+# Default programs
 export EDITOR="vi"
 export VISUAL="nano"
 export PAGER="bat --wrap=word --theme=base16 --paging=always"
 export BROWSER="firefox"
-export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
+export TERM_BROWSER="w3m"
 export TERMINAL="st"
 export IMAGE_VIEWER="sxiv"
 export VIDEO_PLAYER="mpv"
 export PDF_VIEWER="zathura"
+
+# Shell stuff
 export ENV="$HOME/.kshrc"
-export MPD_HOST="$XDG_CACHE_HOME/mpd/socket"

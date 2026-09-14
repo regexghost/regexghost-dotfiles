@@ -7,9 +7,8 @@
 # `https://wiki.factorio.com,https://wiki.factorio.com/api.php,Factorio Wiki`
 # Basically the format is base-url,api-url,name
 
-WIKI_FILE="$XDG_CONFIG_HOME/regexghost/wiki-list.csv"
-
 DMENU_RUNNER="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
+WIKI_FILE="$XDG_CONFIG_HOME/regexghost/wiki-list.csv"
 
 wiki_to_search="$(cat "$WIKI_FILE" | cut -d "," -f 3- | "$DMENU_RUNNER" "Select wiki to search:" -ix)"
 

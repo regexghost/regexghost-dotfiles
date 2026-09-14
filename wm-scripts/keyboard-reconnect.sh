@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Re-apply my keyboard settings whenever bluetooth keyboard has disconnected then re-connected
+
 while true; do
 	sleep 4
 	if bluetoothctl devices | grep -q Inateck; then

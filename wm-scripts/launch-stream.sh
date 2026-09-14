@@ -2,11 +2,10 @@
 
 # Format for streams.csv:
 # `NerdCubed,nerdcubed,@NerdCubed,NONE`
-# Syntax is: `name,twitch,youtube-at-kick`
-
-STREAMS_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
+# Syntax is: `name,twitch,youtube_at,kick`
 
 DMENU_SCRIPT="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
+STREAMS_FILE="$XDG_CONFIG_HOME/regexghost/streams.csv"
 
 stream="$(cat "$STREAMS_FILE" | cut -d "," -f 1 | "$DMENU_SCRIPT" "Select stream:" -ix)"
 
@@ -19,6 +18,8 @@ youtube="$(echo "$line" | cut -d "," -f 3)"
 kick="$(echo "$line" | cut -d "," -f 4)"
 
 # Try YouTube, then Kick, then Twitch
+
+# Quality is 480p as most of the time you're watching a stream, its in a small window while doing something else
 
 if ! [ "$youtube" = "NONE" ]; then
 	notify-send "Launching ${name} YouTube stream"
@@ -38,4 +39,4 @@ if ! [ "$twitch" = "NONE" ]; then
 	notify-send "Failed to open ${name} Twitch stream"
 fi
 
-notify-send "Not live or unable to open stream"
+notify-send "${name} is not live or unable to open stream"

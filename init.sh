@@ -10,6 +10,10 @@ set -e
 [ -d "$XDG_DATA_HOME" ] || mkdir -p "$XDG_DATA_HOME"
 [ -d "$XDG_CONFIG_HOME" ] || mkdir -p "$XDG_CONFIG_HOME"
 [ -d "$XDG_STATE_HOME" ] || mkdir -p "$XDG_STATE_HOME"
+[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
+
+mkdir -p "$XDG_DATA_HOME/regexghost"
+mkdir -p "$XDG_CONFIG_HOME/regexghost"
 
 # Install programs
 if uname -a | grep -q Debian; then
