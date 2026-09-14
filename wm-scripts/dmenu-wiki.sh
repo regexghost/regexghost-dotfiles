@@ -11,7 +11,7 @@ WIKI_FILE="$XDG_CONFIG_HOME/regexghost/wiki-list.csv"
 
 DMENU_RUNNER="$XDG_DATA_HOME/regexghost/wm-scripts/dmenu-runner.sh"
 
-wiki_to_search="$(cat "$WIKI_FILE" | cut -d "," -f 3- | "$DMENU_RUNNER" "Select wiki to search" -ix)"
+wiki_to_search="$(cat "$WIKI_FILE" | cut -d "," -f 3- | "$DMENU_RUNNER" "Select wiki to search:" -ix)"
 
 [ "$wiki_to_search" = "" ] && exit
 
@@ -21,7 +21,7 @@ name="$(sed -n "${wiki_to_search}p" "$WIKI_FILE" | cut -d "," -f 3-)"
 url="$(sed -n "${wiki_to_search}p" "$WIKI_FILE" | cut -d "," -f 1)"
 api_url="$(sed -n "${wiki_to_search}p" "$WIKI_FILE" | cut -d "," -f 2)"
 
-search_term="$(echo "" | "$DMENU_RUNNER" "Enter search term (or none for homepage)" -pa)"
+search_term="$(echo "" | "$DMENU_RUNNER" "Enter search term (or none for homepage):" -pa)"
 
 status="$?"
 
@@ -43,7 +43,7 @@ if [ "$titles" = "" ] || [ "$title" = "null" ]; then
 	exit
 fi
 
-selected_page="$(echo "$titles" | "$DMENU_RUNNER" "Select page" | sed 's/ /_/g')"
+selected_page="$(echo "$titles" | "$DMENU_RUNNER" "Select page:" | sed 's/ /_/g')"
 
 [ "$selected_page" = "" ] && exit
 

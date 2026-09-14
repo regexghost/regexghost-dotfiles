@@ -15,7 +15,7 @@ ping_panel () {
 	fi
 }
 
-# Technically these first 4 are unnecessary, could just bind directly to the command
+# Technically these first 4 are unnecessary, could just bind directly to the command(s)
 # but I like it all being in one file
 if [ "$1" = "--toggle-pause" ]; then
 	$mocp_command --toggle-pause
@@ -69,9 +69,13 @@ if ! $mocp_command -i | grep -q "State: STOP"; then
 	exit
 fi
 
+normalize_name () {
+	sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g'
+}
+
 if [ "$1" = "--choice" ]; then
 	# Ask for playlist
-	playlist="$(ls "$MUSIC_DIR" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | "${DMENU_SCRIPT}" "Select Playlist:")"
+	playlist="$(ls "$MUSIC_DIR" | normalize_name | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
 	[ "$playlist" = "" ] && exit
 	playlist_path="$MUSIC_DIR/$(echo "$playlist" | sed 's/ //g')"
@@ -81,7 +85,7 @@ fi
 
 # Check for sub playlists
 if [ $(find "$playlist_path" -type d | wc -l) -ne 1 ]; then
-	playlist="$(ls "$playlist_path" | sed 's/\([A-Z][a-z]\)/ \1/g' | sed 's/\([a-z]\)\([0-9]\)/\1 \2/g' | sed 's/^ //g' | awk 'BEGIN {RS = ""} {print "All\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
+	playlist="$(ls "$playlist_path" | normalize_name | awk 'BEGIN {RS = ""} {print "All\n"$0}' | "${DMENU_SCRIPT}" "Select Playlist:")"
 	[ "$?" != "0" ] && exit
 	# If all songs, don't change playlist path
 	if ! [ "$playlist" = "All" ]; then

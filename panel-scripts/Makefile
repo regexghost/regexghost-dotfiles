@@ -13,5 +13,4 @@ normal:
 	cp lemonbar-runner.sh ${PREFIX}/lemonbar-runner.sh
 	gcc -o uptime uptime.c
 	mv cpu network_up network_down uptime ${PREFIX}/
-	cp music-mpd.sh ${PREFIX}/music-mpd.sh
 	cp dwm-bar.sh ${PREFIX}/dwm-bar.sh
