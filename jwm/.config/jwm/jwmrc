@@ -205,7 +205,7 @@
     <Key mask="4S" key="c">exec:dunstctl close-all</Key>
     <Key mask="4" key="x">exec:~/.local/share/regexghost/wm-scripts/jwm-scratchpad.sh</Key>
 	<Key mask="4S" key="k">exec:~/.local/share/regexghost/wm-scripts/dmenu-wiki.sh</Key>
-
+	<Key mask="4S" key="j">exec:~/.local/share/regexghost/wm-scripts/dmenu-timetables.sh</Key>
 
     <!-- Mouse bindings -->
     <!-- <Mouse context="root" button="4">ldesktop</Mouse> -->

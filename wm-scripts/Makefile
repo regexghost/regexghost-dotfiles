@@ -13,3 +13,4 @@ normal:
 	cp snippets.sh ${PREFIX}/snippets.sh
 	cp launch-stream.sh ${PREFIX}/launch-stream.sh
 	cp dmenu-wiki.sh ${PREFIX}/dmenu-wiki.sh
+	cp dmenu-timetables.sh ${PREFIX}/dmenu-timetables.sh

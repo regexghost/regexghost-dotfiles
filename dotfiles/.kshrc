@@ -38,7 +38,6 @@ alias pve='pipe-viewer'
 alias vp='vid-play' # normal vids
 alias vps='vid-play -s' # shorts
 alias pd='podcast-play' # podcasts
-alias tm='timetables' # timetables
 alias mocp='mocp -M "$XDG_CONFIG_HOME/moc"'
 
 # I originally used this on the Pi, because the storage being slow meant newsraft

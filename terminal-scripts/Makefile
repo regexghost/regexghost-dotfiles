@@ -46,4 +46,3 @@ normal:
 	cp qssh.sh ${BIN}/qssh
 	cp podcast-play.sh ${BIN}/podcast-play
 	cp st-title.sh ${BIN}/st-title
-	cp timetables.sh ${BIN}/timetables
