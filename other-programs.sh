@@ -617,6 +617,20 @@ doggo () {
 	cd ..
 }
 
+ghcli () {
+	mkdir ghcli
+	cd ghcli
+	url="$(github-latest-release "github" "cli" "cli")"
+	wget "$url"
+	unzip *.zip
+	cd */
+
+	make install prefix="$HOME/.local"
+
+	cd ..
+	cd ..
+}
+
 build () {
 	read -p "q to quit, s to skip (next: $1)" qToQuit
 	[ "$qToQuit" = "q" ] && exit
@@ -661,6 +675,7 @@ elif [ "$1" = "notmine" ]; then
 	build cava
 	build onetrueawk
 	build doggo
+	build ghcli
 	build retroarch
 	echo "done"
 elif [ "$1" = "needed" ]; then
@@ -752,6 +767,8 @@ elif [ "$1" = "onetrueawk" ]; then
 	onetrueawk
 elif [ "$1" = "doggo" ]; then
 	doggo
+elif [ "$1" = "ghcli" ]; then
+	ghcli
 elif [ "$1" = "alpine" ]; then
 	alpine
 else

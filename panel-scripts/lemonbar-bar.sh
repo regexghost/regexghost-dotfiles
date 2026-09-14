@@ -151,6 +151,7 @@ update_music () {
 # 
 # 
 # 
+
 display () {
 	echo "%{r} ${music} | ${stream}| ${sunset} | ${sunrise} | ${weather}| ${vol} | ${network_down} | ${wifi} | ${cpu} | ${uptime} | ${cpu_temp} | ${memory} | ${current_time} "
 }
