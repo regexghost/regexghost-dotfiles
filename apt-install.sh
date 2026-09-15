@@ -25,9 +25,9 @@ sudo apt install \
 	moc moc-ffmpeg-plugin pulseaudio-module-bluetooth \
 	feh nomacs qimgv kimageformat-plugins kimageformat6-plugins \
 	fonts-roboto fonts-firacode fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji \
-	fzf fasd trash-cli duf rsync pup aria2 gallery-dl mediainfo xmlstarlet rename jq yq expect \
+	fzf fasd trash-cli duf rsync pup aria2 gallery-dl mediainfo xmlstarlet rename jq yq expect tmux \
 	figlet ncdu pulsemixer nnn qalc vim alpine htop btop intel-gpu-tools \
 	keepassxc-full xfe \
-	golang python3-venv rustup groff texinfo \
+	golang python3-venv rustup groff texinfo git make gcc automake cmake meson unzip gettext autopoint pkg-config libtool build-essential \
 	ifuse libimobiledevice-utils android-file-transfer \
 	tidy wbritish wbritish-huge sqlite3

@@ -19,9 +19,6 @@ set -e
 mkdir -p temp_programs
 cd temp_programs
 
-# dev tools
-sudo apt install git make gcc automake cmake meson unzip gettext autopoint pkg-config libtool build-essential
-
 [ -d patches/ ] || git clone https://github.com/regexghost/patches
 
 jwm () {
