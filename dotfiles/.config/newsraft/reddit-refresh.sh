@@ -3,6 +3,10 @@
 USER_AGENT="NetSurf/3.10 (Linux)"
 TMP_LOC="/tmp/reddit-rss"
 
+[ -d "$TMP_LOC" ] && rm -r "$TMP_LOC"
+
+mkdir "$TMP_LOC"
+
 [ -d "$XDG_CACHE_HOME/reddit-rss" ] && cp -r "$XDG_CACHE_HOME/reddit-rss" "$TMP_LOC" || mkdir "$TMP_LOC"
 
 while read -r subreddit; do
