@@ -9,7 +9,7 @@ xset dpms 0 0 0
 ~/.local/share/regexghost/wm-scripts/keyboard-settings.sh
 
 # Keyboard disconnect watcher
-(sleep 5 && ~/.local/share/regexghost/wm-scripts/keyboard-settings.sh) &
+(sleep 5 && ~/.local/share/regexghost/wm-scripts/keyboard-reconnect.sh) &
 
 # reddit rss
 ~/.config/newsraft/reddit-refresh.sh &

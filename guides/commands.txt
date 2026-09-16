@@ -31,3 +31,8 @@ sudo apt install python3-gi gobject-introspection gir1.2-gtk-3.0
 = Bash file basename and no extension
 base="$(basename "$file")"
 no_ext="${base%%.*}"
+
+= && and || in shell
+true && { invalid-command; echo other-thing; }
+== Will `echo other-thing`, only if `true`, regardless of `invalid-command`
+== Note the `;` after `echo other-thing`, necessary when followed by a `}`
