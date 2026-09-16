@@ -39,6 +39,7 @@ alias vp='vid-play' # normal vids
 alias vps='vid-play -s' # shorts
 alias pd='podcast-play' # podcasts
 alias mocp='mocp -M "$XDG_CONFIG_HOME/moc"'
+alias pop='startx'
 
 # I originally used this on the Pi, because the storage being slow meant newsraft
 # lagged when accessing the database

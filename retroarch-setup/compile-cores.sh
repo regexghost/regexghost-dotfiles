@@ -13,12 +13,12 @@ cp libretro-picodrive/picodrive_libretro.so "${CONFIG_LOC}/cores/"
 read -p "q to quit if errors" quit
 [ "$quit" = "q" ] && exit
 
-./libretro-fetch.sh nestopia
-./libretro-build.sh nestopia
-cp libretro-nestopia/libretro/nestopia_libretro.so "${CONFIG_LOC}/cores/"
-
-read -p "q to quit if errors" quit
-[ "$quit" = "q" ] && exit
+#./libretro-fetch.sh nestopia
+#./libretro-build.sh nestopia
+#cp libretro-nestopia/libretro/nestopia_libretro.so "${CONFIG_LOC}/cores/"
+#
+#read -p "q to quit if errors" quit
+#[ "$quit" = "q" ] && exit
 
 ./libretro-fetch.sh gambatte
 ./libretro-build.sh gambatte
@@ -34,12 +34,12 @@ cp libretro-stella2014/stella2014_libretro.so "${CONFIG_LOC}/cores/"
 read -p "q to quit if errors" quit
 [ "$quit" = "q" ] && exit
 
-./libretro-fetch.sh mgba
-./libretro-build.sh mgba
-cp libretro-mgba/mgba_libretro.so "${CONFIG_LOC}/cores/"
-
-read -p "q to quit if errors" quit
-[ "$quit" = "q" ] && exit
+#./libretro-fetch.sh mgba
+#./libretro-build.sh mgba
+#cp libretro-mgba/mgba_libretro.so "${CONFIG_LOC}/cores/"
+#
+#read -p "q to quit if errors" quit
+#[ "$quit" = "q" ] && exit
 
 ./libretro-fetch.sh gpsp
 ./libretro-build.sh gpsp
@@ -71,10 +71,10 @@ read -p "q to quit if errors" quit
 
 ./libretro-install.sh infofiles
 cp infofiles/picodrive_libretro.info "${CONFIG_LOC}/cores/"
-cp infofiles/nestopia_libretro.info "${CONFIG_LOC}/cores/"
+#cp infofiles/nestopia_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/gambatte_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/stella2014_libretro.info "${CONFIG_LOC}/cores/"
-cp infofiles/mgba_libretro.info "${CONFIG_LOC}/cores/"
+#cp infofiles/mgba_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/gpsp_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/fceumm_libretro.info "${CONFIG_LOC}/cores/"
 cp infofiles/smsplus_libretro.info "${CONFIG_LOC}/cores/"
