@@ -7,3 +7,4 @@ bind e exec-quiet 'mpv "%l"'
 global-section-hide true 
 item-limit 20
 menu-item-sorting unread-desc
+bind a next-unread

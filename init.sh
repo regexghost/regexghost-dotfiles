@@ -100,8 +100,8 @@ case "$1" in
 		part2
 		;;
 	*)
-		echo "Run ./init.sh part1"
-		echo "  then reboot"
-		echo "  then ./init.sh part2"
+		echo "Run: ./init.sh part1"
+		echo "then: reboot"
+		echo "then: ./init.sh part2"
 		;;
 esac
