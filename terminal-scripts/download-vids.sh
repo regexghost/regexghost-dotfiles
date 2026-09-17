@@ -19,7 +19,7 @@ fi
 
 i=1
 while read -r info_file; do
-	[ "$info_file" = "" ] && echo "No videos queued" && exit
+	[ "$info_file" = "" ] && { echo "No videos queued"; exit; }
 	video_name_channel="$(cat "$info_file" | head -n 2 | tac | awk '{print}' ORS=' - ' | sed 's/..$//g')"
 	echo "${i}: ${video_name_channel}"
 	i=$((i+1))
@@ -65,9 +65,8 @@ while read -r path; do
 	else
 		yt-dlp $sub_options $metadata_options -o "$filename_options" -f "$quality_options_videos" -P "$LOC/Videos" -- "$id"
 	fi
-	if [ "$?" = "0" ]; then
-		mv "$path" "$targetDir/done"
-	fi
+
+	[ "$?" = "0" ] && mv "$path" "$targetDir/done"
 done <<EOF
 $(cat /tmp/to_download)
 EOF

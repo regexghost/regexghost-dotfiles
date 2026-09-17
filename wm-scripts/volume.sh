@@ -49,6 +49,4 @@ elif [ "$1" = "--toggle-mute" ]; then
 fi
 
 barpid="$(cat ~/.cache/bar_pid)"
-if ! [ "$barpid" = "" ]; then
-	kill -34 "$barpid"
-fi
+[ "$barpid" = "" ] || kill -34 "$barpid"

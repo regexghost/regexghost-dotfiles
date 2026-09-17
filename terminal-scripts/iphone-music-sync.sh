@@ -39,7 +39,7 @@ while read -r line; do
 	# Create phone dir if non existant
 	[ -d "${MOUNT_LOCATION}/${phone}" ] || mkdir "${MOUNT_LOCATION}/${phone}"
 	# Copy, with --copy-links, so locally symlinked playlists (e.g. CurrentPlaylist) copy as files
-	rsync -vr --copy-links --update --delete --modify-window=1 --info=progress2 "${HOME}/Music/${computer}/" "${MOUNT_LOCATION}/${phone}/"
+	rsync -vr --copy-links --update --delete --ignore-existing --modify-window=1 --info=progress2 "${HOME}/Music/${computer}/" "${MOUNT_LOCATION}/${phone}/"
 	# Shuffle into playlist file
 	find "${MOUNT_LOCATION}/${phone}/" -type f | sort | sed "s|.*${phone}/|../${phone}/|g" > "/tmp/${phone}.m3u8"
 	cp "/tmp/${phone}.m3u8" "${MOUNT_LOCATION}/Playlists/"

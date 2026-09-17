@@ -9,9 +9,8 @@ IFS="$oldIFS"
 
 for dir in "${dirs[@]}"; do
 	# Only leaf dirs, in theory should be no music in non-leaf dirs
-	if [ "$(find "$dir" -type d | wc -l)" -gt 2 ]; then
-		continue
-	fi
+	[ "$(find "$dir" -type d | wc -l)" -gt 2 ] && continue
+
 	cd "$dir"
 	if [[ "$(ls | head -n 1)" == *".m4a" ]]; then
 		aacgain -c -r -m 1 *.m4a

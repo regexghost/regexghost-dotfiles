@@ -4,12 +4,13 @@ LOC="$HOME/Videos/YouTube"
 
 if [ "$1" = "-s" ] || [ "$1" = "s" ]; then
 	dir="Shorts"
+	shift
 else
 	dir="Videos"
 fi
 
 # Remove .txt files as there might be yt-dlp archive files, and sh scripts
-vid="$(find "${LOC}/${dir}/" -type f | grep -v "[.]txt$" | grep -v "[.]sh$" | sed "s|${LOC}/${dir}/||g" | fzf)"
+vid="$(find "${LOC}/${dir}/" -type f | grep -v "[.]txt$" | grep -v "[.]sh$" | sed "s|${LOC}/${dir}/||g" | grep -i "^${1}" | fzf)"
 
 [ "$vid" = "" ] && exit
 

@@ -16,9 +16,8 @@ blog () {
 	# Prompt for filename and title
 	read -p "Enter filename: " filename
 	read -p "Enter title: " title
-	if ! echo "$filename" | grep -q ".md$"; then
-		filename="${filename}.md"
-	fi
+	echo "$filename" | grep -q ".md$" || filename="${filename}.md"
+
 	# Add header to document and open
 	fullpath="${dir}/${filename}"
 	echo "+++" >> "$fullpath"
